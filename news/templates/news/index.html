@@ -14,15 +14,12 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-{#              <li class="nav-item active">#}
-{#                <a class="nav-link" href="#">Trending<span class="sr-only">(current)</span></a>#}
-{#              </li>#}
               <li class="nav-item">
                 <a class="nav-link" href="#">For You</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Topics
+                  Explore
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="#">World</a>
@@ -33,18 +30,9 @@
                   <a class="dropdown-item" href="#">Science and Technology</a>
                   <a class="dropdown-item" href="#">Health</a>
                   <a class="dropdown-item" href="#">Entertainment</a>
-{#                  <div class="dropdown-divider"></div>#}
-{#                  <a class="dropdown-item" href="#">Something else here</a>#}
                 </div>
               </li>
-{#              <li class="nav-item">#}
-{#                <a class="nav-link disabled" href="#">Disabled</a>#}
-{#              </li>#}
             </ul>
-{#            <form class="form-inline my-2 my-lg-0">#}
-{#              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">#}
-{#              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
-{#            </form>#}
           </div>
         </nav>
     </div>
@@ -62,22 +50,21 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                    <h3 class="text-centre"> News from Times of india</h3>
-            <br>
-                    {% for n in toi_news %}
+                <h3 class="text-centre">Times Of India</h3>
+                <br>
+                {% for n in toi_news %}
                     <h6><li>{{n}}</li></h6>
                     <hr>
-                    {% endfor %}
-                    <br>
+                {% endfor %}
             </div>
+
             <div class="col-6">
-                    <h3 class="text-centre">News from Hindustan times</h3>
-            <br>
-                    {% for n in ht_news %}
-                     <h6><li>{{n}}</li></h6>
+                <h3 class="text-centre">Hindustan Times</h3>
+                <br>
+                {% for n in ht_news %}
+                    <h6><li>{{n}}</li></h6>
                     <hr>
-                    {% endfor %}
-                    <br>
+                {% endfor %}
             </div>
         </div>
  
