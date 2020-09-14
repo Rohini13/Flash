@@ -30,6 +30,7 @@ def index4(req):
 
 
 def display(req,urlVar,urlVar2):
+    apps.idx=0
     apps.headlines = []
     toi_r = requests.get(urlVar)
     toi_soup = BeautifulSoup(toi_r.content, 'html5lib')
