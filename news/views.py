@@ -3,6 +3,59 @@ import requests
 from bs4 import BeautifulSoup
 import pyttsx3
 from . import apps
+from django.contrib import auth
+import pyrebase
+config ={
+
+'apiKey': "AIzaSyA7HJuzOo0HtJHZ7JZzv5yRszv7NjXNdps",
+    'authDomain': "flash-94511.firebaseapp.com",
+    'databaseURL': "https://flash-94511.firebaseio.com",
+    'projectId': "flash-94511",
+    'storageBucket': "flash-94511.appspot.com",
+    'messagingSenderId': "72525595158",
+    'appId': "1:72525595158:web:e642b67374c69b05f02b37",
+    'measurementId': "G-5NQB6CC1JK"
+}
+firebase = pyrebase.initialize_app(config)
+authe = firebase.auth()
+database = firebase.database()
+def signIn(request):
+
+    return render(request,"news/signin.html")
+
+def postsign(request):
+    email = request.POST.get('email')
+    passw = request.POST.get('password')
+    try:
+        user = authe.sign_in_with_email_and_password(email, passw)
+    except:
+        message="Invalid Credentials"
+        return render(request, "news/signin.html", {"msg": message})
+    print(user['idToken'])
+    session_id = user['idToken']
+    request.session['uid'] = str(session_id)
+
+    return render(request, "news/welcome.html", {"e":email})
+
+def logout(request):
+    auth.logout(request)
+    return render(request, "news/signin.html")
+
+def signUp(request):
+
+    return render(request, "news/signup.html")
+
+def postsignup(request):
+    name = request.POST.get('name')
+    email = request.POST.get('email')
+    passw = request.POST.get('password')
+
+    user= authe.create_user_with_email_and_password(email, passw)
+    uid = user['localId']
+    data = {"name": name, "status": "1" }
+    database.child("users").child(uid).child("details").set(data)
+
+    return render(request, "news/signin.html")
 
 headlines=[]
 # Getting news from Times of India
@@ -49,3 +102,4 @@ def readAloud(req):
 def stop(req):
     apps.flag = True
     return redirect('/')
+
