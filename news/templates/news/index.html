@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
     <title></title>
@@ -7,7 +8,7 @@
 <body>
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="#">FLASH</a>
+          <a class="navbar-brand" href=#recent>FLASH</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -22,14 +23,16 @@
                   Explore
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'index2' %}">Entertainment</a>
+                  <a class="dropdown-item" href="{% url 'index4' %}">Sports</a>
+                  <a class="dropdown-item" href="{% url 'index3' %}">Business and Economy</a>
                   <a class="dropdown-item" href="#">World</a>
                   <a class="dropdown-item" href="#">Local</a>
-                  <a class="dropdown-item" href="#">Business and Economy</a>
                   <a class="dropdown-item" href="#">Politics</a>
                   <a class="dropdown-item" href="#">Education</a>
                   <a class="dropdown-item" href="#">Science and Technology</a>
                   <a class="dropdown-item" href="#">Health</a>
-                  <a class="dropdown-item" href="#">Entertainment</a>
+
                 </div>
               </li>
             </ul>
@@ -37,18 +40,29 @@
         </nav>
     </div>
 
-    <div class="jumbotron bg-primary">
-        <div style="text-align: center;"><h1>TOP HEADLINES</h1>
-             <br>
-           <a href="/" class="btn btn-dark">Refresh News</a>
-            &nbsp;
-           <a href="/readAloud" class="btn btn-dark">Read Aloud</a>
-            &nbsp;
-            <a href="/stop" class="btn btn-dark">Stop</a>
+    <div>
+        <div style="text-align: center; background-color: lightskyblue; ">
+            <br><br><br><br><br><br><br><br>
+            <img src="{% static 'news/images/logo.png' %}">
+            <br><br><br><br><br><br>
+            <marquee behavior="scroll" direction="left" scrollamount="12"><h4>
+                In a hurry?? Don't you worry. We have you covered... bringing to you news from round the globe in a FLASH!!
+            </h4></marquee>
+            <br><br><br><br><br>
         </div>
     </div>
-
-    <div class="container">
+    <br><br>
+    <div id="recent" align="center">
+        <h1>TOP HEADLINES</h1>
+        <br>
+        <a href="/" class="btn btn-primary">Refresh</a>
+            &nbsp;
+        <a href="/readAloud" class="btn btn-primary">Read Aloud</a>
+            &nbsp;
+        <a href="/stop" class="btn btn-danger">Stop</a>
+    </div>
+    <br>
+    <div  class="container">
         <div class="row">
             <div class="col-6">
                 <h3 class="text-centre">Times Of India</h3>

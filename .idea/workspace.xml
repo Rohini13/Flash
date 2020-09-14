@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fecfc3d-d9e8-4539-a48c-ead2bb0b0fce" name="Default Changelist" comment="">
+
       <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/news/templates/news/signin.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/news/templates/news/signup.html" afterDir="false" />
@@ -32,6 +33,9 @@
       <change beforePath="$PROJECT_DIR$/news/templates/news/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/news/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/views.py" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +47,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="849" />
+    <option name="width" value="1104" />
+    <option name="height" value="960" />
   </component>
   <component name="ProjectId" id="1h9lYQjnpyIvdOXAvLIt0tuVSBK" />
   <component name="ProjectLevelVcsManager">
@@ -58,6 +67,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+
     <property name="last_opened_file_path" value="$PROJECT_DIR$/news/templates/news" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -65,13 +75,20 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/news/static/news/images" />
+
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+
       <recent name="$PROJECT_DIR$/news/templates/news" />
+
+      <recent name="C:\Users\hp\Documents\GitHub\Flash\news\static\news\images" />
+
       <recent name="C:\Users\hp\Documents\GitHub\Flash\news" />
     </key>
   </component>
@@ -84,9 +101,9 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="Flash.settings" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\hp\Anaconda3\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="launchJavascriptDebuger" value="false" />
@@ -111,14 +128,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599431235196</updated>
+      <workItem from="1599431236444" duration="15550000" />
+      <workItem from="1600009266812" duration="1274000" />
+      <workItem from="1600088220757" duration="2718000" />
       <workItem from="1599431236444" duration="14931000" />
+
       <workItem from="1600087966435" duration="1422000" />
       <workItem from="1600089931228" duration="5755000" />
+
+      <workItem from="1599474072829" duration="647000" />
+      <workItem from="1599474743837" duration="1264000" />
+      <workItem from="1600083762553" duration="5790000" />
+
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -130,15 +156,30 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="351" y="0" key="#Flash" timestamp="1599425578568">
+    <state x="351" y="0" key="#Flash" timestamp="1600091238276">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
+
     <state x="351" y="0" key="#Flash/0.0.1280.680@0.0.1280.680" timestamp="1599425578568" />
     <state x="854" y="190" key="#Inspections" timestamp="1600092940578">
       <screen x="0" y="23" width="1680" height="971" />
@@ -186,5 +227,36 @@
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1599444318524" />
     <state x="0" y="23" width="1680" height="971" key="SettingsEditor/0.23.1680.971@0.23.1680.971" timestamp="1600088737118" />
+
+    <state x="351" y="0" key="#Flash/0.0.1280.680@0.0.1280.680" timestamp="1600091238276" />
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600091385449">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1600091385449" />
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1600088537191">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1600088537191" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1600091390695">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1600091390695" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1600091390695">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1600091390695" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1600091390695">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1600091390695" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1600091390695">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1600091390695" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1600091374901">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1600091374901" />
+
   </component>
 </project>

@@ -13,3 +13,11 @@ N
 Flash/wsgi.py,8\5\854b8267bec60239c91de5fce1ec59af8afe3321
 =
 news/views.py,b\b\bb0dbcc48348a42389b138c97ef7d3505d659c43
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+<
+news/urls.py,f\a\fab70dc7ac7865019e09bf9bad7ebde2a8285e64
+<
+news/apps.py,8\9\8915e3387e87575d2e38c9dca2a39aefe5c0eed4
+>
+news/models.py,9\2\921bf4431b113e1037649429d6ac84d0283e04bb
