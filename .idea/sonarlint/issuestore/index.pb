@@ -21,3 +21,5 @@ N
 news/apps.py,8\9\8915e3387e87575d2e38c9dca2a39aefe5c0eed4
 >
 news/models.py,9\2\921bf4431b113e1037649429d6ac84d0283e04bb
+P
+ news/templates/news/welcome.html,d\8\d88f931b645afa5c8e24bf02dd02bbcc09b032b7
