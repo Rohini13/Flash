@@ -20,22 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fecfc3d-d9e8-4539-a48c-ead2bb0b0fce" name="Default Changelist" comment="">
-
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/templates/news/signin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/templates/news/signup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/templates/news/welcome.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Flash.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Flash.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flash/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Flash/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news/templates/news/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/news/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/views.py" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,28 +58,21 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/news/templates/news" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Anaconda3/envs/flash" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/news/static/news/images" />
-
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-
       <recent name="$PROJECT_DIR$/news/templates/news" />
-
       <recent name="C:\Users\hp\Documents\GitHub\Flash\news\static\news\images" />
-
       <recent name="C:\Users\hp\Documents\GitHub\Flash\news" />
     </key>
   </component>
@@ -132,14 +116,11 @@
       <workItem from="1600009266812" duration="1274000" />
       <workItem from="1600088220757" duration="2718000" />
       <workItem from="1599431236444" duration="14931000" />
-
       <workItem from="1600087966435" duration="1422000" />
       <workItem from="1600089931228" duration="5755000" />
-
       <workItem from="1599474072829" duration="647000" />
       <workItem from="1599474743837" duration="1264000" />
       <workItem from="1600083762553" duration="5790000" />
-
     </task>
     <servers />
   </component>
@@ -179,84 +160,52 @@
     <state x="351" y="0" key="#Flash" timestamp="1600091238276">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-
-    <state x="351" y="0" key="#Flash/0.0.1280.680@0.0.1280.680" timestamp="1599425578568" />
+    <state x="351" y="0" key="#Flash/0.0.1280.680@0.0.1280.680" timestamp="1600091238276" />
     <state x="854" y="190" key="#Inspections" timestamp="1600092940578">
       <screen x="0" y="23" width="1680" height="971" />
     </state>
     <state x="854" y="190" key="#Inspections/0.23.1680.971@0.23.1680.971" timestamp="1600092940578" />
-    <state x="126" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600087977626">
-      <screen x="0" y="23" width="1680" height="971" />
-    </state>
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1599445859975" />
-    <state x="126" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.971@0.23.1680.971" timestamp="1600087977626" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1599445673418">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601054125575">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1599445673418" />
-    <state width="1072" height="558" key="GridCell.Tab.0.bottom" timestamp="1600101042729">
-      <screen x="0" y="23" width="1680" height="966" />
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1601054125575" />
+    <state x="126" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.971@0.23.1680.971" timestamp="1600087977626" />
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1601053510132">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1599446104464" />
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1601053510132" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1601058177217">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1601058177217" />
     <state width="1638" height="268" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1600092976558" />
     <state width="1072" height="558" key="GridCell.Tab.0.bottom/0.23.1680.966@0.23.1680.966" timestamp="1600101042729" />
     <state width="1072" height="268" key="GridCell.Tab.0.bottom/0.23.1680.971@0.23.1680.971" timestamp="1600092994793" />
-    <state width="1072" height="558" key="GridCell.Tab.0.center" timestamp="1600101042728">
-      <screen x="0" y="23" width="1680" height="966" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1601058177216">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1599446104464" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1601058177216" />
     <state width="1638" height="268" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1600092976557" />
     <state width="1072" height="558" key="GridCell.Tab.0.center/0.23.1680.966@0.23.1680.966" timestamp="1600101042728" />
     <state width="1072" height="268" key="GridCell.Tab.0.center/0.23.1680.971@0.23.1680.971" timestamp="1600092994792" />
-    <state width="1072" height="558" key="GridCell.Tab.0.left" timestamp="1600101042727">
-      <screen x="0" y="23" width="1680" height="966" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1601058177216">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1599446104464" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1601058177216" />
     <state width="1638" height="268" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1600092976556" />
     <state width="1072" height="558" key="GridCell.Tab.0.left/0.23.1680.966@0.23.1680.966" timestamp="1600101042727" />
     <state width="1072" height="268" key="GridCell.Tab.0.left/0.23.1680.971@0.23.1680.971" timestamp="1600092994792" />
-    <state width="1072" height="558" key="GridCell.Tab.0.right" timestamp="1600101042728">
-      <screen x="0" y="23" width="1680" height="966" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1601058177216">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1599446104464" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1601058177216" />
     <state width="1638" height="268" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1600092976558" />
     <state width="1072" height="558" key="GridCell.Tab.0.right/0.23.1680.966@0.23.1680.966" timestamp="1600101042728" />
     <state width="1072" height="268" key="GridCell.Tab.0.right/0.23.1680.971@0.23.1680.971" timestamp="1600092994792" />
-    <state x="0" y="23" width="1680" height="971" key="SettingsEditor" timestamp="1600088737118">
-      <screen x="0" y="23" width="1680" height="971" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1601053812312">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1599444318524" />
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1601053812312" />
     <state x="0" y="23" width="1680" height="971" key="SettingsEditor/0.23.1680.971@0.23.1680.971" timestamp="1600088737118" />
-
-    <state x="351" y="0" key="#Flash/0.0.1280.680@0.0.1280.680" timestamp="1600091238276" />
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600091385449">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1600091385449" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1600088537191">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1600088537191" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1600091390695">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1600091390695" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1600091390695">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1600091390695" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1600091390695">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1600091390695" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1600091390695">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1600091390695" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1600091374901">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1600091374901" />
-
   </component>
 </project>
