@@ -19,12 +19,9 @@ config ={
 firebase = pyrebase.initialize_app(config)
 authe = firebase.auth()
 database = firebase.database()
-
-
 def signIn(request):
 
     return render(request,"news/signin.html")
-
 
 def postsign(request):
     email = request.POST.get('email')
@@ -40,16 +37,13 @@ def postsign(request):
 
     return render(request, "news/welcome.html", {"e":email})
 
-
 def logout(request):
     auth.logout(request)
     return render(request, "news/signin.html")
 
-
 def signUp(request):
 
     return render(request, "news/signup.html")
-
 
 def postsignup(request):
     name = request.POST.get('name')
@@ -94,13 +88,20 @@ def display(req,urlVar,urlVar2):
     toi_r = requests.get(urlVar)
     toi_soup = BeautifulSoup(toi_r.content, 'html5lib')
     toi_headings = toi_soup.find_all('h2')
-    toi_headings = toi_headings[3:20]
+    toi_images = toi_soup.find_all('img')
+    toi_headings = toi_headings[2:20]
+    toi_images = toi_images[3:20]
     apps.toi_news = []
+    apps.toi_news_images = []
 
     apps.headlines.append('News from Times of India are as follows:')
     for th in toi_headings:
         apps.headlines.append(th.text)
         apps.toi_news.append(th.text)
+
+    for ti in toi_images:
+        if 'data-src' in ti.attrs:
+            apps.toi_news_images.append(ti.attrs['data-src'])
 
     # Getting news from Hindustan Times
     ht_r = requests.get(urlVar2)
@@ -113,14 +114,16 @@ def display(req,urlVar,urlVar2):
     for hth in ht_headings:
         apps.headlines.append(hth.text)
         ht_news.append(hth.text)
-    print(len(apps.headlines))
-    return render(req, 'news/index.html', {'toi_news': apps.toi_news, 'ht_news': ht_news})
+
+    print(len(apps.toi_news))
+    print(len(apps.toi_news_images))
+
+    return render(req, 'news/index.html', {'range': range(len(apps.toi_news_images)),'toi_news': apps.toi_news, 'toi_news_images': apps.toi_news_images,'ht_news': ht_news})
 
 
 def readAloud(req):
     engine = pyttsx3.init()
     end = len(apps.headlines)
-    print(end)
     start = apps.idx%end
     for i in range(start,end):
         if apps.flag:
@@ -130,7 +133,6 @@ def readAloud(req):
         engine.runAndWait()
     apps.flag=False
     return render(req, 'news/index.html', {'toi_news': apps.toi_news, 'ht_news': apps.ht_news})
-
 
 def stop(req):
     apps.flag = True
