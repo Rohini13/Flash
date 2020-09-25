@@ -3,13 +3,9 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('world/',views.index1, name='index1'),
-    path('local/',views.index2, name='index2'),
-    path('science_technology/',views.index3, name='index3'),
-    path('business_economy/',views.index4, name='index4'),
-    path('health_lifestyle/',views.index5,name='index5'),
-    path('sports/',views.index6,name='index6'),
-    path('entertainment/',views.index7,name='index7'),
+    path('entertainment/',views.index2, name='index2'),
+    path('business/',views.index3,name='index3'),
+    path('sports/',views.index4,name='index4'),
     path('readAloud/', views.readAloud, name='readAloud'),
     path('stop/', views.stop, name='stop'),
     path('signin/', views.signIn),
