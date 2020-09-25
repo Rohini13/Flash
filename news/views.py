@@ -123,6 +123,7 @@ def display(req, urlVar, urlVar2, title):
     toi_images = toi_images[3:20]
     apps.toi_news = []
     apps.toi_news_images = []
+    apps.ht_news_images = []
 
     apps.headlines.append('News from Times of India are as follows:')
     for th in toi_headings:
@@ -137,7 +138,9 @@ def display(req, urlVar, urlVar2, title):
     ht_r = requests.get(urlVar2)
     ht_soup = BeautifulSoup(ht_r.content, 'html5lib')
     ht_headings = ht_soup.findAll('h3')
-    ht_headings = ht_headings[3:20]
+    ht_headings = ht_headings[0:20]
+    ht_images = ht_soup.findAll('img')
+    ht_images = ht_images[0:40]
     ht_news = []
 
     apps.headlines.append('News from Hindustan Times are as follows:')
@@ -145,10 +148,18 @@ def display(req, urlVar, urlVar2, title):
         apps.headlines.append(hth.text)
         ht_news.append(hth.text)
 
-    print(len(apps.toi_news))
-    print(len(apps.toi_news_images))
+    classList = ['tvs3Id', 'QwxBBf']
 
-    return render(req, 'news/index.html', {'range': range(len(apps.toi_news_images)),'toi_news': apps.toi_news, 'toi_news_images': apps.toi_news_images,'ht_news': ht_news})
+    for hti in ht_images:
+        if 'src' in hti.attrs:
+            if 'class' in hti.attrs and hti.attrs['class'] == classList:
+                apps.ht_news_images.append(hti.attrs['src'])
+                print(hti.attrs['class'])
+            else:
+                print("here")
+    print(len(apps.ht_news_images))
+    print(len(ht_news))
+    return render(req, 'news/index.html', {'range1': range(len(apps.toi_news_images)), 'range2': range(len(ht_news)),'toi_news': apps.toi_news, 'toi_news_images': apps.toi_news_images, 'ht_news_images': apps.ht_news_images, 'ht_news': ht_news})
 
 
 def readAloud(req):
