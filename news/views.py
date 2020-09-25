@@ -5,9 +5,9 @@ import pyttsx3
 from . import apps
 from django.contrib import auth
 import pyrebase
-config ={
 
-'apiKey': "AIzaSyA7HJuzOo0HtJHZ7JZzv5yRszv7NjXNdps",
+config = {
+    'apiKey': "AIzaSyA7HJuzOo0HtJHZ7JZzv5yRszv7NjXNdps",
     'authDomain': "flash-94511.firebaseapp.com",
     'databaseURL': "https://flash-94511.firebaseio.com",
     'projectId': "flash-94511",
@@ -17,28 +17,27 @@ config ={
     'measurementId': "G-5NQB6CC1JK"
 }
 firebase = pyrebase.initialize_app(config)
-authe = firebase.auth()
+authenticate = firebase.auth()
 database = firebase.database()
 
 
 def signIn(request):
-
-    return render(request,"news/signin.html")
+    return render(request, "news/signin.html")
 
 
 def postsign(request):
     email = request.POST.get('email')
-    passw = request.POST.get('password')
+    password = request.POST.get('password')
     try:
-        user = authe.sign_in_with_email_and_password(email, passw)
+        user = authenticate.sign_in_with_email_and_password(email, password)
     except:
-        message="Invalid Credentials"
+        message = "Invalid Credentials"
         return render(request, "news/signin.html", {"msg": message})
     print(user['idToken'])
     session_id = user['idToken']
     request.session['uid'] = str(session_id)
 
-    return render(request, "news/welcome.html", {"e":email})
+    return render(request, "news/welcome.html", {"e": email})
 
 
 def logout(request):
@@ -47,49 +46,80 @@ def logout(request):
 
 
 def signUp(request):
-
     return render(request, "news/signup.html")
 
 
 def postsignup(request):
     name = request.POST.get('name')
     email = request.POST.get('email')
-    passw = request.POST.get('password')
+    password = request.POST.get('password')
 
-    user= authe.create_user_with_email_and_password(email, passw)
+    user = authenticate.create_user_with_email_and_password(email, password)
     uid = user['localId']
-    data = {"name": name, "status": "1" }
+    data = {"name": name, "status": "1"}
     database.child("users").child(uid).child("details").set(data)
 
     return render(request, "news/signin.html")
 
 
 def index(req):
-    urlVar="https://timesofindia.indiatimes.com/briefs"
-    urlVar2="https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRFZxYUdjU0FtVnVHZ0pKVGlnQVAB?hl=en-IN&gl=IN&ceid=IN%3Aen"
-    return display(req,urlVar,urlVar2)
+    urlVar = "https://timesofindia.indiatimes.com/briefs"
+    urlVar2 = "https://rb.gy/iz9zp8"
+    title = "Recent Headlines"
+    return display(req, urlVar, urlVar2, title)
+
+
+def index1(req):
+    urlVar = "https://timesofindia.indiatimes.com/briefs/world"
+    urlVar2 = "https://rb.gy/al7v06"
+    title = "World"
+    return display(req, urlVar, urlVar2, title)
 
 
 def index2(req):
-    urlVar = "https://timesofindia.indiatimes.com/briefs/entertainment"
-    urlVar2 = "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRFZxYUdjU0FtVnVHZ0pKVGlnQVAB/sections/CAQiU0NCQVNPQW9JTDIwdk1EVnFhR2NTQldWdUxVZENHZ0pKVGlJT0NBUWFDZ29JTDIwdk1ESnFhblFxRVFvUEVnMUZiblJsY25SaGFXNXRaVzUwS0FBKi4IACoqCAoiJENCQVNGUW9JTDIwdk1EVnFhR2NTQldWdUxVZENHZ0pKVGlnQVABUAE?hl=en-IN&gl=IN&ceid=IN%3Aen"
-    return display(req, urlVar,urlVar2)
+    urlVar = "https://timesofindia.indiatimes.com/briefs/india"
+    urlVar2 = "https://rb.gy/wasqbr"
+    title = "Local"
+    return display(req, urlVar, urlVar2, title)
 
 
 def index3(req):
-    urlVar = "https://timesofindia.indiatimes.com/briefs/business"
-    urlVar2 = "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRFZxYUdjU0FtVnVHZ0pKVGlnQVAB/sections/CAQiTENCQVNNd29JTDIwdk1EVnFhR2NTQldWdUxVZENHZ0pKVGlJT0NBUWFDZ29JTDIwdk1EbHpNV1lxREFvS0VnaENkWE5wYm1WemN5Z0EqLggAKioICiIkQ0JBU0ZRb0lMMjB2TURWcWFHY1NCV1Z1TFVkQ0dnSkpUaWdBUAFQAQ?hl=en-IN&gl=IN&ceid=IN%3Aen"
-    return display(req, urlVar,urlVar2)
+    urlVar = "https://timesofindia.indiatimes.com/briefs/gadgets"
+    urlVar2 = "https://rb.gy/9r5k0w"
+    title = "Science and Technology"
+    return display(req, urlVar, urlVar2, title)
 
 
 def index4(req):
+    urlVar = "https://timesofindia.indiatimes.com/briefs/business"
+    urlVar2 = "https://rb.gy/u5mivs"
+    title = "Business and Economy"
+    return display(req, urlVar, urlVar2, title)
+
+
+def index5(req):
+    urlVar = "https://timesofindia.indiatimes.com/briefs/lifestyle"
+    urlVar2 = "https://rb.gy/ee2r4a"
+    title = "Health and Lifestyle"
+    return display(req, urlVar, urlVar2, title)
+
+
+def index6(req):
     urlVar = "https://timesofindia.indiatimes.com/briefs/sports"
-    urlVar2 = "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRFZxYUdjU0FtVnVHZ0pKVGlnQVAB/sections/CAQiSkNCQVNNUW9JTDIwdk1EVnFhR2NTQldWdUxVZENHZ0pKVGlJT0NBUWFDZ29JTDIwdk1EWnVkR29xQ2dvSUVnWlRjRzl5ZEhNb0FBKi4IACoqCAoiJENCQVNGUW9JTDIwdk1EVnFhR2NTQldWdUxVZENHZ0pKVGlnQVABUAE?hl=en-IN&gl=IN&ceid=IN%3Aen"
-    return display(req, urlVar,urlVar2)
+    urlVar2 = "https://rb.gy/nyv5as"
+    title = "Sports"
+    return display(req, urlVar, urlVar2, title)
 
 
-def display(req,urlVar,urlVar2):
-    apps.idx=0
+def index7(req):
+    urlVar = "https://timesofindia.indiatimes.com/briefs/entertainment"
+    urlVar2 = "https://rb.gy/s78u6n"
+    title = "Entertainment"
+    return display(req, urlVar, urlVar2, title)
+
+
+def display(req, urlVar, urlVar2, title):
+    apps.idx = 0
     apps.headlines = []
     toi_r = requests.get(urlVar)
     toi_soup = BeautifulSoup(toi_r.content, 'html5lib')
@@ -113,26 +143,23 @@ def display(req,urlVar,urlVar2):
     for hth in ht_headings:
         apps.headlines.append(hth.text)
         ht_news.append(hth.text)
-    print(len(apps.headlines))
-    return render(req, 'news/index.html', {'toi_news': apps.toi_news, 'ht_news': ht_news})
+    return render(req, 'news/index.html', {'name': title, 'toi_news': apps.toi_news, 'ht_news': ht_news})
 
 
 def readAloud(req):
     engine = pyttsx3.init()
     end = len(apps.headlines)
-    print(end)
-    start = apps.idx%end
-    for i in range(start,end):
+    start = apps.idx % end
+    for i in range(start, end):
         if apps.flag:
-            apps.idx=i%end
+            apps.idx = i % end
             break
         engine.say(apps.headlines[i])
         engine.runAndWait()
-    apps.flag=False
-    return render(req, 'news/index.html', {'toi_news': apps.toi_news, 'ht_news': apps.ht_news})
+    apps.flag = False
+    return render(req, 'news/index.html', {'name':"reading aloud...", 'toi_news': apps.toi_news, 'ht_news': apps.ht_news})
 
 
 def stop(req):
     apps.flag = True
     return redirect('/')
-
