@@ -19,11 +19,8 @@ config = {
 firebase = pyrebase.initialize_app(config)
 authenticate = firebase.auth()
 database = firebase.database()
-
-
 def signIn(request):
     return render(request, "news/signin.html")
-
 
 def postsign(request):
     email = request.POST.get('email')
@@ -39,15 +36,12 @@ def postsign(request):
 
     return render(request, "news/welcome.html", {"e": email})
 
-
 def logout(request):
     auth.logout(request)
     return render(request, "news/signin.html")
 
-
 def signUp(request):
     return render(request, "news/signup.html")
-
 
 def postsignup(request):
     name = request.POST.get('name')
@@ -124,26 +118,48 @@ def display(req, urlVar, urlVar2, title):
     toi_r = requests.get(urlVar)
     toi_soup = BeautifulSoup(toi_r.content, 'html5lib')
     toi_headings = toi_soup.find_all('h2')
-    toi_headings = toi_headings[3:20]
+    toi_images = toi_soup.find_all('img')
+    toi_headings = toi_headings[2:20]
+    toi_images = toi_images[3:20]
     apps.toi_news = []
+    apps.toi_news_images = []
+    apps.ht_news_images = []
 
     apps.headlines.append('News from Times of India are as follows:')
     for th in toi_headings:
         apps.headlines.append(th.text)
         apps.toi_news.append(th.text)
 
+    for ti in toi_images:
+        if 'data-src' in ti.attrs:
+            apps.toi_news_images.append(ti.attrs['data-src'])
+
     # Getting news from Hindustan Times
     ht_r = requests.get(urlVar2)
     ht_soup = BeautifulSoup(ht_r.content, 'html5lib')
     ht_headings = ht_soup.findAll('h3')
-    ht_headings = ht_headings[3:20]
+    ht_headings = ht_headings[0:20]
+    ht_images = ht_soup.findAll('img')
+    ht_images = ht_images[0:40]
     ht_news = []
 
     apps.headlines.append('News from Hindustan Times are as follows:')
     for hth in ht_headings:
         apps.headlines.append(hth.text)
         ht_news.append(hth.text)
-    return render(req, 'news/index.html', {'name': title, 'toi_news': apps.toi_news, 'ht_news': ht_news})
+
+    classList = ['tvs3Id', 'QwxBBf']
+
+    for hti in ht_images:
+        if 'src' in hti.attrs:
+            if 'class' in hti.attrs and hti.attrs['class'] == classList:
+                apps.ht_news_images.append(hti.attrs['src'])
+                print(hti.attrs['class'])
+            else:
+                print("here")
+    print(len(apps.ht_news_images))
+    print(len(ht_news))
+    return render(req, 'news/index.html', {'range1': range(len(apps.toi_news_images)), 'range2': range(len(ht_news)),'toi_news': apps.toi_news, 'toi_news_images': apps.toi_news_images, 'ht_news_images': apps.ht_news_images, 'ht_news': ht_news})
 
 
 def readAloud(req):
@@ -158,7 +174,6 @@ def readAloud(req):
         engine.runAndWait()
     apps.flag = False
     return render(req, 'news/index.html', {'name':"reading aloud...", 'toi_news': apps.toi_news, 'ht_news': apps.ht_news})
-
 
 def stop(req):
     apps.flag = True
