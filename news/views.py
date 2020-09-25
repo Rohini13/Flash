@@ -19,9 +19,12 @@ config ={
 firebase = pyrebase.initialize_app(config)
 authe = firebase.auth()
 database = firebase.database()
+
+
 def signIn(request):
 
     return render(request,"news/signin.html")
+
 
 def postsign(request):
     email = request.POST.get('email')
@@ -37,13 +40,16 @@ def postsign(request):
 
     return render(request, "news/welcome.html", {"e":email})
 
+
 def logout(request):
     auth.logout(request)
     return render(request, "news/signin.html")
 
+
 def signUp(request):
 
     return render(request, "news/signup.html")
+
 
 def postsignup(request):
     name = request.POST.get('name')
@@ -107,13 +113,14 @@ def display(req,urlVar,urlVar2):
     for hth in ht_headings:
         apps.headlines.append(hth.text)
         ht_news.append(hth.text)
-
+    print(len(apps.headlines))
     return render(req, 'news/index.html', {'toi_news': apps.toi_news, 'ht_news': ht_news})
 
 
 def readAloud(req):
     engine = pyttsx3.init()
     end = len(apps.headlines)
+    print(end)
     start = apps.idx%end
     for i in range(start,end):
         if apps.flag:
@@ -123,6 +130,7 @@ def readAloud(req):
         engine.runAndWait()
     apps.flag=False
     return render(req, 'news/index.html', {'toi_news': apps.toi_news, 'ht_news': apps.ht_news})
+
 
 def stop(req):
     apps.flag = True
