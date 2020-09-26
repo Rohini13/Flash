@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 {% load static %}
 {% load index1 %}
+
 <html>
+
 <head>
-    <title></title>
+    <title>{{ title }}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
+
+<style>
+    #more {display: none;}
+</style>
+
+<script>
+    function myFunction()
+    {
+          var dots = document.getElementById("dots");
+          var moreText = document.getElementById("more");
+          var btnText = document.getElementById("myBtn");
+
+          if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Read more";
+            moreText.style.display = "none";
+          } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Read less";
+            moreText.style.display = "inline";
+          }
+    }
+</script>
+
 <body>
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -51,7 +77,7 @@
     </div>
     <br><br>
     <div id="recent" align="center">
-        <h1></h1>
+        <h1>{{ title }}</h1>
         <br>
         <a href="/" class="btn btn-primary">Refresh</a>
             &nbsp;
@@ -63,22 +89,32 @@
     <div  class="container">
         <div class="row">
             <div class="col-6">
-                <h3 class="text-centre">Times Of India</h3>
+                <h2 class="text-centre">Times Of India</h2>
                 <br>
                 {% for i in range1%}
                     <img src={{ toi_news_images|index:i }}>
-                    <h6>{{ toi_news|index:i }}</h6>
+                    <h5>{{ toi_news|index:i }}</h5>
                     <hr>
                 {% endfor %}
             </div>
 
             <div class="col-6">
-                <h3 class="text-centre">Hindustan Times</h3>
+                <h2 class="text-centre">News18</h2>
                 <br>
-                {% for i in range2%}
-                    <img src={{ n18_img|index:i }}>
-                    <h6>{{ n18_h|index:i }}</h6>
-                    <h8>{{ n18_content|index:i }}</h8>
+                {% for n in n18%}
+                    <h5>{{ n.title }}</h5>
+                    <br>
+                    <img src={{ n.image }}>
+                    <h6>Source: {{ n.source }}</h6>
+                    {% if n.location != None %}
+                        <h6>Location: {{ n.location }}</h6>
+                    {% endif %}
+                    <h6>Last Updated: {{ n.time }}</h6>
+                    <br>
+                    <p>{{ n.content|slice:"0:300" }}
+                        <span id="dots">...</span>
+                        <span id="more">{{ n.content }}</span></p>
+                    <button onclick="myFunction()" id="myBtn">Read more</button>
                     <hr>
                 {% endfor %}
             </div>
