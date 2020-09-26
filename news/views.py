@@ -12,6 +12,7 @@ from datetime import datetime, timezone, timedelta
 path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 
 from news18_scraper import get_articles
+from dd_news import get_dd_articles
 from sources import NEWS_SOURCES
 
 config = {
@@ -73,60 +74,68 @@ def postsignup(request):
 def index(req):
     urlVar = "https://timesofindia.indiatimes.com/briefs"
     news18URL = NEWS_SOURCES["NEWS18"]["home"]
+    ddnewsURL = NEWS_SOURCES["DD News"]["home"]
     title = "Recent Headlines"
-    return display(req, urlVar, news18URL, title)
+    return display(req, urlVar, news18URL, ddnewsURL, title)
 
 
 def index1(req):
     urlVar = "https://timesofindia.indiatimes.com/briefs/world"
     news18URL = NEWS_SOURCES["NEWS18"]["world"]
+    ddnewsURL = NEWS_SOURCES["DD News"]["world"]
     title = "World"
-    return display(req, urlVar, news18URL, title)
+    return display(req, urlVar, news18URL, ddnewsURL, title)
 
 
 def index2(req):
     urlVar = "https://timesofindia.indiatimes.com/briefs/india"
     news18URL = NEWS_SOURCES["NEWS18"]["local"]
+    ddnewsURL = NEWS_SOURCES["DD News"]["local"]
     title = "Local"
-    return display(req, urlVar, news18URL, title)
+    return display(req, urlVar, news18URL, ddnewsURL, title)
 
 
 def index3(req):
     urlVar = "https://timesofindia.indiatimes.com/briefs/gadgets"
     news18URL = NEWS_SOURCES["NEWS18"]["technology"]
+    ddnewsURL = NEWS_SOURCES["DD News"]["technology"]
     title = "Science and Technology"
-    return display(req, urlVar, news18URL, title)
+    return display(req, urlVar, news18URL, ddnewsURL, title)
 
 
 def index4(req):
     urlVar = "https://timesofindia.indiatimes.com/briefs/business"
     news18URL = NEWS_SOURCES["NEWS18"]["business"]
+    ddnewsURL = NEWS_SOURCES["DD News"]["business"]
     title = "Business and Economy"
-    return display(req, urlVar, news18URL, title)
+    return display(req, urlVar, news18URL, ddnewsURL, title)
 
 
 def index5(req):
     urlVar = "https://timesofindia.indiatimes.com/briefs/lifestyle"
     news18URL = NEWS_SOURCES["NEWS18"]["health"]
+    ddnewsURL = NEWS_SOURCES["DD News"]["health"]
     title = "Health and Lifestyle"
-    return display(req, urlVar, news18URL, title)
+    return display(req, urlVar, news18URL, ddnewsURL, title)
 
 
 def index6(req):
     urlVar = "https://timesofindia.indiatimes.com/briefs/sports"
     news18URL = NEWS_SOURCES["NEWS18"]["sports"]
+    ddnewsURL = NEWS_SOURCES["DD News"]["sports"]
     title = "Sports"
-    return display(req, urlVar, news18URL, title)
+    return display(req, urlVar, news18URL, ddnewsURL, title)
 
 
 def index7(req):
     urlVar = "https://timesofindia.indiatimes.com/briefs/entertainment"
     news18URL = NEWS_SOURCES["NEWS18"]["entertainment"]
+    ddnewsURL = NEWS_SOURCES["DD News"]["entertainment"]
     title = "Entertainment"
-    return display(req, urlVar, news18URL, title)
+    return display(req, urlVar, news18URL, ddnewsURL, title)
 
 
-def display(req, urlVar, news18URL, title):
+def display(req, urlVar, news18URL, ddnewsURL, title):
     apps.idx = 0
     apps.headlines = []
     toi_r = requests.get(urlVar)
@@ -148,10 +157,16 @@ def display(req, urlVar, news18URL, title):
         if 'data-src' in ti.attrs:
             apps.toi_news_images.append(ti.attrs['data-src'])
 
-
     n18_news = get_articles(news18URL.format(1))
+    dd_news = get_dd_articles(ddnewsURL.format(1))
+    for dd in dd_news:
+        if dd["link"] == "#":
+            dd_news.remove(dd)
+        if dd["content"] == "":
+            dd_news.remove(dd)
+    print(dd_news)
 
-    return render(req, 'news/index.html',{'title':title, 'range1': range(len(apps.toi_news_images)), 'toi_news': apps.toi_news,'toi_news_images': apps.toi_news_images, 'n18': n18_news})
+    return render(req, 'news/index.html',{'title':title, 'range1': range(len(apps.toi_news_images)), 'toi_news': apps.toi_news,'toi_news_images': apps.toi_news_images, 'n18': n18_news, 'dd': dd_news})
 
 
 def readAloud(req):

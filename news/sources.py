@@ -48,6 +48,7 @@ NEWS_SOURCES = {
     },
     "DD News": {
         "home": "http://ddnews.gov.in/",
+        "local": "",
         "entertainment": "http://ddnews.gov.in/entertainment",
         "business": "http://ddnews.gov.in/business",
         "sports" : "http://ddnews.gov.in/sports",
