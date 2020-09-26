@@ -159,7 +159,7 @@ def display(req, urlVar, urlVar2, title):
                 print("here")
     print(len(apps.ht_news_images))
     print(len(ht_news))
-    return render(req, 'news/index.html', {'range1': range(len(apps.toi_news_images)), 'range2': range(len(ht_news)),'toi_news': apps.toi_news, 'toi_news_images': apps.toi_news_images, 'ht_news_images': apps.ht_news_images, 'ht_news': ht_news})
+    return render(req, 'news/index.html', {'range1': range(len(apps.toi_news_images)), 'range2': range(min(len(ht_news),len(apps.ht_news_images))),'toi_news': apps.toi_news, 'toi_news_images': apps.toi_news_images, 'ht_news_images': apps.ht_news_images, 'ht_news': ht_news})
 
 
 def readAloud(req):
