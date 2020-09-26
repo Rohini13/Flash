@@ -91,9 +91,9 @@
             <div class="col-6">
                 <h2 class="text-centre">Times Of India</h2>
                 <br>
-                {% for i in range1%}
-                    <img src={{ toi_news_images|index:i }}>
-                    <h5>{{ toi_news|index:i }}</h5>
+                {% for n in toi%}
+                    <h5>{{ n.title }}</h5>
+                    <h7>{{ n.link }}</h7>
                     <hr>
                 {% endfor %}
             </div>
