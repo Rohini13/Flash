@@ -13,6 +13,7 @@ path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 
 import news18_scraper as n18S
 import toi_scraper as toiS
+from dd_news import get_dd_articles
 from sources import NEWS_SOURCES
 
 config = {
@@ -74,87 +75,81 @@ def postsignup(request):
 def index(req):
     toiURL = NEWS_SOURCES["Times of India"]["home"]
     news18URL = NEWS_SOURCES["NEWS18"]["home"]
+    ddnewsURL = NEWS_SOURCES["DD News"]["home"]
     title = "Recent Headlines"
-    return display(req, toiURL, news18URL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, title)
 
 
 def index1(req):
     toiURL = NEWS_SOURCES["Times of India"]["world"]
     news18URL = NEWS_SOURCES["NEWS18"]["world"]
+    ddnewsURL = NEWS_SOURCES["DD News"]["world"]
     title = "World"
-    return display(req, toiURL, news18URL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, title)
 
 
 def index2(req):
     toiURL = NEWS_SOURCES["Times of India"]["local"]
     news18URL = NEWS_SOURCES["NEWS18"]["local"]
+    ddnewsURL = NEWS_SOURCES["DD News"]["local"]
     title = "Local"
-    return display(req, toiURL, news18URL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, title)
 
 
 def index3(req):
     toiURL = NEWS_SOURCES["Times of India"]["technology"]
     news18URL = NEWS_SOURCES["NEWS18"]["technology"]
+    ddnewsURL = NEWS_SOURCES["DD News"]["technology"]
     title = "Science and Technology"
-    return display(req, toiURL, news18URL, title)
-
+    return display(req, toiURL, news18URL, ddnewsURL, title)
 
 def index4(req):
     toiURL = NEWS_SOURCES["Times of India"]["business"]
     news18URL = NEWS_SOURCES["NEWS18"]["business"]
+    ddnewsURL = NEWS_SOURCES["DD News"]["business"]
     title = "Business and Economy"
-    return display(req, toiURL, news18URL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, title)
 
 
 def index5(req):
     toiURL = NEWS_SOURCES["Times of India"]["health"]
     news18URL = NEWS_SOURCES["NEWS18"]["health"]
+    ddnewsURL = NEWS_SOURCES["DD News"]["health"]
     title = "Health and Lifestyle"
-    return display(req, toiURL, news18URL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, title)
 
 
 def index6(req):
     toiURL = NEWS_SOURCES["Times of India"]["sports"]
     news18URL = NEWS_SOURCES["NEWS18"]["sports"]
+    ddnewsURL = NEWS_SOURCES["DD News"]["sports"]
     title = "Sports"
-    return display(req, toiURL, news18URL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, title)
 
 
 def index7(req):
     toiURL = NEWS_SOURCES["Times of India"]["entertainment"]
     news18URL = NEWS_SOURCES["NEWS18"]["entertainment"]
+    ddnewsURL = NEWS_SOURCES["DD News"]["entertainment"]
     title = "Entertainment"
     return display(req, toiURL, news18URL, title)
 
 
-def display(req, toiURL, news18URL, title):
-    # apps.idx = 0
-    # apps.headlines = []
-    # toi_r = requests.get(toiURL)
-    # toi_soup = BeautifulSoup(toi_r.content, 'html5lib')
-    # toi_headings = toi_soup.find_all('h2')
-    # toi_images = toi_soup.find_all('img')
-    # toi_headings = toi_headings[2:20]
-    # toi_images = toi_images[3:20]
-    # apps.toi_news = []
-    # apps.toi_news_images = []
-    # apps.ht_news_images = []
-    #
-    # apps.headlines.append('News from Times of India are as follows:')
-    # for th in toi_headings:
-    #     apps.headlines.append(th.text)
-    #     apps.toi_news.append(th.text)
-    #
-    # for ti in toi_images:
-    #     if 'data-src' in ti.attrs:
-    #         apps.toi_news_images.append(ti.attrs['data-src'])
+def display(req, toiURL, news18URL, ddnewsURL, title):
 
     toi_news = toiS.get_articles(toiURL.format(2))
-    print(type(toi_news))
     n18_news = n18S.get_articles(news18URL.format(1))
-    print(type(n18_news))
 
-    return render(req, 'news/index.html',{'title':title, 'toi':toi_news, 'n18': n18_news})
+    dd_news = get_dd_articles(ddnewsURL.format(1))
+    for dd in dd_news:
+        if dd["link"] == "#":
+            dd_news.remove(dd)
+        if dd["content"] == "":
+            dd_news.remove(dd)
+    print(dd_news)
+    
+    return render(req, 'news/index.html',{'title':title, 'toi':toi_news, 'n18': n18_news, 'dd': dd_news})
+
 
 
 def readAloud(req):

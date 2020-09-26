@@ -14,11 +14,11 @@
 </style>
 
 <script>
-    function myFunction()
+    function myFunction(s1)
     {
-          var dots = document.getElementById("dots");
-          var moreText = document.getElementById("more");
-          var btnText = document.getElementById("myBtn");
+          var dots = document.getElementById('dots-'+s1);
+          var moreText = document.getElementById('more-'+s1);
+          var btnText = document.getElementById('myBtn-'+s1);
 
           if (dots.style.display === "none") {
             dots.style.display = "inline";
@@ -96,6 +96,26 @@
                     <h7>{{ n.link }}</h7>
                     <hr>
                 {% endfor %}
+                <h2 class="text-centre">Times Of India</h2>
+                <br>
+                <h2 class="text-centre">DD News</h2>
+                <br>
+                {% for n in dd%}
+                    <h5>{{ n.title }}</h5>
+                    <br>
+                    <img style="height: 350px; width: 500px" src={{ n.image }}>
+                    <h6>Source: {{ n.source }}</h6>
+                    {% if n.location != None %}
+                        <h6>Location: {{ n.location }}</h6>
+                    {% endif %}
+                    <h6>Last Updated: {{ n.time }}</h6>
+                    <br>
+                    <p>{{ n.content|slice:"0:300" }}
+                        <span id='dots-{{ n.link }}'>...</span>
+                        <span id='more-{{ n.link }}' style="display: none">{{ n.content }}</span></p>
+                    <button onclick="myFunction('{{n.link}}')" id='myBtn-{{ n.link }}'>Read more</button>
+                    <hr>
+                {% endfor %}
             </div>
 
             <div class="col-6">
@@ -112,9 +132,9 @@
                     <h6>Last Updated: {{ n.time }}</h6>
                     <br>
                     <p>{{ n.content|slice:"0:300" }}
-                        <span id="dots">...</span>
-                        <span id="more">{{ n.content }}</span></p>
-                    <button onclick="myFunction()" id="myBtn">Read more</button>
+                        <span id='dots-{{ n.link }}'>...</span>
+                        <span id='more-{{ n.link }}' style="display: none">{{ n.content }}</span></p>
+                    <button onclick="myFunction('{{n.link}}')" id='myBtn-{{ n.link }}'>Read more</button>
                     <hr>
                 {% endfor %}
             </div>
