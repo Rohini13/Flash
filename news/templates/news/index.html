@@ -76,8 +76,9 @@
                 <h3 class="text-centre">Hindustan Times</h3>
                 <br>
                 {% for i in range2%}
-                    <img style="height: 190px; width: 300px" src={{ ht_news_images|index:i }}>
-                    <h6>{{ ht_news|index:i }}</h6>
+                    <img src={{ n18_img|index:i }}>
+                    <h6>{{ n18_h|index:i }}</h6>
+                    <h8>{{ n18_content|index:i }}</h8>
                     <hr>
                 {% endfor %}
             </div>
