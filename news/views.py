@@ -15,6 +15,7 @@ import news18_scraper as n18S
 import toi_scraper as toiS
 from dd_news import get_dd_articles
 from sources import NEWS_SOURCES
+from HT_scraper import get_chronological_headlines
 
 config = {
     'apiKey': "AIzaSyA7HJuzOo0HtJHZ7JZzv5yRszv7NjXNdps",
@@ -140,12 +141,23 @@ def display(req, toiURL, news18URL, ddnewsURL, title):
     toi_news = toiS.get_articles(toiURL)
     n18_news = n18S.get_articles(news18URL.format(1))
     dd_news = get_dd_articles(ddnewsURL.format(1))
+    url = "https://www.hindustantimes.com/world-news/page/?pageno={}"
+    ht_news = get_chronological_headlines(url.format(2))
+    print(ht_news)
 
     for dd in dd_news:
         if dd["link"] == "#":
             dd_news.remove(dd)
         if dd["content"] == "":
             dd_news.remove(dd)
+
+    for n in n18_news:
+        if n["content"] == "":
+            n18_news.remove(n)
+
+    for t in toi_news:
+        if t["content"] == "":
+            toi_news.remove(t)
 
     return render(req, 'news/index.html',{'title':title, 'toi':toi_news, 'n18': n18_news, 'dd': dd_news})
 
