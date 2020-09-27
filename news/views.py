@@ -120,7 +120,7 @@ def display_home(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title):
     articles.append(tele_news[1])
     articles.append(toi_news[1])
 
-    return render(req, 'news/home.html',{'title':title, 'news': articles})
+    return render(req, 'news/home_alt.html',{'title':title, 'news': articles})
 
 
 
