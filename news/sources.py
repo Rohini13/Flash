@@ -20,14 +20,14 @@ NEWS_SOURCES = {
         "world" : "https://www.ndtv.com/world-news?pfrom=home-mainnavgation"
     },
     "Times of India": {
-        "home": "https://timesofindia.indiatimes.com/world/{}",
-        "local": "https://timesofindia.indiatimes.com/india/{}",
-        "entertainment": "https://timesofindia.indiatimes.com/briefs/entertainment/{}",
-        "business": "https://timesofindia.indiatimes.com/briefs/business/{}",
-        "sports" : "https://timesofindia.indiatimes.com/briefs/sports/{}",
-        "world" : "https://timesofindia.indiatimes.com/briefs/world/{}",
-        "health" : "https://timesofindia.indiatimes.com/briefs/lifestyle/{}",
-        "technology" : "https://timesofindia.indiatimes.com/briefs/gadgets/{}",
+        "home": "https://timesofindia.indiatimes.com/briefs/world/",
+        "local": "https://timesofindia.indiatimes.com/briefs/india/",
+        "entertainment": "https://timesofindia.indiatimes.com/briefs/entertainment/",
+        "business": "https://timesofindia.indiatimes.com/briefs/business/",
+        "sports" : "https://timesofindia.indiatimes.com/briefs/sports/",
+        "world" : "https://timesofindia.indiatimes.com/briefs/world/",
+        "health" : "https://timesofindia.indiatimes.com/briefs/lifestyle/",
+        "technology" : "https://timesofindia.indiatimes.com/briefs/gadgets/",
     },
     "Hindustan Times": {
         "home": "https://www.hindustantimes.com/",
@@ -49,7 +49,7 @@ NEWS_SOURCES = {
     },
     "DD News": {
         "home": "http://ddnews.gov.in/",
-        "local": "",
+        "local": "http://ddnews.gov.in/national",
         "entertainment": "http://ddnews.gov.in/entertainment",
         "business": "http://ddnews.gov.in/business",
         "sports" : "http://ddnews.gov.in/sports",
@@ -58,13 +58,13 @@ NEWS_SOURCES = {
         "technology" : "http://ddnews.gov.in/sci-tech",
     },
     "NEWS18": {
-        "home": "https://www.news18.com/world/page-{}/",
+        "home": "https://www.news18.com/news/page-{}/",
         "local": "https://www.news18.com/india/page-{}/",
-        "entertainment": "https://www.news18.com/entertainment/page-{}/",
+        "entertainment": "https://www.news18.com/movies/page-{}/",
         "business": "https://www.news18.com/business/page-{}/",
         "sports" : "https://www.news18.com/sports/page-{}/",
         "world" : "https://www.news18.com/world/page-{}/",
-        "health" : "https://www.news18.com/lifestyle/health-and-fitness/page-{}/",
+        "health" : "https://www.news18.com/movies/page-{}/",
         "technology" : "https://www.news18.com/tech/page-{}/",
     },
     "Telegraph": {

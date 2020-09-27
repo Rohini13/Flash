@@ -9,10 +9,7 @@ from helper import remove_duplicates
 
 
 def get_all_dd_info(objects):
-    """
-    Call this function with a list of objects. Make sure there are no duplicate
-    copies of an object else downloading might take long time.
-    """
+
     def get_dd_info(obj):
         response = requests.get(obj["link"])
         if response.status_code == 200:
@@ -27,7 +24,6 @@ def get_all_dd_info(objects):
             if title:
                 obj['title'] = title.get_text()
             image_tags = soup.find_all("span", {"class": "field-content"})
-            print(image_tags)
             for image_tag in image_tags:
                 image = image_tag.find("img")
                 if image:
@@ -73,7 +69,6 @@ def get_dd_articles(url):
                     soup.find('div', {'class': 'view-content'}
                     ).find_all('a')
                 )
-        print(a_tags)
         for a_tag in a_tags:
             if a_tag.get('target') == '_BLANK':
                 a_tags.remove(a_tag)
@@ -81,5 +76,3 @@ def get_dd_articles(url):
         get_all_dd_info(headlines)  # Fetch contents separately
         return headlines
     return None
-
-

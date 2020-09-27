@@ -132,22 +132,21 @@ def index7(req):
     news18URL = NEWS_SOURCES["NEWS18"]["entertainment"]
     ddnewsURL = NEWS_SOURCES["DD News"]["entertainment"]
     title = "Entertainment"
-    return display(req, toiURL, news18URL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, title)
 
 
 def display(req, toiURL, news18URL, ddnewsURL, title):
 
-    toi_news = toiS.get_articles(toiURL.format(2))
+    toi_news = toiS.get_articles(toiURL)
     n18_news = n18S.get_articles(news18URL.format(1))
-
     dd_news = get_dd_articles(ddnewsURL.format(1))
+
     for dd in dd_news:
         if dd["link"] == "#":
             dd_news.remove(dd)
         if dd["content"] == "":
             dd_news.remove(dd)
-    print(dd_news)
-    
+
     return render(req, 'news/index.html',{'title':title, 'toi':toi_news, 'n18': n18_news, 'dd': dd_news})
 
 

@@ -60,6 +60,8 @@ def get_articles(url):
             tag.parent.decompose()
         for tag in soup.find_all("span", {"class": "video_icon_ss"}):
             tag.parent.parent.decompose()
+        if(soup.find("div", {"class": "hotTopic"})==None or soup.find("div", {"class": "blog-list"})==None):
+            return None
         a_tags = (
                 soup.find("div", {"class": "hotTopic"}).find_all("a") +
                 soup.find("div", {"class": "blog-list"}).find_all("a")

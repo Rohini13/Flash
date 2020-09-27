@@ -11,18 +11,30 @@ def get_articles(url):
     response = requests.get(url)
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, "html.parser")
-        soup.find("div",id="c_articlelist_widgets_1").decompose()
+        for tag in soup.find_all("div", {"id":"content"}):
+            for t in tag.find_all("div", {"class":"wrapper clearfix politics"}):
+                for b in t.find_all("div", {"class":"briefs_outer clearfix"}):
+                    objs = b.find_all("div", {"class":"brief_box"})
+
         data = []
-        temp = soup.find("div",{"class":"main-content"})
-        objs = temp.find_all("div", {"class":"top-newslist"})
-        for obj in objs[0].find("ul"):
+        # for tag in .find().find_all("div",{"class":"briefs_outer clearfix"}):
+        #     objs = tag.find_all("div",{"class":"brief_box"})
+        #     print(objs)
+        for obj in objs:
+            if(obj.find('a')!=None and obj.find('img')!=None):
+                l="https://timesofindia.indiatimes.com"+obj.find('a').get('href')
+                i=obj.find('img')
+                c=obj.find("p").text
+            else:
+                continue
             data.append({
-                    "link": "https://timesofindia.indiatimes.com"+obj.find("a").get("href"),
-                    "content": "NA",
-                    "scraped_at": datetime.utcnow().isoformat(),
+                    "link": l,
+                    "content": c,
+                    "scraped_at": datetime.now(),
                     "source" : "Times of India",
                     "location": None,
                     "time": None,
-                    "title": obj.find("a").get("title")
+                    "title": i.get("alt"),
+                    "image": i.get("data-src")
                 })
         return data
