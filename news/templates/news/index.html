@@ -143,6 +143,24 @@
                     <button onclick="myFunction('{{n.link}}')" id='myBtn-{{ n.link }}'>Read more</button>
                     <hr>
                 {% endfor %}
+                <h2 class="text-centre">NDTV</h2>
+                <br>
+                {% for n in ndtv%}
+                    <h5>{{ n.title }}</h5>
+                    <br>
+                    <img style="height: 350px; width: 500px" src={{ n.image }}>
+                    <h6>Source: {{ n.source }}</h6>
+{#                    {% if n.location != None %}#}
+{#                        <h6>Location: {{ n.location }}</h6>#}
+{#                    {% endif %}#}
+                    <h6>Last {{ n.time }}</h6>
+                    <br>
+                    <p>{{ n.location }} {{ n.content|slice:"0:300" }}
+                        <span id='dots-{{ n.link }}'>...</span>
+                        <span id='more-{{ n.link }}' style="display: none">{{ n.content }}</span></p>
+                    <button onclick="myFunction('{{n.link}}')" id='myBtn-{{ n.link }}'>Read more</button>
+                    <hr>
+                {% endfor %}
             </div>
         </div>
  
