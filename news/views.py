@@ -16,7 +16,7 @@ import toi_scraper as toiS
 from dd_news_scraper import get_dd_articles
 from ndtv_scraper import get_ndtv_articles
 from sources import NEWS_SOURCES
-from HT_scraper import get_chronological_headlines
+import tele_scraper as teleS
 
 config = {
     'apiKey': "AIzaSyA7HJuzOo0HtJHZ7JZzv5yRszv7NjXNdps",
@@ -79,8 +79,9 @@ def index(req):
     news18URL = NEWS_SOURCES["NEWS18"]["home"]
     ddnewsURL = NEWS_SOURCES["DD News"]["home"]
     ndtvURL = NEWS_SOURCES["NDTV"]["home"]
+    teleURL = NEWS_SOURCES["Telegraph"]["home"]
     title = "Recent Headlines"
-    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
 def index1(req):
@@ -88,8 +89,9 @@ def index1(req):
     news18URL = NEWS_SOURCES["NEWS18"]["world"]
     ddnewsURL = NEWS_SOURCES["DD News"]["world"]
     ndtvURL = NEWS_SOURCES["NDTV"]["world"]
+    teleURL = NEWS_SOURCES["Telegraph"]["world"]
     title = "World"
-    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
 def index2(req):
@@ -97,8 +99,9 @@ def index2(req):
     news18URL = NEWS_SOURCES["NEWS18"]["local"]
     ddnewsURL = NEWS_SOURCES["DD News"]["local"]
     ndtvURL = NEWS_SOURCES["NDTV"]["local"]
+    teleURL = NEWS_SOURCES["Telegraph"]["local"]
     title = "Local"
-    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
 def index3(req):
@@ -106,16 +109,18 @@ def index3(req):
     news18URL = NEWS_SOURCES["NEWS18"]["technology"]
     ddnewsURL = NEWS_SOURCES["DD News"]["technology"]
     ndtvURL = NEWS_SOURCES["NDTV"]["technology"]
+    teleURL = NEWS_SOURCES["Telegraph"]["technology"]
     title = "Science and Technology"
-    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 def index4(req):
     toiURL = NEWS_SOURCES["Times of India"]["business"]
     news18URL = NEWS_SOURCES["NEWS18"]["business"]
     ddnewsURL = NEWS_SOURCES["DD News"]["business"]
     ndtvURL = NEWS_SOURCES["NDTV"]["business"]
+    teleURL = NEWS_SOURCES["Telegraph"]["business"]
     title = "Business and Economy"
-    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
 def index5(req):
@@ -123,8 +128,9 @@ def index5(req):
     news18URL = NEWS_SOURCES["NEWS18"]["health"]
     ddnewsURL = NEWS_SOURCES["DD News"]["health"]
     ndtvURL = NEWS_SOURCES["NDTV"]["health"]
+    teleURL = NEWS_SOURCES["Telegraph"]["health"]
     title = "Health and Lifestyle"
-    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
 def index6(req):
@@ -132,8 +138,9 @@ def index6(req):
     news18URL = NEWS_SOURCES["NEWS18"]["sports"]
     ddnewsURL = NEWS_SOURCES["DD News"]["sports"]
     ndtvURL = NEWS_SOURCES["NDTV"]["sports"]
+    teleURL = NEWS_SOURCES["Telegraph"]["sports"]
     title = "Sports"
-    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
 def index7(req):
@@ -141,19 +148,19 @@ def index7(req):
     news18URL = NEWS_SOURCES["NEWS18"]["entertainment"]
     ddnewsURL = NEWS_SOURCES["DD News"]["entertainment"]
     ndtvURL = NEWS_SOURCES["NDTV"]["entertainment"]
+    teleURL = NEWS_SOURCES["Telegraph"]["entertainment"]
     title = "Entertainment"
-    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
-def display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title):
+def display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title):
 
     toi_news = toiS.get_articles(toiURL)
     n18_news = n18S.get_articles(news18URL.format(1))
     dd_news = get_dd_articles(ddnewsURL.format(1))
-    url = "https://www.hindustantimes.com/world-news/page/?pageno={}"
-    ht_news = get_chronological_headlines(url.format(2))
-    print(ht_news)
     ndtv_news = get_ndtv_articles(ndtvURL.format(1))
+    tele_news = teleS.get_articles(teleURL.format(1))
+    print(tele_news)
 
     for dd in dd_news:
         if dd["link"] == "#":
@@ -172,9 +179,8 @@ def display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title):
     for ndtv in ndtv_news:
         if ndtv["content"] == "":
             ndtv_news.remove(ndtv)
-        else:
-            print(ndtv['title'])
-    return render(req, 'news/index.html',{'title':title, 'toi':toi_news, 'n18': n18_news, 'dd': dd_news, 'ndtv': ndtv_news})
+
+    return render(req, 'news/index.html',{'title':title, 'tele': tele_news, 'toi':toi_news, 'n18': n18_news, 'dd': dd_news, 'ndtv': ndtv_news})
 
 
 

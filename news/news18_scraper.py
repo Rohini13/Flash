@@ -19,7 +19,8 @@ def get_all_info(objects):
             for tag in soup.find_all("div",{ "class":"article-bnow-box"}):
                 for t in tag.find_all("strong", {"id":"location_info" }):
                     obj['location'] = t.get_text()
-                obj['time']=tag.find("ul",{ "class":"article-bnow"}).find_all('li')[1].get_text()[14:-3]
+                if(tag.find("ul",{ "class":"article-bnow"})!=None):
+                    obj['time']=tag.find("ul",{ "class":"article-bnow"}).find_all('li')[1].get_text()[14:-3]
 
             for tag in soup.find_all("article", {"class":"article-content-box first_big_character"}):
                 for t in tag.find_all("p"):

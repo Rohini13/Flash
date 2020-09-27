@@ -11,10 +11,7 @@ from sources import NEWS_SOURCES
 
 
 def get_all_ndtv_info(objects):
-    """
-    Call this function with a list of objects. Make sure there are no duplicate
-    copies of an object else downloading might take long time.
-    """
+
     def get_ndtv_info(obj):
         response = requests.get(obj["link"])
         if response.status_code == 200:
@@ -36,7 +33,6 @@ def get_all_ndtv_info(objects):
                 image = contents.find('img')
                 if image:
                     obj['image'] = image.get('data-src')
-                    print(obj["image"])
                 else:
                     obj['image'] = "https://cdn.ndtv.com/common/images/ogndtv.png"
             else:
@@ -77,9 +73,7 @@ def get_ndtv_articles(url):
                 "class": "new_storylising_img"
             })
         ))
-        print(len(a_tags))
         a_tags = a_tags[0:17]
-        print(a_tags)
         headlines = list(map(get_ndtv_links, a_tags))
         headlines = remove_duplicates(headlines, "link")
         get_all_ndtv_info(headlines)  # Fetch contents separately
