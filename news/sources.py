@@ -11,13 +11,14 @@ NEWS_SOURCES = {
 
     },
     "NDTV": {
-        "home": "https://www.ndtv.com/",
-        "entertainment": "https://movies.ndtv.com/?pfrom=home-header-globalnav",
-        "health": "https://swirlster.ndtv.com/?pfrom=home-header-globalnav",
-        "technology": "https://gadgets.ndtv.com/?pfrom=home-header-globalnav",
-        "business" : "https://www.ndtv.com/business",
-        "sports" : "https://sports.ndtv.com/cricket?pfrom=home-header-globalnav",
-        "world" : "https://www.ndtv.com/world-news?pfrom=home-mainnavgation"
+        "home": "https://www.ndtv.com/india",
+        "local": "https://www.ndtv.com/india",
+        "entertainment": "https://www.ndtv.com/entertainment/",
+        "health": "https://www.ndtv.com/health/",
+        "technology": "https://www.ndtv.com/science",
+        "business" : "https://www.ndtv.com/business/economy",
+        "sports" : "https://www.ndtv.com/sports",
+        "world" : "https://www.ndtv.com/world-news"
     },
     "Times of India": {
         "home": "https://timesofindia.indiatimes.com/briefs/world/",

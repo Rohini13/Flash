@@ -13,7 +13,8 @@ path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 
 import news18_scraper as n18S
 import toi_scraper as toiS
-from dd_news import get_dd_articles
+from dd_news_scraper import get_dd_articles
+from ndtv_scraper import get_ndtv_articles
 from sources import NEWS_SOURCES
 from HT_scraper import get_chronological_headlines
 
@@ -77,66 +78,74 @@ def index(req):
     toiURL = NEWS_SOURCES["Times of India"]["home"]
     news18URL = NEWS_SOURCES["NEWS18"]["home"]
     ddnewsURL = NEWS_SOURCES["DD News"]["home"]
+    ndtvURL = NEWS_SOURCES["NDTV"]["home"]
     title = "Recent Headlines"
-    return display(req, toiURL, news18URL, ddnewsURL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title)
 
 
 def index1(req):
     toiURL = NEWS_SOURCES["Times of India"]["world"]
     news18URL = NEWS_SOURCES["NEWS18"]["world"]
     ddnewsURL = NEWS_SOURCES["DD News"]["world"]
+    ndtvURL = NEWS_SOURCES["NDTV"]["world"]
     title = "World"
-    return display(req, toiURL, news18URL, ddnewsURL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title)
 
 
 def index2(req):
     toiURL = NEWS_SOURCES["Times of India"]["local"]
     news18URL = NEWS_SOURCES["NEWS18"]["local"]
     ddnewsURL = NEWS_SOURCES["DD News"]["local"]
+    ndtvURL = NEWS_SOURCES["NDTV"]["local"]
     title = "Local"
-    return display(req, toiURL, news18URL, ddnewsURL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title)
 
 
 def index3(req):
     toiURL = NEWS_SOURCES["Times of India"]["technology"]
     news18URL = NEWS_SOURCES["NEWS18"]["technology"]
     ddnewsURL = NEWS_SOURCES["DD News"]["technology"]
+    ndtvURL = NEWS_SOURCES["NDTV"]["technology"]
     title = "Science and Technology"
-    return display(req, toiURL, news18URL, ddnewsURL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title)
 
 def index4(req):
     toiURL = NEWS_SOURCES["Times of India"]["business"]
     news18URL = NEWS_SOURCES["NEWS18"]["business"]
     ddnewsURL = NEWS_SOURCES["DD News"]["business"]
+    ndtvURL = NEWS_SOURCES["NDTV"]["business"]
     title = "Business and Economy"
-    return display(req, toiURL, news18URL, ddnewsURL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title)
 
 
 def index5(req):
     toiURL = NEWS_SOURCES["Times of India"]["health"]
     news18URL = NEWS_SOURCES["NEWS18"]["health"]
     ddnewsURL = NEWS_SOURCES["DD News"]["health"]
+    ndtvURL = NEWS_SOURCES["NDTV"]["health"]
     title = "Health and Lifestyle"
-    return display(req, toiURL, news18URL, ddnewsURL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title)
 
 
 def index6(req):
     toiURL = NEWS_SOURCES["Times of India"]["sports"]
     news18URL = NEWS_SOURCES["NEWS18"]["sports"]
     ddnewsURL = NEWS_SOURCES["DD News"]["sports"]
+    ndtvURL = NEWS_SOURCES["NDTV"]["sports"]
     title = "Sports"
-    return display(req, toiURL, news18URL, ddnewsURL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title)
 
 
 def index7(req):
     toiURL = NEWS_SOURCES["Times of India"]["entertainment"]
     news18URL = NEWS_SOURCES["NEWS18"]["entertainment"]
     ddnewsURL = NEWS_SOURCES["DD News"]["entertainment"]
+    ndtvURL = NEWS_SOURCES["NDTV"]["entertainment"]
     title = "Entertainment"
-    return display(req, toiURL, news18URL, ddnewsURL, title)
+    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title)
 
 
-def display(req, toiURL, news18URL, ddnewsURL, title):
+def display(req, toiURL, news18URL, ddnewsURL, ndtvURL, title):
 
     toi_news = toiS.get_articles(toiURL)
     n18_news = n18S.get_articles(news18URL.format(1))
@@ -144,6 +153,7 @@ def display(req, toiURL, news18URL, ddnewsURL, title):
     url = "https://www.hindustantimes.com/world-news/page/?pageno={}"
     ht_news = get_chronological_headlines(url.format(2))
     print(ht_news)
+    ndtv_news = get_ndtv_articles(ndtvURL.format(1))
 
     for dd in dd_news:
         if dd["link"] == "#":
@@ -159,7 +169,12 @@ def display(req, toiURL, news18URL, ddnewsURL, title):
         if t["content"] == "":
             toi_news.remove(t)
 
-    return render(req, 'news/index.html',{'title':title, 'toi':toi_news, 'n18': n18_news, 'dd': dd_news})
+    for ndtv in ndtv_news:
+        if ndtv["content"] == "":
+            ndtv_news.remove(ndtv)
+        else:
+            print(ndtv['title'])
+    return render(req, 'news/index.html',{'title':title, 'toi':toi_news, 'n18': n18_news, 'dd': dd_news, 'ndtv': ndtv_news})
 
 
 
