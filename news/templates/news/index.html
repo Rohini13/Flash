@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 {% load static %}
-{% load index1 %}
 
 <html>
 
@@ -34,7 +33,7 @@
 
 <body>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed">
           <a class="navbar-brand" href="{% url 'index' %}">FLASH</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -96,7 +95,12 @@
                     <br>
                     <img style="height: 350px; width: 500px" src={{ n.image }}>
                     <h6>Source: {{ n.source }}</h6>
-{#                    <h6>Last Fetched: {{ n.scraped_at }}</h6>#}
+                    {% if n.scraped_at != None %}
+                    <h6>Last Fetched: {{ n.scraped_at }}</h6>
+                    {% endif %}
+                    {% if n.location != None %}
+                        <h6>Location: {{ n.location }}</h6>
+                    {% endif %}
                     <br>
                     <p>
                         <span id='dots-{{ n.link }}'>{{ n.content|slice:"0:200" }}...</span>
@@ -112,9 +116,9 @@
                     <br>
                     <img style="height: 350px; width: 500px" src={{ n.image }}>
                     <h6>Source: {{ n.source }}</h6>
-{#                    {% if n.location != None %}#}
-{#                        <h6>Location: {{ n.location }}</h6>#}
-{#                    {% endif %}#}
+                    {% if n.location != None %}
+                        <h6>Location: {{ n.location }}</h6>
+                    {% endif %}
                     <h6>Last Updated: {{ n.time }}</h6>
                     <br>
                     <p>
@@ -132,9 +136,9 @@
                     <br>
                     <img style="height: 350px; width: 500px" src={{ n.image }}>
                     <h6>Source: {{ n.source }}</h6>
-{#                    {% if n.location != None %}#}
-{#                        <h6>Location: {{ n.location }}</h6>#}
-{#                    {% endif %}#}
+                    {% if n.location != None %}
+                        <h6>Location: {{ n.location }}</h6>
+                    {% endif %}
                     <h6>Last Updated: {{ n.time }}</h6>
                     <br>
                     <p>
@@ -150,9 +154,9 @@
                     <br>
                     <img style="height: 350px; width: 500px" src={{ n.image }}>
                     <h6>Source: {{ n.source }}</h6>
-{#                    {% if n.location != None %}#}
-{#                        <h6>Location: {{ n.location }}</h6>#}
-{#                    {% endif %}#}
+                    {% if n.location != None %}
+                        <h6>Location: {{ n.location }}</h6>
+                    {% endif %}
                     <h6>Last {{ n.time }}</h6>
                     <br>
                     <p>{{ n.location }}
@@ -169,10 +173,13 @@
                     <img style="height: 350px; width: 500px" src={{ n.image }}>
                     <h6>Source: {{ n.source }}</h6>
                     <h6>{{ n.time }}</h6>
+                    {% if n.location != None %}
+                        <h6>Location: {{ n.location }}</h6>
+                    {% endif %}
                     <br>
                     <p>
-                        <span id='dots-{{ n.link }}'>{{ n.location }}: {{ n.content|slice:"0:200" }}...</span>
-                        <span id='more-{{ n.link }}' style="display: none">{{ n.location }}: {{ n.content }}</span></p>
+                        <span id='dots-{{ n.link }}'>{{ n.content|slice:"0:200" }}...</span>
+                        <span id='more-{{ n.link }}' style="display: none">{{ n.content }}</span></p>
                     <button onclick="myFunction('{{n.link}}')" id='myBtn-{{ n.link }}'>Read more</button>
                     <hr>
                 {% endfor %}
@@ -183,8 +190,8 @@
 </div>
 {#    FIREBASE#}
     <script
-src="http://code.jquery.com/jquery-3.3.1.min.js"
-integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
