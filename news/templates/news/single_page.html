@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load index1 %}
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -113,15 +114,17 @@
                         <div class="sn-related">
                             <h2>In this category</h2>
                             <div class="row sn-slider">
-                                {% for c in category_articles %}
+                                {% for b in all_articles%}
+                                    {% for c in b %}
                                 <div class="container">
                                     <div class="sn-img" style="height: 200px">
                                         <img src={{ c.image }} />
                                         <div class="sn-title">
-                                            <a href="">{{ c.title }}</a>
+                                            <a href={% url "details" forloop.parentloop.counter0 forloop.counter0%}>{{ c.title }}</a>
                                         </div>
                                     </div>
                                 </div>
+                                        {% endfor %}
                                 {% endfor %}
                             </div>
                         </div>
@@ -132,13 +135,13 @@
                             <div class="sidebar-widget">
                                 <h2 class="sw-title">In This Newspaper</h2>
                                 <div class="news-list">
-                                    {% for a in all_articles %}
+                                    {% for a in all_articles|get_value:newsid %}
                                     <div class="nl-item">
                                         <div class="nl-img">
                                             <img src={{ a.image }} />
                                         </div>
                                         <div class="nl-title">
-                                            <a href="">{{ a.title }}</a>
+                                            <a href={% url "details" newsid forloop.counter0%}>{{ a.title }}</a>
                                         </div>
                                     </div>
                                     {% endfor %}
