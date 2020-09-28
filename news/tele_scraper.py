@@ -101,12 +101,20 @@ def get_all_info(objects):
                 for c in contents:
                     text.append(c.get_text())
             obj["content"] = text
-            classList = ['fs-12', 'float-left']
-            time_tags = soup.find_all('span', {'class' : classList})
+            #time_tags = soup.find_all('div', {'class' : "fs-12 float-left"})
+            time_tags = soup.find_all('span')
             for tag in time_tags:
-                time = tag.find('span')
-                if time:
-                    obj['time'] = time.get_text()
+                if tag.get_text().find("Published") != -1:
+                    obj['time'] = tag.get_text()
+                    print(obj["time"])
+                    break
+                #time = tag.find('span')
+                #print(time)
+                #if time and time.get_text().find("Published") != -1:
+                 #   obj['time'] = time.get_text()
+                  #  print(time)
+                   # break
+
 
     for obj in objects:
         get_info(obj)
