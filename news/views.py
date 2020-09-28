@@ -12,6 +12,7 @@ from datetime import datetime, timezone, timedelta
 
 path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 
+
 import news18_scraper as n18S
 import toi_scraper as toiS
 from dd_news_scraper import get_dd_articles
@@ -165,10 +166,10 @@ def index7(req):
 def multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title):
     all_urls = [toiURL, news18URL, ndtvURL, teleURL]
     p = Pool(4)
-    all_data = p.map(display2, all_urls)
+    apps.all_data = p.map(display2, all_urls)
     p.terminate()
     p.join()
-    return render(req, 'news/home_alt.html', {'title': title,'news' : all_data})
+    return render(req, 'news/home_alt.html', {'title': title,'news' : apps.all_data})
 
 
 def display2(url):
@@ -262,3 +263,11 @@ def readAloud(req):
 def stop(req):
     apps.flag = True
     return redirect('/')
+
+
+def display_single_page(req):
+    category_articles = list()
+    for i in range(4):
+        for j in range(3):
+            category_articles.append(apps.all_data[i][j])
+    return render(req, 'news/single_page.html', {'article': apps.all_data[0][0], 'all_articles': apps.all_data[0], 'category_articles': category_articles})

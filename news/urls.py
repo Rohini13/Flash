@@ -2,7 +2,7 @@ from django.urls import path,include
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('main/', views.index, name='index'),
     path('world/',views.index1, name='index1'),
     path('local/',views.index2, name='index2'),
     path('science_technology/',views.index3, name='index3'),
@@ -16,5 +16,6 @@ urlpatterns = [
     path('postsign/', views.postsign),
     path('logout/', views.logout, name="log"),
     path('signup/', views.signUp, name="signup"),
-    path('postsignup/', views.postsignup, name="postsignup")
+    path('postsignup/', views.postsignup, name="postsignup"),
+    path('single_page/', views.display_single_page, name="display_single_page")
 ]
