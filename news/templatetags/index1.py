@@ -38,6 +38,7 @@ def index2(indexable, i):
     else:
         return None
 
+
 @register.filter
 def logo(indexable, i):
     if(len(indexable)>i):
