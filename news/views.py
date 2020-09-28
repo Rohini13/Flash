@@ -82,7 +82,8 @@ def home(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["home"]
     teleURL = NEWS_SOURCES["Telegraph"]["home"]
     title = "Home Page"
-    return display_home(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    #return display_home(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
 
 def display_home(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title):
 
@@ -142,7 +143,8 @@ def index1(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["world"]
     teleURL = NEWS_SOURCES["Telegraph"]["world"]
     title = "World"
-    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
 
 
 def index2(req):
@@ -152,7 +154,8 @@ def index2(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["local"]
     teleURL = NEWS_SOURCES["Telegraph"]["local"]
     title = "Local"
-    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
 
 
 def index3(req):
@@ -162,7 +165,8 @@ def index3(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["technology"]
     teleURL = NEWS_SOURCES["Telegraph"]["technology"]
     title = "Science and Technology"
-    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
 
 def index4(req):
     toiURL = NEWS_SOURCES["Times of India"]["business"]
@@ -171,7 +175,8 @@ def index4(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["business"]
     teleURL = NEWS_SOURCES["Telegraph"]["business"]
     title = "Business and Economy"
-    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
 
 
 def index5(req):
@@ -181,7 +186,8 @@ def index5(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["health"]
     teleURL = NEWS_SOURCES["Telegraph"]["health"]
     title = "Health and Lifestyle"
-    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
 
 
 def index6(req):
@@ -191,7 +197,8 @@ def index6(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["sports"]
     teleURL = NEWS_SOURCES["Telegraph"]["sports"]
     title = "Sports"
-    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
 
 
 def index7(req):
@@ -201,7 +208,8 @@ def index7(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["entertainment"]
     teleURL = NEWS_SOURCES["Telegraph"]["entertainment"]
     title = "Entertainment"
-    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
 
 
 def multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL):
