@@ -703,7 +703,20 @@ button.btn:hover {
     margin-bottom: 30px;
 }
 
+.main-news h2 {
+    color: #000000;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px double #000000;
+}
 .main-news .mn-list h2 {
+    color: #000000;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px double #000000;
+}
+
+.top-news h2 {
     color: #000000;
     margin-bottom: 30px;
     padding-bottom: 15px;

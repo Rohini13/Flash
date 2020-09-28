@@ -94,12 +94,16 @@
                 </nav>
             </div>
         </div>
+        <br>
         <!-- Nav Bar End -->
 
         <!-- Top News Start-->
         <div class="top-news">
             <div class="container">
                 <div class="row">
+{#                <div class="main-news mn-list">#}
+{#                    <h2>Top Headlines</h2>#}
+{#                </div>#}
                     <div class="col-md-6 tn-left">
                             <div class="row tn-slider">
                                 {% for a in news%}
@@ -145,7 +149,7 @@
                         </div>
                     </div>
                 </div>
-            <br><br>
+            <br>
         <!-- Top News End-->
 
          <!-- Category News Start-->
@@ -174,7 +178,7 @@
                 </div>
             </div>
         </div>
-        <br><br>
+        <br>
         <!-- Category News End-->
 
         <!-- Main News Start-->
@@ -182,8 +186,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9">
+                        <div class="mn-list">
+                            <h2>More Stories</h2>
+                        </div>
                         <div class="row">
-
                             {% for n in news %}
                                 {% if n|check:3 == True %}
                                 <div class="col-md-4">

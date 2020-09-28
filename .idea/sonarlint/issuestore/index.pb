@@ -38,6 +38,4 @@ C
 F
 news/news18_scraper.py,a\f\af4b26f44f23b8f24b75a74a948d5787d73e1c6b
 ?
-news/dd_news.py,b\c\bc0a7e04a35e0a08f38f5e9229c9bf0b9dc27b76
-?
 news/sources.py,6\c\6cb3b47b8e6a6d3febf1e6532cdd6114cf968a4d
