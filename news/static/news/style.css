@@ -840,7 +840,7 @@ button.btn:hover {
     display: block;
     width: 100%;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     transition: .3s;
 }
@@ -927,11 +927,12 @@ button.btn:hover {
 }
 
 .sidebar .news-list .nl-item .nl-img {
-    width: 100px;
+    width: 150px;
 }
 
 .sidebar .news-list .nl-item .nl-img img {
-    width: 100px;
+    width: 150px;
+    height: 100px;
 }
 
 .sidebar .news-list .nl-item .nl-title {
@@ -940,7 +941,7 @@ button.btn:hover {
 
 .sidebar .news-list .nl-item .nl-title a {
     color: #000000;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     transition: all .3s;
 }
