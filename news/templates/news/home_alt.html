@@ -227,18 +227,25 @@
 
                     <div class="col-lg-3">
                         <div class="mn-list">
-                            <h2>Read More</h2>
+                            <h2>Also Read</h2>
                             <ul>
-                                <li><a href="">Lorem ipsum dolor sit amet</a></li>
-                                <li><a href="">Pellentesque tincidunt enim libero</a></li>
-                                <li><a href="">Morbi id finibus diam vel pretium enim</a></li>
-                                <li><a href="">Duis semper sapien in eros euismod sodales</a></li>
-                                <li><a href="">Vestibulum cursus lorem nibh</a></li>
-                                <li><a href="">Morbi ullamcorper vulputate metus non eleifend</a></li>
-                                <li><a href="">Etiam vitae elit felis sit amet</a></li>
-                                <li><a href="">Nullam congue massa vitae quam</a></li>
-                                <li><a href="">Proin sed ante rutrum</a></li>
-                                <li><a href="">Curabitur vel lectus</a></li>
+                                {% for n in news %}
+                                    {% if n|check:6 == True %}
+                                        <li><a href={% url "details" forloop.counter0 6%}>{{ n|index1:6 }}</a></li>
+                                    {% endif %}
+                                    {% if n|check:7 == True %}
+                                        <li><a href={% url "details" forloop.counter0 7%}>{{ n|index1:7 }}</a></li>
+                                    {% endif %}
+                                    {% if n|check:8 == True %}
+                                        <li><a href={% url "details" forloop.counter0 8%}>{{ n|index1:8 }}</a></li>
+                                    {% endif %}
+                                    {% if n|check:9 == True %}
+                                        <li><a href={% url "details" forloop.counter0 9%}>{{ n|index1:9 }}</a></li>
+                                    {% endif %}
+                                    {% if n|check:10 == True %}
+                                        <li><a href={% url "details" forloop.counter0 10%}>{{ n|index1:10 }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>

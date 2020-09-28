@@ -42,6 +42,6 @@ def get_articles(url):
                     "location": None,
                     "time": None,
                     "title": i.get("alt"),
-                    "image": i.get("data-src")
+                    "image": i.get("data-src"),
                 })
         return data

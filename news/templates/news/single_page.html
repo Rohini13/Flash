@@ -78,23 +78,23 @@
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
-
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                      <li class="nav-item"><a class="dropdown-item" href="#">For You</a></li>
-                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index1' %}">World</a></li>
-                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index2' %}">India</a></li>
-                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index3' %}">Science and Technology</a></li>
-                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index4' %}">Economy</a></li>
-                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index5' %}">Health and Lifestyle</a></li>
-                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index6' %}">Sports</a></li>
-                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index7' %}">Entertainment</a></li>
+{#                      <li class="nav-item"><a class="nav-item nav-link" href="#">FEATURED</a></li>#}
+                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index1' %}">WORLD</a></li>
+                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index2' %}">INDIA</a></li>
+                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index3' %}">SCIENCE</a></li>
+                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index4' %}">ECONOMY</a></li>
+                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index5' %}">HEALTH</a></li>
+                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index6' %}">SPORTS</a></li>
+                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index7' %}">ENTERTAINMENT</a></li>
                     </ul>
                   </div>
 
                 </nav>
             </div>
         </div>
+        <br>
         <!-- Nav Bar End -->
 
         <!-- Single News Start-->
@@ -136,15 +136,17 @@
                             <div class="row sn-slider">
                                 {% for b in all_articles%}
                                     {% for c in b %}
-                                <div class="container">
-                                    <div class="sn-img" style="height: 200px">
-                                        <img src={{ c.image }} />
-                                        <div class="sn-title">
-                                            <a href={% url "details" forloop.parentloop.counter0 forloop.counter0%}>{{ c.title }}</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                        {% endfor %}
+                                        {% if c.image != None %}
+                                            <div class="container">
+                                                <div class="sn-img" style="height: 200px">
+                                                    <img src={{ c.image }} />
+                                                    <div class="sn-title">
+                                                        <a href={% url "details" forloop.parentloop.counter0 forloop.counter0%}>{{ c.title }}</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
                                 {% endfor %}
                             </div>
                         </div>
@@ -156,14 +158,16 @@
                                 <h2 class="sw-title">In This Newspaper</h2>
                                 <div class="news-list">
                                     {% for a in all_articles|get_value:newsid %}
-                                    <div class="nl-item">
-                                        <div class="nl-img">
-                                            <img src={{ a.image }} />
-                                        </div>
-                                        <div class="nl-title">
-                                            <a href={% url "details" newsid forloop.counter0%}>{{ a.title }}</a>
-                                        </div>
-                                    </div>
+                                        {% if a.image != None %}
+                                            <div class="nl-item">
+                                                <div class="nl-img">
+                                                    <img src={{ a.image }} />
+                                                </div>
+                                                <div class="nl-title">
+                                                    <a href={% url "details" newsid forloop.counter0%}>{{ a.title }}</a>
+                                                </div>
+                                            </div>
+                                        {% endif %}
                                     {% endfor %}
                                 </div>
                             </div>
