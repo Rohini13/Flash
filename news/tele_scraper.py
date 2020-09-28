@@ -47,7 +47,8 @@ def get_links_alt(obj):
             "location": None,
             "source": "The Telegraph",
             "title": "",
-            "image": None
+            "image": None,
+            "logo": "../../static/news/images/telegraph.png"
         }
     except KeyError:
         import pdb
@@ -129,7 +130,8 @@ def get_links(obj):
             "scraped_at": datetime.utcnow().isoformat(),
             "published_at": None,
             "title": "",
-            "source": "The Telegraph"
+            "source": "The Telegraph",
+            "logo": "../../static/news/images/telegraph.png"
         }
     except KeyError:
         import pdb

@@ -94,7 +94,6 @@
                 </nav>
             </div>
         </div>
-        <br>
         <!-- Nav Bar End -->
 
         <!-- Single News Start-->
@@ -105,7 +104,6 @@
                         <div class="sn-container">
                             <div class="sn-content">
                                 <h1 class="sn-title">{{ article.title }}</h1>
-
                             </div>
                             <div class="sn-img">
                                 <figure><img src={{ article.image }} />
@@ -155,6 +153,7 @@
                     <div class="col-lg-4">
                         <div class="sidebar">
                             <div class="sidebar-widget">
+                            <br>
                                 <h2 class="sw-title">In This Newspaper</h2>
                                 <div class="news-list">
                                     {% for a in all_articles|get_value:newsid %}
