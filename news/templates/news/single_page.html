@@ -94,7 +94,6 @@
                 </nav>
             </div>
         </div>
-        <br>
         <!-- Nav Bar End -->
 
         <!-- Single News Start-->
@@ -103,15 +102,17 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="sn-container">
-                            <div class="sn-img">
-                                <img src={{ article.image }} />
-                            </div>
                             <div class="sn-content">
-                                <h1 class="sn-title">{{ article.title }}</h1>
-                                {% for text in article.content %}
-                                    <p>{{ text }}</p>
-                                    <br>
-                                {% endfor %}
+                                <div class="sn-img">
+                                    <img src={{ article.image }} />
+                                </div>
+                                <div class="sn-content">
+                                     <h1 class="sn-title"><img style="height: 50px; width: 50px" src={{ article.logo }}/> {{ article.title }} </h1>
+                                    {% for text in article.content %}
+                                        <p>{{ text }}</p>
+                                        <br>
+                                    {% endfor %}
+                                </div>
 
                             </div>
                         </div>
@@ -139,6 +140,7 @@
                     <div class="col-lg-4">
                         <div class="sidebar">
                             <div class="sidebar-widget">
+                            <br>
                                 <h2 class="sw-title">In This Newspaper</h2>
                                 <div class="news-list">
                                     {% for a in all_articles|get_value:newsid %}
