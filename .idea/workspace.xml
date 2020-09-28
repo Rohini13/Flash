@@ -41,6 +41,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="867" />
+    <option name="width" value="1104" />
+    <option name="height" value="960" />
+  </component>
   <component name="ProjectId" id="1h9lYQjnpyIvdOXAvLIt0tuVSBK" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -89,7 +94,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="Flash.settings" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\hp\Anaconda3\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\Cheena\AppData\Local\Programs\Python\Python36\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />

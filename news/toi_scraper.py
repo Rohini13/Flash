@@ -32,9 +32,11 @@ def get_articles(url):
                 c=obj.find("p").text
             else:
                 continue
+            text = list()
+            text.append(c)
             data.append({
                     "link": l,
-                    "content": c,
+                    "content": text,
                     "scraped_at": datetime.now(),
                     "source" : "Times Of India",
                     "location": None,
