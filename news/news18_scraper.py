@@ -21,10 +21,11 @@ def get_all_info(objects):
                     obj['location'] = t.get_text()
                 if(tag.find("ul",{ "class":"article-bnow"})!=None):
                     obj['time']=tag.find("ul",{ "class":"article-bnow"}).find_all('li')[1].get_text()[14:-3]
-
+            text = list()
             for tag in soup.find_all("article", {"class":"article-content-box first_big_character"}):
                 for t in tag.find_all("p"):
-                    obj['content'] = obj['content']+"\n" + t.get_text()
+                    text.append(t.get_text())
+            obj["content"] = text
             for tag in soup.find_all("div", {"class": "article-box"}):
                 obj['title']=tag.find("h1").get_text()
             for tag in soup.find_all("div", {"class": "article-bimg"}):

@@ -108,7 +108,11 @@
                             </div>
                             <div class="sn-content">
                                 <h1 class="sn-title">{{ article.title }}</h1>
-                                <p>{{ article.content }}</p>
+                                {% for text in article.content %}
+                                    <p>{{ text }}</p>
+                                    <br>
+                                {% endfor %}
+
                             </div>
                         </div>
                         <div class="sn-related">

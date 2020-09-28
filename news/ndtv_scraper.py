@@ -21,15 +21,15 @@ def get_all_ndtv_info(objects):
                 obj['title'] = title.get_text()
             classList = ['sp-cn', 'ins_storybody']
             contents = soup.find('div', {'class': classList})
-            text = ""
+            text = list()
             if contents:
                 location_tag = contents.find('b')
                 if location_tag:
                     obj['location'] = location_tag.get_text()
-                contents_text = contents.find_all('p')  # lambda tag: tag.name == 'p' and not tag.img, recursive=False)
+                contents_text = contents.find_all('p', limit=5)
                 for i in range(len(contents_text)):
                     if i != 0:
-                        text += '\n'+contents_text[i].get_text()
+                        text.append(contents_text[i].get_text())
                 image = contents.find('img')
                 if image:
                     obj['image'] = image.get('data-src')

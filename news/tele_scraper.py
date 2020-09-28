@@ -95,10 +95,10 @@ def get_all_info(objects):
                     obj['image'] = image.get('src')
                     break
             contents = soup.find_all('p')
-            text = ""
+            text = list()
             if contents:
                 for c in contents:
-                    text += '\n' + c.get_text()
+                    text.append(c.get_text())
             obj["content"] = text
             classList = ['fs-12', 'float-left']
             time_tags = soup.find_all('span', {'class' : classList})
