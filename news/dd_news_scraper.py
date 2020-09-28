@@ -15,10 +15,11 @@ def get_all_dd_info(objects):
         if response.status_code == 200:
             soup = BeautifulSoup(response.text, "html.parser")
             contents = soup.find('div', {'class': 'news_content'})
-            text=""
+            text = list()
             if contents:
                 contents = contents.find_all('p', limit=2)
-                text = contents[0].get_text() + '\n' + contents[1].get_text()
+                text.append(contents[0].get_text())
+                text.append(contents[1].get_text())
             obj["content"]=text
             title = soup.find("title")
             if title:

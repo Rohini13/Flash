@@ -413,13 +413,13 @@ button.btn:hover {
     display: block;
     width: 100%;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
     transition: .3s;
 }
 
 .top-news .tn-left .tn-title a {
-    font-size: 30px;
+    font-size: 27px;
     font-weight: 600;
 }
 
@@ -470,7 +470,7 @@ button.btn:hover {
 .top-news .slick-prev::before,
 .top-news .slick-next::before {
     font-family: "Font Awesome 5 Free";
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 900;
     color: #ffffff;
 }
@@ -533,7 +533,7 @@ button.btn:hover {
     display: block;
     width: 100%;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
     transition: .3s;
 }
@@ -573,7 +573,7 @@ button.btn:hover {
 .cat-news .slick-prev::before,
 .cat-news .slick-next::before {
     font-family: "Font Awesome 5 Free";
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 900;
     color: #ffffff;
 }
@@ -636,7 +636,7 @@ button.btn:hover {
 
 .tab-news .tn-title a {
     color: #000000;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
     transition: all .3s;
 }
@@ -690,7 +690,7 @@ button.btn:hover {
     display: block;
     width: 100%;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
     transition: .3s;
 }
