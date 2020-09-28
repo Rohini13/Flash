@@ -9,7 +9,7 @@ path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 from helper import (is_string, ist_to_utc, remove_duplicates,str_is_set)
 
 
-def get_all_info(objects):
+def get_all_info_alt(objects):
     def get_info(obj):
         url=obj['link']
         response = requests.get(url)
@@ -36,7 +36,7 @@ def get_all_info(objects):
         # print(obj)
 
 
-def get_links(obj):
+def get_links_alt(obj):
     obj = 'https://www.telegraphindia.com' + obj
     try:
         return {
@@ -54,7 +54,7 @@ def get_links(obj):
         pdb.set_trace()
 
 
-def get_articles(url):
+def get_articles_alt(url):
     response = requests.get(url)
     print(response.status_code)
     a_tags=[]
@@ -75,5 +75,72 @@ def get_articles(url):
         # print(a_tags)
         headlines = list(map(get_links, a_tags))
         get_all_info(headlines)
+        return headlines
+    return None
+
+
+def get_all_info(objects):
+
+    def get_info(obj):
+        response = requests.get(obj["link"])
+        if response.status_code == 200:
+            soup = BeautifulSoup(response.text, "html.parser")
+            title = soup.find('h1')
+            if title:
+                obj['title'] = title.get_text()
+            image_tags = soup.find_all('div',{'class':'pt-2'})
+            for tag in image_tags:
+                image = tag.find('img')
+                if image:
+                    obj['image'] = image.get('src')
+                    break
+            contents = soup.find_all('p')
+            text = ""
+            if contents:
+                for c in contents:
+                    text += '\n' + c.get_text()
+            obj["content"] = text
+            classList = ['fs-12', 'float-left']
+            time_tags = soup.find_all('span', {'class' : classList})
+            for tag in time_tags:
+                time = tag.find('span')
+                if time:
+                    obj['time'] = time.get_text()
+
+    for obj in objects:
+        get_info(obj)
+
+
+def get_links(obj):
+    if obj['href'][0] == '/':
+        obj['href'] = 'https://www.telegraphindia.com' + obj['href']
+    try:
+        return {
+            "content": "NA",
+            "link": obj["href"],
+            "scraped_at": datetime.utcnow().isoformat(),
+            "published_at": None,
+            "title": "",
+            "source": "Telegraph"
+        }
+    except KeyError:
+        import pdb
+        pdb.set_trace()
+
+
+def get_articles(url):
+    response = requests.get(url)
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, "html.parser")
+        a_tags = list(map(
+            lambda x: x.find("a"),
+            soup.find_all("div", {
+                "class": "asp_16_9"
+            }, limit=10)
+        ))
+        # a_tags = a_tags[0:17]
+        headlines = list(map(get_links, a_tags))
+        headlines = remove_duplicates(headlines, "link")
+        get_all_info(headlines)  # Fetch contents separately
         return headlines
     return None
