@@ -83,7 +83,7 @@ def home(req):
     teleURL = NEWS_SOURCES["Telegraph"]["home"]
     title = "Home Page"
     #return display_home(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
-    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 def display_home(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title):
 
@@ -134,7 +134,7 @@ def index(req):
     teleURL = NEWS_SOURCES["Telegraph"]["home"]
     title = "Recent Headlines"
     #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
-    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 def index1(req):
     toiURL = NEWS_SOURCES["Times of India"]["world"]
@@ -144,7 +144,7 @@ def index1(req):
     teleURL = NEWS_SOURCES["Telegraph"]["world"]
     title = "World"
     #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
-    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
 def index2(req):
@@ -155,7 +155,7 @@ def index2(req):
     teleURL = NEWS_SOURCES["Telegraph"]["local"]
     title = "Local"
     #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
-    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
 def index3(req):
@@ -166,7 +166,7 @@ def index3(req):
     teleURL = NEWS_SOURCES["Telegraph"]["technology"]
     title = "Science and Technology"
     #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
-    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 def index4(req):
     toiURL = NEWS_SOURCES["Times of India"]["business"]
@@ -176,7 +176,7 @@ def index4(req):
     teleURL = NEWS_SOURCES["Telegraph"]["business"]
     title = "Business and Economy"
     #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
-    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
 def index5(req):
@@ -187,7 +187,7 @@ def index5(req):
     teleURL = NEWS_SOURCES["Telegraph"]["health"]
     title = "Health and Lifestyle"
     #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
-    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
 def index6(req):
@@ -198,7 +198,7 @@ def index6(req):
     teleURL = NEWS_SOURCES["Telegraph"]["sports"]
     title = "Sports"
     #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
-    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
 def index7(req):
@@ -209,23 +209,19 @@ def index7(req):
     teleURL = NEWS_SOURCES["Telegraph"]["entertainment"]
     title = "Entertainment"
     #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
-    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
-def multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL):
+def multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title):
     all_urls = [toiURL, news18URL, ddnewsURL, ndtvURL, teleURL]
     p = Pool(5)
     all_data = p.map(display2, all_urls)
-    #all_data = list(all_data)
-    print(all_data)
-    print(len(all_data))
     p.terminate()
     p.join()
-    return render(req, 'news/index_alt.html', {'all_data' : all_data})
+    return render(req, 'news/home_alt.html', {'title': title,'news' : all_data})
 
 
 def display2(url):
-
     if url.find('timesofindia') != -1:
         toi_news = toiS.get_articles(url)
         for t in toi_news:
@@ -259,8 +255,6 @@ def display2(url):
     if url.find('telegraphindia') != -1:
         tele_news = teleS.get_articles(url.format(1))
         return tele_news
-
-    print(1)
 
 
 def display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title):

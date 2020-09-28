@@ -11,7 +11,7 @@ body {
 }
 
 a {
-    color: #FF6F61;
+    color: #094ca0;
     transition: 0.5s;
 }
 
@@ -50,7 +50,7 @@ h6 {
 .back-to-top {
     position: fixed;
     display: none;
-    background: #FF6F61;
+    background: #42A5FF;
     color: #ffffff;
     width: 35px;
     height: 35px;
@@ -90,7 +90,7 @@ h6 {
 .form-control:focus,
 .custom-select:focus {
     box-shadow: none;
-    border-color: #FF6F61;
+    border-color: #42A5FF;
 }
 
 .custom-radio,
@@ -106,7 +106,7 @@ h6 {
 .custom-radio .custom-control-input:checked~.custom-control-label::before,
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     color: #ffffff;
-    background: #FF6F61;
+    background: #42A5FF;
 }
 
 button.btn {
@@ -117,8 +117,8 @@ button.btn {
 
 button.btn:hover {
     color: #ffffff;
-    background: #FF6F61;
-    border-color: #FF6F61;
+    background: #42A5FF;
+    border-color: #42A5FF;
 }
 
 
@@ -133,7 +133,7 @@ button.btn:hover {
 .top-bar .tb-contact p {
     display: inline-block;
     margin: 0;
-    color: #FF6F61;
+    color: #42A5FF;
     font-size: 14px;
 }
 
@@ -151,7 +151,7 @@ button.btn:hover {
 }
 
 .top-bar .tb-menu a {
-    color: #FF6F61;
+    color: #42A5FF;
     font-size: 14px;
     margin: 0 8px;
 }
@@ -168,7 +168,7 @@ button.btn:hover {
     position: absolute;
     content: "/";
     margin: 1px 0 0 6px;
-    color: #FF6F61;
+    color: #42A5FF;
     font-size: 14px;
 }
 
@@ -188,22 +188,20 @@ button.btn:hover {
 /*********** Brand CSS ************/
 /**********************************/
 .brand {
-    margin: 15px 0;
+    margin: 2px 0;
     background: #ffffff;
 }
 
 .brand .b-logo {
-    text-align: left;
-    overflow: hidden;
+    text-align: center;
 }
 
 .brand .b-logo a img {
-    max-width: 100%;
-    max-height: 60px;
+    max-width: 350px;
+    max-height: 320px;
 }
 
 .brand .b-ads {
-    overflow: hidden;
 }
 
 .brand .b-ads a img {
@@ -225,7 +223,7 @@ button.btn:hover {
 }
 
 .brand .b-search input[type=text]:focus {
-    border-color: #FF6F61;
+    border-color: #42A5FF;
 }
 
 .brand .b-search button {
@@ -236,18 +234,18 @@ button.btn:hover {
     right: 15px;
     border: none;
     background: none;
-    color: #FF6F61;
+    color: #42A5FF;
     border-radius: 0 4px 4px 0;
 }
 
 .brand .b-search button:hover {
-    background: #FF6F61;
+    background: #42A5FF;
     color: #ffffff;
 }
 
 @media (min-width: 768px) {
     .brand {
-        max-height: 90px;
+        max-height: 150px;
     }
 }
 
@@ -256,7 +254,7 @@ button.btn:hover {
     .brand .b-ads,
     .brand .b-search {
         text-align: center;
-        margin-bottom: 15px;
+        margin-bottom: 2px;
     }
     
     .brand .b-search {
@@ -309,7 +307,7 @@ button.btn:hover {
 @media (min-width: 768px) {
     .nav-bar,
     .nav-bar .navbar {
-        background: #FF6F61 !important;
+        background: #42A5FF !important;
     }
     
     .nav-bar .navbar-brand {
@@ -327,7 +325,7 @@ button.btn:hover {
     .nav-bar,
     .nav-bar .navbar {
         padding: 3px 0;
-        background: #FF6F61 !important;
+        background: #42A5FF !important;
     }
     
     .nav-bar a.nav-link {
@@ -356,7 +354,7 @@ button.btn:hover {
     padding: 3px 0;
     text-align: center;
     font-size: 14px;
-    background: #FF6F61;
+    background: #42A5FF;
     border: 1px solid #ffffff;
     border-radius: 4px;
 }
@@ -371,7 +369,7 @@ button.btn:hover {
 }
 
 .nav-bar .social a:hover i {
-    color: #FF6F61;
+    color: #42A5FF;
 }
 
 
@@ -427,7 +425,7 @@ button.btn:hover {
 }
 
 .top-news .tn-title a:hover {
-    color: #FF6F61;
+    color: #42A5FF;
 }
 
 .top-news .tn-left {
@@ -467,7 +465,7 @@ button.btn:hover {
 .top-news .slick-next:hover,
 .top-news .slick-next:focus {
     color: #ffffff;
-    background: #FF6F61;
+    background: #42A5FF;
 }
 
 .top-news .slick-prev::before,
@@ -543,7 +541,7 @@ button.btn:hover {
 }
 
 .cat-news .cn-title a:hover {
-    color: #FF6F61;
+    color: #42A5FF;
 }
 
 .cat-news .slick-prev,
@@ -571,7 +569,7 @@ button.btn:hover {
 .cat-news .slick-next:hover,
 .cat-news .slick-next:focus {
     color: #ffffff;
-    background: #FF6F61;
+    background: #42A5FF;
 }
 
 .cat-news .slick-prev::before,
@@ -611,7 +609,7 @@ button.btn:hover {
 .tab-news .nav.nav-pills .nav-link:hover,
 .tab-news .nav.nav-pills .nav-link.active {
     color: #ffffff;
-    background: #FF6F61;
+    background: #42A5FF;
 }
 
 .tab-news .tab-content {
@@ -646,7 +644,7 @@ button.btn:hover {
 }
 
 .tab-news .tn-title a:hover {
-    color: #FF6F61;
+    color: #42A5FF;
 }
 
 
@@ -700,7 +698,7 @@ button.btn:hover {
 }
 
 .main-news .mn-title a:hover {
-    color: #FF6F61;
+    color: #42A5FF;
 }
 
 .main-news .mn-list {
@@ -744,7 +742,7 @@ button.btn:hover {
 }
 
 .main-news .mn-list ul li a:hover {
-    color: #FF6F61;
+    color: #42A5FF;
 }
 
 
@@ -850,7 +848,7 @@ button.btn:hover {
 }
 
 .single-news .sn-slider .sn-title a:hover {
-    color: #FF6F61;
+    color: #42A5FF;
 }
 
 .single-news .sn-slider .slick-prev,
@@ -878,7 +876,7 @@ button.btn:hover {
 .single-news .sn-slider .slick-next:hover,
 .single-news .sn-slider .slick-next:focus {
     color: #ffffff;
-    background: #FF6F61;
+    background: #42A5FF;
 }
 
 .single-news .sn-slider .slick-prev::before,
@@ -950,7 +948,7 @@ button.btn:hover {
 }
 
 .sidebar .news-list .nl-item .nl-title a:hover {
-    color: #FF6F61;
+    color: #42A5FF;
 }
 
 .sidebar .sidebar-widget .tab-news {
@@ -967,7 +965,7 @@ button.btn:hover {
 .sidebar .tab-news .nav.nav-pills .nav-link:hover,
 .sidebar .tab-news .nav.nav-pills .nav-link.active {
     color: #ffffff;
-    background: #FF6F61;
+    background: #42A5FF;
 }
 
 .sidebar .tab-news .tab-content {
@@ -1005,7 +1003,7 @@ button.btn:hover {
 }
 
 .sidebar .tab-news .tn-title a:hover {
-    color: #FF6F61;
+    color: #42A5FF;
 }
 
 .sidebar .sidebar-widget .category {
@@ -1033,7 +1031,7 @@ button.btn:hover {
 }
 
 .sidebar .category ul li a:hover {
-    color: #FF6F61;
+    color: #42A5FF;
 }
 
 .sidebar .category ul li::before {
@@ -1066,8 +1064,8 @@ button.btn:hover {
 
 .sidebar .sidebar-widget .tags a:hover {
     color: #ffffff;
-    background: #FF6F61;
-    border: 1px solid #FF6F61;
+    background: #42A5FF;
+    border: 1px solid #42A5FF;
 }
 
 .sidebar .sidebar-widget .image a {
@@ -1134,8 +1132,8 @@ button.btn:hover {
 }
 
 .contact .social a:hover {
-    background: #FF6F61;
-    border-color: #FF6F61;
+    background: #42A5FF;
+    border-color: #42A5FF;
 }
 
 .contact .social a:hover i {
@@ -1201,7 +1199,7 @@ button.btn:hover {
 
 .footer .footer-widget ul li a:hover {
     padding-left: 10px;
-    color: #FF6F61;
+    color: #42A5FF;
 }
 
 .footer .contact-info p {
@@ -1237,7 +1235,7 @@ button.btn:hover {
 }
 
 .footer .social a:hover {
-    background: #FF6F61;
+    background: #42A5FF;
 }
 
 .footer .social a:hover i {
@@ -1278,7 +1276,7 @@ button.btn:hover {
 }
 
 .footer .newsletter .btn:hover {
-    background: #FF6F61;
+    background: #42A5FF;
 }
 
 .footer .newsletter input:focus,
@@ -1314,7 +1312,7 @@ button.btn:hover {
 }
 
 .footer-menu .f-menu a:hover {
-    color: #FF6F61;
+    color: #42A5FF;
 }
 
 .footer-menu .f-menu a:last-child {

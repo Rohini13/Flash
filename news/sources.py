@@ -1,17 +1,17 @@
 NEWS_SOURCES = {
-    "The Hindu": {
-        "home": "https://www.thehindu.com/",
-        "entertainment": "https://www.thehindu.com/entertainment/",
-        "business": "https://www.thehindu.com/business/",
-        "sports" : "https://www.thehindu.com/sport/",
-        "world" : "https://www.thehindu.com/news/international/",
-        "health" : "https://www.thehindu.com/life-and-style/",
-        "technology" : "https://www.thehindu.com/sci-tech/technology/",
-
-
-    },
+    # "The Hindu": {
+    #     "home": "https://www.thehindu.com/",
+    #     "entertainment": "https://www.thehindu.com/entertainment/",
+    #     "business": "https://www.thehindu.com/business/",
+    #     "sports" : "https://www.thehindu.com/sport/",
+    #     "world" : "https://www.thehindu.com/news/international/",
+    #     "health" : "https://www.thehindu.com/life-and-style/",
+    #     "technology" : "https://www.thehindu.com/sci-tech/technology/",
+    #
+    #
+    # },
     "NDTV": {
-        "home": "https://www.ndtv.com/india",
+        "home": "https://www.ndtv.com/world-news",
         "local": "https://www.ndtv.com/india",
         "entertainment": "https://www.ndtv.com/entertainment/",
         "health": "https://www.ndtv.com/health/",
@@ -30,27 +30,27 @@ NEWS_SOURCES = {
         "health" : "https://timesofindia.indiatimes.com/briefs/lifestyle/",
         "technology" : "https://timesofindia.indiatimes.com/briefs/gadgets/",
     },
-    "Hindustan Times": {
-        "home": "https://www.hindustantimes.com/latest-news/page/?pageno={}",
-        "local":"https://www.hindustantimes.com/cities/page/?pageno={}" ,
-        "entertainment": "https://www.hindustantimes.com/entertainment/page/?pageno={}",
-        "business": "https://www.hindustantimes.com/business-news/page/?pageno={}",
-        "sports" : "https://www.hindustantimes.com/sports-newspage/?pageno={}/",
-        "world" : "https://www.hindustantimes.com/world-news/page/?pageno={}",
-        "health" : "https://www.hindustantimes.com/lifestyle/page/?pageno={}",
-        "technology" : "https://www.hindustantimes.com/science/page/?pageno={}",
-    },
-    "Deccan Chronicle": {
-        "home": "https://www.deccanchronicle.com/",
-        "entertainment": "https://www.deccanchronicle.com/entertainment",
-        "business": "https://www.deccanchronicle.com/business",
-        "sports" : "https://www.deccanchronicle.com/sports",
-        "world" : "https://www.deccanchronicle.com/world",
-        "health" : "https://www.deccanchronicle.com/lifestyle",
-        "technology" : "https://www.deccanchronicle.com/technology",
-    },
+    # "Hindustan Times": {
+    #     "home": "https://www.hindustantimes.com/latest-news/page/?pageno={}",
+    #     "local":"https://www.hindustantimes.com/cities/page/?pageno={}" ,
+    #     "entertainment": "https://www.hindustantimes.com/entertainment/page/?pageno={}",
+    #     "business": "https://www.hindustantimes.com/business-news/page/?pageno={}",
+    #     "sports" : "https://www.hindustantimes.com/sports-newspage/?pageno={}/",
+    #     "world" : "https://www.hindustantimes.com/world-news/page/?pageno={}",
+    #     "health" : "https://www.hindustantimes.com/lifestyle/page/?pageno={}",
+    #     "technology" : "https://www.hindustantimes.com/science/page/?pageno={}",
+    # },
+    # "Deccan Chronicle": {
+    #     "home": "https://www.deccanchronicle.com/",
+    #     "entertainment": "https://www.deccanchronicle.com/entertainment",
+    #     "business": "https://www.deccanchronicle.com/business",
+    #     "sports" : "https://www.deccanchronicle.com/sports",
+    #     "world" : "https://www.deccanchronicle.com/world",
+    #     "health" : "https://www.deccanchronicle.com/lifestyle",
+    #     "technology" : "https://www.deccanchronicle.com/technology",
+    # },
     "DD News": {
-        "home": "http://ddnews.gov.in/",
+        "home": "http://ddnews.gov.in/international",
         "local": "http://ddnews.gov.in/national",
         "entertainment": "http://ddnews.gov.in/entertainment",
         "business": "http://ddnews.gov.in/business",

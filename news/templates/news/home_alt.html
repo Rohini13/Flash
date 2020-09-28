@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Bootstrap News Template - Free HTML Templates</title>
+        <title>{{ title }}</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Bootstrap News Template - Free HTML Templates" name="keywords">
         <meta content="Bootstrap News Template - Free HTML Templates" name="description">
@@ -25,6 +25,28 @@
     </head>
 
     <body>
+        <!-- Top Bar Start -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="tb-contact">
+                            <p><i class="fas fa-envelope"></i>flash24news7@gmail.com</p>
+                            <p><i class="fas fa-phone-alt"></i>+91 7463917738</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tb-menu">
+                            <a href="">About</a>
+                            <a href="">Developers</a>
+                            <a href="">Privacy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top Bar Start -->
+
         <!-- Brand Start -->
         <div class="brand">
             <div class="container">
@@ -32,7 +54,7 @@
                     <div class="col-lg-3 col-md-4">
                         <div class="b-logo">
                             <a href="index.html">
-                                <img src="../../static/news/images/logo.png" alt="Logo">
+                                <img src="../../static/news/images/flash.png" alt="Logo" >
                             </a>
                         </div>
                     </div>
@@ -52,27 +74,19 @@
 
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">For You</a>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Explore
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="{% url 'index1' %}">World</a>
-                          <a class="dropdown-item" href="{% url 'index2' %}">Local</a>
-                          <a class="dropdown-item" href="{% url 'index3' %}">Science and Technology</a>
-                          <a class="dropdown-item" href="{% url 'index4' %}">Business and Economy</a>
-                          <a class="dropdown-item" href="{% url 'index5' %}">Health and Lifestyle</a>
-                          <a class="dropdown-item" href="{% url 'index6' %}">Sports</a>
-                          <a class="dropdown-item" href="{% url 'index7' %}">Entertainment</a>
-                        </div>
-                      </li>
+                      <li class="nav-item"><a class="dropdown-item" href="#">For You</a></li>
+                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index1' %}">World</a></li>
+                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index2' %}">India</a></li>
+                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index3' %}">Science and Technology</a></li>
+                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index4' %}">Economy</a></li>
+                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index5' %}">Health and Lifestyle</a></li>
+                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index6' %}">Sports</a></li>
+                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index7' %}">Entertainment</a></li>
                     </ul>
                   </div>
+
                 </nav>
-        </div>
+            </div>
         </div>
         <!-- Nav Bar End -->
 
@@ -83,15 +97,17 @@
                     <div class="container">
                         <div class="row tn-slider">
                             {% for a in news%}
+                                {% for t in a %}
                                 <div class="container">
                                 <div class="tn-img">
-                                    <img style="height: 500px" src={{ a.image }} />
+                                    <img style="height: 500px" src={{ t.image }} />
                                     <div class="tn-title">
-                                        <a href="">{{ a.title }}</a>
+                                        <a href="">{{ t.title }}</a>
                                     </div>
                                 </div>
                                 </div>
                             {% endfor %}
+                        {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -107,60 +123,61 @@
                         <div class="footer-widget">
                             <h3 class="title">Get in Touch</h3>
                             <div class="contact-info">
-                                <p><i class="fa fa-map-marker"></i>123 News Street, NY, USA</p>
-                                <p><i class="fa fa-envelope"></i>info@example.com</p>
-                                <p><i class="fa fa-phone"></i>+123-456-7890</p>
+{#                                <p><i class="fa fa-map-marker"></i>123 News Street, NY, USA</p>#}
+                                <p><i class="fa fa-envelope"></i>flash24news7@gmail.com</p>
+                                <p><i class="fa fa-phone"></i>+91 7463917738</p>
                                 <div class="social">
                                     <a href=""><i class="fab fa-twitter"></i></a>
                                     <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                    <a href=""><i class="fab fa-youtube"></i></a>
+                                    <a href=""><i class="fab fa-github"></i></a>
+{#                                    <a href=""><i class="fab fa-linkedin-in"></i></a>#}
+{#                                    <a href=""><i class="fab fa-instagram"></i></a>#}
+{#                                    <a href=""><i class="fab fa-youtube"></i></a>#}
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-widget">
-                            <h3 class="title">Useful Links</h3>
-                            <ul>
-                                <li><a href="#">Lorem ipsum</a></li>
-                                <li><a href="#">Pellentesque</a></li>
-                                <li><a href="#">Aenean vulputate</a></li>
-                                <li><a href="#">Vestibulum sit amet</a></li>
-                                <li><a href="#">Nam dignissim</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-widget">
-                            <h3 class="title">Quick Links</h3>
-                            <ul>
-                                <li><a href="#">Lorem ipsum</a></li>
-                                <li><a href="#">Pellentesque</a></li>
-                                <li><a href="#">Aenean vulputate</a></li>
-                                <li><a href="#">Vestibulum sit amet</a></li>
-                                <li><a href="#">Nam dignissim</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-widget">
-                            <h3 class="title">Newsletter</h3>
-                            <div class="newsletter">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed porta dui. Class aptent taciti sociosqu
-                                </p>
-                                <form>
-                                    <input class="form-control" type="email" placeholder="Your email here">
-                                    <button class="btn">Submit</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+{#                    <div class="col-lg-3 col-md-6">#}
+{#                        <div class="footer-widget">#}
+{#                            <h3 class="title">Useful Links</h3>#}
+{#                            <ul>#}
+{#                                <li><a href="#">Lorem ipsum</a></li>#}
+{#                                <li><a href="#">Pellentesque</a></li>#}
+{#                                <li><a href="#">Aenean vulputate</a></li>#}
+{#                                <li><a href="#">Vestibulum sit amet</a></li>#}
+{#                                <li><a href="#">Nam dignissim</a></li>#}
+{#                            </ul>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="col-lg-3 col-md-6">#}
+{#                        <div class="footer-widget">#}
+{#                            <h3 class="title">Quick Links</h3>#}
+{#                            <ul>#}
+{#                                <li><a href="#">Lorem ipsum</a></li>#}
+{#                                <li><a href="#">Pellentesque</a></li>#}
+{#                                <li><a href="#">Aenean vulputate</a></li>#}
+{#                                <li><a href="#">Vestibulum sit amet</a></li>#}
+{#                                <li><a href="#">Nam dignissim</a></li>#}
+{#                            </ul>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                    <div class="col-lg-3 col-md-6">#}
+{#                        <div class="footer-widget">#}
+{#                            <h3 class="title">Newsletter</h3>#}
+{#                            <div class="newsletter">#}
+{#                                <p>#}
+{#                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed porta dui. Class aptent taciti sociosqu#}
+{#                                </p>#}
+{#                                <form>#}
+{#                                    <input class="form-control" type="email" placeholder="Your email here">#}
+{#                                    <button class="btn">Submit</button>#}
+{#                                </form>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
                 </div>
             </div>
         </div>
@@ -170,31 +187,28 @@
         <div class="footer-menu">
             <div class="container">
                 <div class="f-menu">
-                    <a href="">Terms of use</a>
-                    <a href="">Privacy policy</a>
-                    <a href="">Cookies</a>
-                    <a href="">Accessibility help</a>
-                    <a href="">Advertise with us</a>
-                    <a href="">Contact us</a>
+                    <a href="">About Flash</a>
+                    <a href="">Developers Info</a>
+                    <a href="">Privacy Policy</a>
                 </div>
             </div>
         </div>
         <!-- Footer Menu End -->
 
-        <!-- Footer Bottom Start -->
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 copyright">
-                        <p>Copyright &copy; <a href="https://htmlcodex.com">HTML Codex</a>. All Rights Reserved</p>
-                    </div>
-
-                    <div class="col-md-6 template-by">
-                        <p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+{#        <!-- Footer Bottom Start -->#}
+{#        <div class="footer-bottom">#}
+{#            <div class="container">#}
+{#                <div class="row">#}
+{#                    <div class="col-md-6 copyright">#}
+{#                        <p>Copyright &copy; <a href="https://htmlcodex.com">HTML Codex</a>. All Rights Reserved</p>#}
+{#                    </div>#}
+{##}
+{#                    <div class="col-md-6 template-by">#}
+{#                        <p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
         <!-- Footer Bottom End -->
 
         <!-- Back to Top -->
