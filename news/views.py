@@ -212,7 +212,7 @@ def index7(req):
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
-def multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL):
+def multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title):
     all_urls = [toiURL, news18URL, ndtvURL, teleURL]
     p = Pool(4)
     all_data = p.map(display2, all_urls)
