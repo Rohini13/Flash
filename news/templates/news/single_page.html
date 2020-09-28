@@ -102,13 +102,12 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="sn-container">
+                        <div class="sn-img">
+                                <figure><img src={{ article.image }} /></figure>
+                            </div>
                             <div class="sn-content">
                                 <h1 class="sn-title">{{ article.title }}</h1>
-                            </div>
-                            <div class="sn-img">
-                                <figure><img src={{ article.image }} />
-                                    <figcaption>
-                                        {% if article.time is not None %}
+                                {% if article.time is not None %}
                                             {% if newsid == 2 %}
                                                 <div style="float: left"><i>Last {{ article.time }}</i></div>
                                                 {% elif newsid == 3%}
@@ -117,9 +116,7 @@
                                                 <div style="float: left"><i>Last Updated: {{ article.time }}</i></div>
                                                 {% endif %}
                                         {% endif %}
-                                        <div style="float: right"><i>Source: {{ article.source }}</i></div>
-                                    </figcaption>
-                                </figure>
+                                                <div style="float: right"><i>Source: {{ article.source }}</i></div>
                             </div>
                             <div class="sn-content">
                                 {% for text in article.content %}
@@ -153,7 +150,6 @@
                     <div class="col-lg-4">
                         <div class="sidebar">
                             <div class="sidebar-widget">
-                            <br>
                                 <h2 class="sw-title">In This Newspaper</h2>
                                 <div class="news-list">
                                     {% for a in all_articles|get_value:newsid %}

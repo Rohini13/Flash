@@ -159,7 +159,7 @@
                     {% for n in news %}
                     {% if n|check:0 == True %}
                     <div class="col-md-6">
-                        <h2>{{ n|index2:0 }}</h2>
+                        <h2><img style="height: 50px ; width: 50px" src={{ n|logo:0 }}/> {{ n|index2:0 }}</h2>
                         <div class="row cn-slider">
                             {% for a in n %}
                             <div class="col-md-6">
