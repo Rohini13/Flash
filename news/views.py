@@ -265,9 +265,10 @@ def stop(req):
     return redirect('/')
 
 
-def display_single_page(req):
+def details(req, newsid, articleid):
     category_articles = list()
     for i in range(4):
         for j in range(3):
             category_articles.append(apps.all_data[i][j])
-    return render(req, 'news/single_page.html', {'article': apps.all_data[0][0], 'all_articles': apps.all_data[0], 'category_articles': category_articles})
+    article = apps.all_data[newsid][articleid]
+    return render(req, 'news/single_page.html', {'article': article, 'all_articles': apps.all_data, 'newsid': newsid})

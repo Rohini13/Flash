@@ -112,7 +112,7 @@
                                         <div class="tn-img">
                                             <img style="height: 400px" src={{ a|index:0 }} />
                                             <div class="tn-title">
-                                                <a href="">{{ a|index1:0 }}</a>
+                                                <a href={% url "details" forloop.counter0 0%}>{{ a|index1:0 }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -122,7 +122,7 @@
                                         <div class="tn-img">
                                             <img style="height: 400px" src={{ a|index:1 }} />
                                             <div class="tn-title">
-                                                <a href="">{{ a|index1:1 }}</a>
+                                                <a href={% url "details" forloop.counter0 1%}>{{ a|index1:1 }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +138,7 @@
                                             <div class="tn-img">
                                                 <img style="height: 200px" src={{ a|index:2 }} />
                                                 <div class="tn-title">
-                                                    <a href="">{{ a|index1:2 }}</a>
+                                                    <a href={% url "details" forloop.counter0 2%}>{{ a|index1:2 }}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -166,7 +166,7 @@
                                 <div class="cn-img">
                                     <img style="height: 200px" src={{ a.image }} />
                                     <div class="cn-title">
-                                        <a href="">{{ a.title }}</a>
+                                        <a href={% url "details" forloop.parentloop.counter0 forloop.counter0%}>{{ a.title }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -196,7 +196,7 @@
                                     <div class="mn-img">
                                         <img style="height: 200px" src={{ n|index:3 }} />
                                         <div class="mn-title">
-                                            <a href="">{{ n|index1:3 }}</a>
+                                            <a href={% url "details" forloop.counter0 3%}>{{ n|index1:3 }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -206,7 +206,7 @@
                                     <div class="mn-img">
                                         <img style="height: 200px" src={{ n|index:4 }} />
                                         <div class="mn-title">
-                                            <a href="">{{ n|index1:4 }}</a>
+                                            <a href={% url "details" forloop.counter0 4%}>{{ n|index1:4 }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -216,7 +216,7 @@
                                     <div class="mn-img">
                                         <img style="height: 200px" src={{ n|index:5 }} />
                                         <div class="mn-title">
-                                            <a href="">{{ n|index1:5 }}</a>
+                                            <a href={% url "details" forloop.counter0 5%}>{{ n|index1:5 }}</a>
                                         </div>
                                     </div>
                                 </div>
