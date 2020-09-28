@@ -164,7 +164,7 @@ def index7(req):
 
 
 def multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title):
-    all_urls = [toiURL, news18URL, ndtvURL, teleURL]
+    all_urls = [news18URL, teleURL,  ndtvURL, toiURL]
     p = Pool(4)
     apps.all_data = p.map(display2, all_urls)
     p.terminate()
@@ -173,6 +173,22 @@ def multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, titl
 
 
 def display2(url):
+    if url.find('news18') != -1:
+        n18_news = n18S.get_articles(url.format(1))
+        if(n18_news!=None):
+            for n in n18_news:
+                if n["content"] == "":
+                    n18_news.remove(n)
+        else:
+            print("None")
+        print("news 18 done")
+        return n18_news
+
+    if url.find('telegraphindia') != -1:
+        tele_news = teleS.get_articles(url.format(1))
+        print("telegraph done")
+        return tele_news
+
     if url.find('timesofindia') != -1:
         toi_news = toiS.get_articles(url)
         for t in toi_news:
@@ -199,30 +215,14 @@ def display2(url):
         print("dd news done")
         return dd_news
 
-    if url.find('news18') != -1:
-        n18_news = n18S.get_articles(url.format(1))
-        if(n18_news!=None):
-            for n in n18_news:
-                if n["content"] == "":
-                    n18_news.remove(n)
-        else:
-            print("None")
-        print("news 18 done")
-        return n18_news
-
-    if url.find('telegraphindia') != -1:
-        tele_news = teleS.get_articles(url.format(1))
-        print("telegraph done")
-        return tele_news
-
-
 def display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title):
 
-    toi_news = toiS.get_articles(toiURL)
+    tele_news = teleS.get_articles(teleURL.format(1))
     n18_news = n18S.get_articles(news18URL.format(1))
+    toi_news = toiS.get_articles(toiURL)
     dd_news = get_dd_articles(ddnewsURL.format(1))
     ndtv_news = get_ndtv_articles(ndtvURL.format(1))
-    tele_news = teleS.get_articles(teleURL.format(1))
+
     for dd in dd_news:
         if dd["link"] == "#":
             dd_news.remove(dd)
