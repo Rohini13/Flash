@@ -29,7 +29,8 @@ def get_all_ndtv_info(objects):
                 contents_text = contents.find_all('p', limit=5)
                 for i in range(len(contents_text)):
                     if i != 0:
-                        text.append(contents_text[i].get_text())
+                        if contents_text[i].get_text() != "":
+                            text.append(contents_text[i].get_text())
                 image = contents.find('img')
                 if image:
                     obj['image'] = image.get('data-src')
