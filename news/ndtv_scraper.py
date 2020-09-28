@@ -71,9 +71,9 @@ def get_ndtv_articles(url):
             lambda x: x.find("a"),
             soup.find_all("div", {
                 "class": "new_storylising_img"
-            })
+            }, limit=10)
         ))
-        a_tags = a_tags[0:17]
+        #a_tags = a_tags[0:17]
         headlines = list(map(get_ndtv_links, a_tags))
         headlines = remove_duplicates(headlines, "link")
         get_all_ndtv_info(headlines)  # Fetch contents separately
