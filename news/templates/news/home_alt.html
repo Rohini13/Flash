@@ -227,12 +227,24 @@
 
                     <div class="col-lg-3">
                         <div class="mn-list">
-                            <h2>Read More</h2>
+                            <h2>Also Read</h2>
                             <ul>
                                 {% for n in news %}
-                                    {% for a in n %}
-                                        <li><a href="">{{ a.title }}</a></li>
-                                    {% endfor %}
+                                    {% if n|check:6 == True %}
+                                        <li><a href={% url "details" forloop.counter0 6%}>{{ n|index1:6 }}</a></li>
+                                    {% endif %}
+                                    {% if n|check:7 == True %}
+                                        <li><a href={% url "details" forloop.counter0 7%}>{{ n|index1:7 }}</a></li>
+                                    {% endif %}
+                                    {% if n|check:8 == True %}
+                                        <li><a href={% url "details" forloop.counter0 8%}>{{ n|index1:8 }}</a></li>
+                                    {% endif %}
+                                    {% if n|check:9 == True %}
+                                        <li><a href={% url "details" forloop.counter0 9%}>{{ n|index1:9 }}</a></li>
+                                    {% endif %}
+                                    {% if n|check:10 == True %}
+                                        <li><a href={% url "details" forloop.counter0 10%}>{{ n|index1:10 }}</a></li>
+                                    {% endif %}
                                 {% endfor %}
                             </ul>
                         </div>

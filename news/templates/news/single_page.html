@@ -120,15 +120,17 @@
                             <div class="row sn-slider">
                                 {% for b in all_articles%}
                                     {% for c in b %}
-                                <div class="container">
-                                    <div class="sn-img" style="height: 200px">
-                                        <img src={{ c.image }} />
-                                        <div class="sn-title">
-                                            <a href={% url "details" forloop.parentloop.counter0 forloop.counter0%}>{{ c.title }}</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                        {% endfor %}
+                                        {% if c.image != None %}
+                                            <div class="container">
+                                                <div class="sn-img" style="height: 200px">
+                                                    <img src={{ c.image }} />
+                                                    <div class="sn-title">
+                                                        <a href={% url "details" forloop.parentloop.counter0 forloop.counter0%}>{{ c.title }}</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
                                 {% endfor %}
                             </div>
                         </div>
@@ -141,14 +143,14 @@
                                 <div class="news-list">
                                     {% for a in all_articles|get_value:newsid %}
                                         {% if a.image != None %}
-                                    <div class="nl-item">
-                                        <div class="nl-img">
-                                            <img src={{ a.image }} />
-                                        </div>
-                                        <div class="nl-title">
-                                            <a href={% url "details" newsid forloop.counter0%}>{{ a.title }}</a>
-                                        </div>
-                                    </div>
+                                            <div class="nl-item">
+                                                <div class="nl-img">
+                                                    <img src={{ a.image }} />
+                                                </div>
+                                                <div class="nl-title">
+                                                    <a href={% url "details" newsid forloop.counter0%}>{{ a.title }}</a>
+                                                </div>
+                                            </div>
                                         {% endif %}
                                     {% endfor %}
                                 </div>
