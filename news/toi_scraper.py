@@ -11,11 +11,16 @@ def get_articles(url):
     response = requests.get(url)
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, "html.parser")
-        for tag in soup.find_all("div", {"id":"content"}):
-            for t in tag.find_all("div", {"class":"wrapper clearfix politics"}):
-                for b in t.find_all("div", {"class":"briefs_outer clearfix"}):
-                    objs = b.find_all("div", {"class":"brief_box"})
-
+        #for tag in soup.find_all("div", {"id":"content"}):
+         #   for t in tag.find_all("div", {"class":"wrapper clearfix politics"}):
+          #      for b in t.find_all("div", {"class":"briefs_outer clearfix"}):
+           #         objs = b.find_all("div", {"class":"brief_box"})
+        objs = list()
+        obj_tags = soup.find('div', {'class': "briefs_outer clearfix"})
+        #print(obj_tags)
+        if obj_tags:
+            objs = obj_tags.find_all("div", {"class":"brief_box"}, limit=7)
+        #print(objs)
         data = []
         # for tag in .find().find_all("div",{"class":"briefs_outer clearfix"}):
         #     objs = tag.find_all("div",{"class":"brief_box"})

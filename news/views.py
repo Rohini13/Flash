@@ -213,8 +213,8 @@ def index7(req):
 
 
 def multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL):
-    all_urls = [toiURL, news18URL, ddnewsURL, ndtvURL, teleURL]
-    p = Pool(5)
+    all_urls = [toiURL, news18URL, ndtvURL, teleURL]
+    p = Pool(4)
     all_data = p.map(display2, all_urls)
     #all_data = list(all_data)
     print(all_data)
@@ -231,6 +231,7 @@ def display2(url):
         for t in toi_news:
             if t["content"] == "":
                 toi_news.remove(t)
+        print("toi done")
         return toi_news
 
     if url.find('ndtv') != -1:
@@ -238,6 +239,7 @@ def display2(url):
         for ndtv in ndtv_news:
             if ndtv["content"] == "":
                 ndtv_news.remove(ndtv)
+        print("ndtv done")
         return ndtv_news
 
     if url.find('ddnews') != -1:
@@ -247,6 +249,7 @@ def display2(url):
                 dd_news.remove(dd)
             if dd["content"] == "":
                 dd_news.remove(dd)
+        print("dd news done")
         return dd_news
 
     if url.find('news18') != -1:
@@ -254,10 +257,12 @@ def display2(url):
         for n in n18_news:
             if n["content"] == "":
                 n18_news.remove(n)
+        print("news 18 done")
         return n18_news
 
     if url.find('telegraphindia') != -1:
         tele_news = teleS.get_articles(url.format(1))
+        print("telegraph done")
         return tele_news
 
     print(1)

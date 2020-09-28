@@ -17,23 +17,21 @@ def get_all_dd_info(objects):
             contents = soup.find('div', {'class': 'news_content'})
             text=""
             if contents:
-                contents = contents.find_all('p')#lambda tag: tag.name == 'p' and not tag.img, recursive=False)
+                contents = contents.find_all('p', limit=2)
                 text = contents[0].get_text() + '\n' + contents[1].get_text()
             obj["content"]=text
             title = soup.find("title")
             if title:
                 obj['title'] = title.get_text()
-            image_tags = soup.find_all("span", {"class": "field-content"})
-            for image_tag in image_tags:
-                image = image_tag.find("img")
-                if image:
-                    obj['image'] = image.get('src')
+            image_tag = soup.find("span", {"class": "field-content"})
+            image = image_tag.find("img")
+            if image:
+                obj['image'] = image.get('src')
             list_class = ['social_share', 'detail_share']
-            time_tags = soup.find_all("div", {"class" : list_class})
-            for time_tag in time_tags:
-                time = time_tag.find("p", {"class" : "date"})
-                if time:
-                    obj['time'] = time.get_text()
+            time_tag = soup.find("div", {"class" : list_class})
+            time = time_tag.find("p", {"class" : "date"})
+            if time:
+                obj['time'] = time.get_text()
 
         return "NA"
 
