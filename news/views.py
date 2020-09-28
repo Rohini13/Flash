@@ -266,9 +266,5 @@ def stop(req):
 
 
 def details(req, newsid, articleid):
-    category_articles = list()
-    for i in range(4):
-        for j in range(3):
-            category_articles.append(apps.all_data[i][j])
     article = apps.all_data[newsid][articleid]
     return render(req, 'news/single_page.html', {'article': article, 'all_articles': apps.all_data, 'newsid': newsid})
