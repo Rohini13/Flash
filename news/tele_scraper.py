@@ -121,7 +121,7 @@ def get_links(obj):
             "scraped_at": datetime.utcnow().isoformat(),
             "published_at": None,
             "title": "",
-            "source": "Telegraph"
+            "source": "The Telegraph"
         }
     except KeyError:
         import pdb

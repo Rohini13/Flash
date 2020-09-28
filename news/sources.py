@@ -66,7 +66,7 @@ NEWS_SOURCES = {
         "business": "https://www.news18.com/business/page-{}/",
         "sports" : "https://www.news18.com/sports/page-{}/",
         "world" : "https://www.news18.com/world/page-{}/",
-        "health" : "https://www.news18.com/movies/page-{}/",
+        "health" : "https://www.news18.com/health/page-{}/",
         "technology" : "https://www.news18.com/tech/page-{}/",
     },
     "Telegraph": {

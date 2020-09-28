@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load index1 %}
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -47,7 +48,7 @@
         </div>
         <!-- Top Bar Start -->
 
-        <!-- Brand Start -->
+        <!-- Logo Start -->
         <div class="brand">
             <div class="container">
                 <div class="row align-items-center">
@@ -58,10 +59,16 @@
                             </a>
                         </div>
                     </div>
+                     <div class="col-lg-3 col-md-4">
+                        <div class="b-search">
+                            <input type="text" placeholder="Detect Fake News">
+                            <button><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Brand End -->
+        <!-- Logo End -->
 
         <!-- Nav Bar Start -->
         <div class="nav-bar">
@@ -71,17 +78,16 @@
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
-
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                      <li class="nav-item"><a class="dropdown-item" href="#">For You</a></li>
-                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index1' %}">World</a></li>
-                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index2' %}">India</a></li>
-                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index3' %}">Science and Technology</a></li>
-                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index4' %}">Economy</a></li>
-                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index5' %}">Health and Lifestyle</a></li>
-                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index6' %}">Sports</a></li>
-                        <li class="nav-item"><a class="dropdown-item" href="{% url 'index7' %}">Entertainment</a></li>
+{#                      <li class="nav-item"><a class="nav-item nav-link" href="#">FEATURED</a></li>#}
+                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index1' %}">WORLD</a></li>
+                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index2' %}">INDIA</a></li>
+                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index3' %}">SCIENCE</a></li>
+                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index4' %}">ECONOMY</a></li>
+                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index5' %}">HEALTH</a></li>
+                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index6' %}">SPORTS</a></li>
+                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index7' %}">ENTERTAINMENT</a></li>
                     </ul>
                   </div>
 
@@ -94,97 +100,157 @@
         <div class="top-news">
             <div class="container">
                 <div class="row">
-                    <div class="container">
-                        <div class="row tn-slider">
-                            {% for a in news%}
-                                {% for t in a %}
-                                <div class="container">
-                                <div class="tn-img">
-                                    <img style="height: 500px" src={{ t.image }} />
-                                    <div class="tn-title">
-                                        <a href="">{{ t.title }}</a>
+                    <div class="col-md-6 tn-left">
+                            <div class="row tn-slider">
+                                {% for a in news%}
+                                    {% if a|check:0 == True %}
+                                    <div class="col-md-6">
+                                        <div class="tn-img">
+                                            <img style="height: 400px" src={{ a|index:0 }} />
+                                            <div class="tn-title">
+                                                <a href="">{{ a|index1:0 }}</a>
+                                            </div>
+                                        </div>
                                     </div>
+                                    {% endif %}
+                                    {% if a|check:1 == True %}
+                                    <div class="col-md-6">
+                                        <div class="tn-img">
+                                            <img style="height: 400px" src={{ a|index:1 }} />
+                                            <div class="tn-title">
+                                                <a href="">{{ a|index1:1 }}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
                                 </div>
-                                </div>
-                            {% endfor %}
-                        {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><br><br>
-        <!-- Top News End-->
-
-        <!-- Footer Start -->
-        <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-widget">
-                            <h3 class="title">Get in Touch</h3>
-                            <div class="contact-info">
-{#                                <p><i class="fa fa-map-marker"></i>123 News Street, NY, USA</p>#}
-                                <p><i class="fa fa-envelope"></i>flash24news7@gmail.com</p>
-                                <p><i class="fa fa-phone"></i>+91 7463917738</p>
-                                <div class="social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-github"></i></a>
-{#                                    <a href=""><i class="fab fa-linkedin-in"></i></a>#}
-{#                                    <a href=""><i class="fab fa-instagram"></i></a>#}
-{#                                    <a href=""><i class="fab fa-youtube"></i></a>#}
+                            </div>
+                            <div class="col-md-6 tn-right">
+                                <div class="row">
+                                    {% for a in news%}
+                                    {% if a|check:2 == True %}
+                                        <div class="col-md-6">
+                                            <div class="tn-img">
+                                                <img style="height: 200px" src={{ a|index:2 }} />
+                                                <div class="tn-title">
+                                                    <a href="">{{ a|index1:2 }}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            <br><br>
+        <!-- Top News End-->
 
-{#                    <div class="col-lg-3 col-md-6">#}
-{#                        <div class="footer-widget">#}
-{#                            <h3 class="title">Useful Links</h3>#}
-{#                            <ul>#}
-{#                                <li><a href="#">Lorem ipsum</a></li>#}
-{#                                <li><a href="#">Pellentesque</a></li>#}
-{#                                <li><a href="#">Aenean vulputate</a></li>#}
-{#                                <li><a href="#">Vestibulum sit amet</a></li>#}
-{#                                <li><a href="#">Nam dignissim</a></li>#}
-{#                            </ul>#}
-{#                        </div>#}
-{#                    </div>#}
-{##}
-{#                    <div class="col-lg-3 col-md-6">#}
-{#                        <div class="footer-widget">#}
-{#                            <h3 class="title">Quick Links</h3>#}
-{#                            <ul>#}
-{#                                <li><a href="#">Lorem ipsum</a></li>#}
-{#                                <li><a href="#">Pellentesque</a></li>#}
-{#                                <li><a href="#">Aenean vulputate</a></li>#}
-{#                                <li><a href="#">Vestibulum sit amet</a></li>#}
-{#                                <li><a href="#">Nam dignissim</a></li>#}
-{#                            </ul>#}
-{#                        </div>#}
-{#                    </div>#}
-{##}
-{#                    <div class="col-lg-3 col-md-6">#}
-{#                        <div class="footer-widget">#}
-{#                            <h3 class="title">Newsletter</h3>#}
-{#                            <div class="newsletter">#}
-{#                                <p>#}
-{#                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed porta dui. Class aptent taciti sociosqu#}
-{#                                </p>#}
-{#                                <form>#}
-{#                                    <input class="form-control" type="email" placeholder="Your email here">#}
-{#                                    <button class="btn">Submit</button>#}
-{#                                </form>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
+         <!-- Category News Start-->
+        <div class="cat-news">
+            <div class="container">
+                <div class="row">
+                    {% for n in news %}
+                    {% if n|check:0 == True %}
+                    <div class="col-md-6">
+                        <h2>{{ n|index2:0 }}</h2>
+                        <div class="row cn-slider">
+                            {% for a in n %}
+                            <div class="col-md-6">
+                                <div class="cn-img">
+                                    <img style="height: 200px" src={{ a.image }} />
+                                    <div class="cn-title">
+                                        <a href="">{{ a.title }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
                 </div>
             </div>
         </div>
-        <!-- Footer End -->
+        <br><br>
+        <!-- Category News End-->
 
-        <!-- Footer Menu Start -->
-        <div class="footer-menu">
+        <!-- Main News Start-->
+        <div class="main-news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="row">
+
+                            {% for n in news %}
+                                {% if n|check:3 == True %}
+                                <div class="col-md-4">
+                                    <div class="mn-img">
+                                        <img style="height: 200px" src={{ n|index:3 }} />
+                                        <div class="mn-title">
+                                            <a href="">{{ n|index1:3 }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% if n|check:4 == True %}
+                                <div class="col-md-4">
+                                    <div class="mn-img">
+                                        <img style="height: 200px" src={{ n|index:4 }} />
+                                        <div class="mn-title">
+                                            <a href="">{{ n|index1:4 }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% if n|check:5 == True %}
+                                <div class="col-md-4">
+                                    <div class="mn-img">
+                                        <img style="height: 200px" src={{ n|index:5 }} />
+                                        <div class="mn-title">
+                                            <a href="">{{ n|index1:5 }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="mn-list">
+                            <h2>Read More</h2>
+                            <ul>
+                                <li><a href="">Lorem ipsum dolor sit amet</a></li>
+                                <li><a href="">Pellentesque tincidunt enim libero</a></li>
+                                <li><a href="">Morbi id finibus diam vel pretium enim</a></li>
+                                <li><a href="">Duis semper sapien in eros euismod sodales</a></li>
+                                <li><a href="">Vestibulum cursus lorem nibh</a></li>
+                                <li><a href="">Morbi ullamcorper vulputate metus non eleifend</a></li>
+                                <li><a href="">Etiam vitae elit felis sit amet</a></li>
+                                <li><a href="">Nullam congue massa vitae quam</a></li>
+                                <li><a href="">Proin sed ante rutrum</a></li>
+                                <li><a href="">Curabitur vel lectus</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main News End-->
+
+        <!-- Footer Start -->
+        <div class="footer">
+            <div class="social ">
+                <h6 style="color: white">FOLLOW US ON</h6>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-github"></i></a>
+                <a href=""><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="footer-menu">
             <div class="container">
                 <div class="f-menu">
                     <a href="">About Flash</a>
@@ -193,25 +259,10 @@
                 </div>
             </div>
         </div>
-        <!-- Footer Menu End -->
+        </div>
+        <!-- Footer End -->
 
-{#        <!-- Footer Bottom Start -->#}
-{#        <div class="footer-bottom">#}
-{#            <div class="container">#}
-{#                <div class="row">#}
-{#                    <div class="col-md-6 copyright">#}
-{#                        <p>Copyright &copy; <a href="https://htmlcodex.com">HTML Codex</a>. All Rights Reserved</p>#}
-{#                    </div>#}
-{##}
-{#                    <div class="col-md-6 template-by">#}
-{#                        <p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-        <!-- Footer Bottom End -->
 
-        <!-- Back to Top -->
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
         <!-- JavaScript Libraries -->

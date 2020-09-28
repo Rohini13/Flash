@@ -75,56 +75,6 @@ def postsignup(request):
     return render(request, "news/signin.html")
 
 
-def home(req):
-    toiURL = NEWS_SOURCES["Times of India"]["home"]
-    news18URL = NEWS_SOURCES["NEWS18"]["home"]
-    ddnewsURL = NEWS_SOURCES["DD News"]["home"]
-    ndtvURL = NEWS_SOURCES["NDTV"]["home"]
-    teleURL = NEWS_SOURCES["Telegraph"]["home"]
-    title = "Home Page"
-    #return display_home(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
-    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
-
-def display_home(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title):
-
-    toi_news = toiS.get_articles(toiURL)
-    n18_news = n18S.get_articles(news18URL.format(1))
-    dd_news = get_dd_articles(ddnewsURL.format(1))
-    ndtv_news = get_ndtv_articles(ndtvURL.format(1))
-    tele_news = teleS.get_articles(teleURL.format(1))
-    for dd in dd_news:
-        if dd["link"] == "#":
-            dd_news.remove(dd)
-        if dd["content"] == "":
-            dd_news.remove(dd)
-
-    for n in n18_news:
-        if n["content"] == "":
-            n18_news.remove(n)
-
-    for t in toi_news:
-        if t["content"] == "":
-            toi_news.remove(t)
-
-    for ndtv in ndtv_news:
-        if ndtv["content"] == "":
-            ndtv_news.remove(ndtv)
-
-    articles = []
-    articles.append(dd_news[0])
-    articles.append(n18_news[0])
-    articles.append(ndtv_news[0])
-    articles.append(tele_news[0])
-    articles.append(toi_news[0])
-    articles.append(dd_news[1])
-    articles.append(n18_news[1])
-    articles.append(ndtv_news[1])
-    articles.append(tele_news[1])
-    articles.append(toi_news[1])
-
-    return render(req, 'news/home_alt.html',{'title':title, 'news': articles})
-
-
 
 def index(req):
     toiURL = NEWS_SOURCES["Times of India"]["home"]
@@ -153,7 +103,7 @@ def index2(req):
     ddnewsURL = NEWS_SOURCES["DD News"]["local"]
     ndtvURL = NEWS_SOURCES["NDTV"]["local"]
     teleURL = NEWS_SOURCES["Telegraph"]["local"]
-    title = "Local"
+    title = "India"
     #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
@@ -250,9 +200,12 @@ def display2(url):
 
     if url.find('news18') != -1:
         n18_news = n18S.get_articles(url.format(1))
-        for n in n18_news:
-            if n["content"] == "":
-                n18_news.remove(n)
+        if(n18_news!=None):
+            for n in n18_news:
+                if n["content"] == "":
+                    n18_news.remove(n)
+        else:
+            print("None")
         print("news 18 done")
         return n18_news
 

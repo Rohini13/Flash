@@ -214,8 +214,9 @@ button.btn:hover {
 }
 
 .brand .b-search input[type=text] {
-    width: 100%;
-    height: 40px;
+    margin-left: 400px;
+    width: 400px;
+    height: 50px;
     padding: 0 15px;
     color: #666666;
     border: 1px solid #cccccc;
@@ -228,14 +229,14 @@ button.btn:hover {
 
 .brand .b-search button {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     top: 0;
-    right: 15px;
+    left: 765px;
     border: none;
     background: none;
     color: #42A5FF;
-    border-radius: 0 4px 4px 0;
+    border-radius: 4px 4px 4px 4px;
 }
 
 .brand .b-search button:hover {
@@ -243,13 +244,13 @@ button.btn:hover {
     color: #ffffff;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
     .brand {
         max-height: 150px;
     }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 1200px) {
     .brand .b-logo,
     .brand .b-ads,
     .brand .b-search {
@@ -287,7 +288,7 @@ button.btn:hover {
 .navbar-dark .navbar-nav .nav-link:focus,
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
-    padding: 10px 10px 8px 10px;
+    padding: 10px 10px 10px 10px;
     color: #ffffff;
 }
 
@@ -304,7 +305,7 @@ button.btn:hover {
     background: #f8f9fa;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 700px) {
     .nav-bar,
     .nav-bar .navbar {
         background: #42A5FF !important;
@@ -315,13 +316,13 @@ button.btn:hover {
     }
     
     .nav-bar a.nav-link {
-        padding: 8px 15px;
-        font-size: 15px;
+        padding: 15px 15px;
+        font-size: 20px;
         text-transform: uppercase;
     }
 }
 
-@media (max-width: 768px) {   
+@media (max-width: 700px) {
     .nav-bar,
     .nav-bar .navbar {
         padding: 3px 0;
@@ -353,7 +354,7 @@ button.btn:hover {
     height: 30px;
     padding: 3px 0;
     text-align: center;
-    font-size: 14px;
+    font-size: 15px;
     background: #42A5FF;
     border: 1px solid #ffffff;
     border-radius: 4px;
@@ -385,13 +386,11 @@ button.btn:hover {
 .top-news .tn-img {
     position: relative;
     overflow: hidden;
-    z-index: -1;
 }
 
 .top-news .tn-img img {
     width: 100%;
 }
-
 
 .top-news .tn-img:hover img {
     filter: blur(3px);
@@ -400,9 +399,9 @@ button.btn:hover {
 
 .top-news .tn-title {
     position: absolute;
-    top: 0; 
+    top: 0;
     right: 0;
-    bottom: 0; 
+    bottom: 0;
     left: 0;
     padding: 15px 10px 15px 20px;
     background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
@@ -483,7 +482,6 @@ button.btn:hover {
 .top-news .slick-next::before {
     content: "\f105";
 }
-
 
 /**********************************/
 /******* Category News CSS ********/
@@ -1105,13 +1103,14 @@ button.btn:hover {
     font-weight: 400;
 }
 
-.contact .contact-info h4 i {
+.contact .contact-info  h4 i {
     color: #000000;
     margin-right: 5px;
 }
 
 .contact .social {
     position: relative;
+    align-content: center;
     width: 100%;
 }
 
@@ -1120,7 +1119,7 @@ button.btn:hover {
     margin: 10px 10px 0 0;
     width: 40px;
     height: 40px;
-    padding: 7px 0;
+    padding: 10px 0;
     text-align: center;
     font-size: 18px;
     border: 1px solid #000000;
@@ -1146,7 +1145,7 @@ button.btn:hover {
 /**********************************/
 .footer {
     position: relative;
-    padding: 60px 0 0 0;
+    padding: 20px 0 0 0;
     background: #111111;
 }
 
@@ -1165,7 +1164,7 @@ button.btn:hover {
     border-bottom: 3px double #ffffff;
 }
 
-.footer .footer-widget p {
+.footer .footer-widget p h1 h2 h3 {
     color: #ffffff;
 }
 
@@ -1200,22 +1199,26 @@ button.btn:hover {
 .footer .footer-widget ul li a:hover {
     padding-left: 10px;
     color: #42A5FF;
+    text-align: center;
 }
 
 .footer .contact-info p {
     margin-bottom: 10px;
     color: #ffffff;
     font-size: 16px;
+    text-align: center;
 }
 
 .footer .contact-info p i {
     color: #ffffff;
     margin-right: 5px;
+    text-align: center;
 }
 
 .footer .social {
     position: relative;
     width: 100%;
+    text-align: center;
 }
 
 .footer .social a {

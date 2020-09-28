@@ -36,7 +36,7 @@ def get_articles(url):
                     "link": l,
                     "content": c,
                     "scraped_at": datetime.now(),
-                    "source" : "Times of India",
+                    "source" : "Times Of India",
                     "location": None,
                     "time": None,
                     "title": i.get("alt"),
