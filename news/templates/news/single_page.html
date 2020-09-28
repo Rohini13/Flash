@@ -110,7 +110,7 @@
                                 {% if article.time is not None %}
                                             {% if newsid == 2 %}
                                                 <div style="float: left"><i>Last {{ article.time }}</i></div>
-                                                {% elif newsid == 3%}
+                                                {% elif newsid == 1%}
                                                 <div style="float: left"><i>{{ article.time }}</i></div>
                                                 {% else %}
                                                 <div style="float: left"><i>Last Updated: {{ article.time }}</i></div>
@@ -118,7 +118,7 @@
                                         {% endif %}
                                                 <div style="float: right"><i>Source: {{ article.source }}</i></div>
                             </div>
-                            <div class="sn-content">
+                            <div class="sn-content" style="text-align: justify; text-justify: inter-word">
                                 {% for text in article.content %}
                                     <p>{{ text }}</p>
                                     <br>
