@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from multiprocessing import Pool
 import os
 from sys import path
 import requests
@@ -131,8 +132,8 @@ def index(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["home"]
     teleURL = NEWS_SOURCES["Telegraph"]["home"]
     title = "Recent Headlines"
-    return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
-
+    #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+    return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL)
 
 def index1(req):
     toiURL = NEWS_SOURCES["Times of India"]["world"]
@@ -203,6 +204,57 @@ def index7(req):
     return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
+def multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL):
+    all_urls = [toiURL, news18URL, ddnewsURL, ndtvURL, teleURL]
+    p = Pool(5)
+    all_data = p.map(display2, all_urls)
+    #all_data = list(all_data)
+    print(all_data)
+    print(len(all_data))
+    p.terminate()
+    p.join()
+    return render(req, 'news/index_alt.html', {'all_data' : all_data})
+
+
+def display2(url):
+
+    if url.find('timesofindia') != -1:
+        toi_news = toiS.get_articles(url)
+        for t in toi_news:
+            if t["content"] == "":
+                toi_news.remove(t)
+        return toi_news
+
+    if url.find('ndtv') != -1:
+        ndtv_news = get_ndtv_articles(url.format(1))
+        for ndtv in ndtv_news:
+            if ndtv["content"] == "":
+                ndtv_news.remove(ndtv)
+        return ndtv_news
+
+    if url.find('ddnews') != -1:
+        dd_news = get_dd_articles(url.format(1))
+        for dd in dd_news:
+            if dd["link"] == "#":
+                dd_news.remove(dd)
+            if dd["content"] == "":
+                dd_news.remove(dd)
+        return dd_news
+
+    if url.find('news18') != -1:
+        n18_news = n18S.get_articles(url.format(1))
+        for n in n18_news:
+            if n["content"] == "":
+                n18_news.remove(n)
+        return n18_news
+
+    if url.find('telegraphindia') != -1:
+        tele_news = teleS.get_articles(url.format(1))
+        return tele_news
+
+    print(1)
+
+
 def display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title):
 
     toi_news = toiS.get_articles(toiURL)
@@ -210,7 +262,6 @@ def display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title):
     dd_news = get_dd_articles(ddnewsURL.format(1))
     ndtv_news = get_ndtv_articles(ndtvURL.format(1))
     tele_news = teleS.get_articles(teleURL.format(1))
-
     for dd in dd_news:
         if dd["link"] == "#":
             dd_news.remove(dd)

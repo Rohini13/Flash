@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<style>
+    #more {display: none;}
+</style>
+
+<script>
+    function myFunction(s1)
+    {
+          var dots = document.getElementById('dots-'+s1);
+          var moreText = document.getElementById('more-'+s1);
+          var btnText = document.getElementById('myBtn-'+s1);
+
+          if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Read more";
+            moreText.style.display = "none";
+          } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Read less";
+            moreText.style.display = "inline";
+          }
+    }
+</script>
+
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed">
+          <a class="navbar-brand" href="{% url 'index' %}">FLASH</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">For You</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Explore
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'index1' %}">World</a>
+                  <a class="dropdown-item" href="{% url 'index2' %}">Local</a>
+                  <a class="dropdown-item" href="{% url 'index3' %}">Science and Technology</a>
+                  <a class="dropdown-item" href="{% url 'index4' %}">Business and Economy</a>
+                  <a class="dropdown-item" href="{% url 'index5' %}">Health and Lifestyle</a>
+                  <a class="dropdown-item" href="{% url 'index6' %}">Sports</a>
+                  <a class="dropdown-item" href="{% url 'index7' %}">Entertainment</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+
+    <div>
+        <div style="text-align: center; background-color: lightskyblue; ">
+            <br><br><br><br><br><br><br><br>
+            <img src="{% static 'news/images/logo.png' %}">
+            <br><br><br><br><br><br>
+            <marquee behavior="scroll" direction="left" scrollamount="12"><h4>
+                In a hurry?? Don't you worry. We have you covered... bringing to you news from round the globe in a FLASH!!
+            </h4></marquee>
+            <br><br><br><br><br>
+        </div>
+    </div>
+    <br><br>
+    <div id="recent" align="center">
+        <h1>{{ title }}</h1>
+        <br>
+        <a href="/" class="btn btn-primary">Refresh</a>
+            &nbsp;
+        <a href="/readAloud" class="btn btn-primary">Read Aloud</a>
+            &nbsp;
+        <a href="/stop" class="btn btn-danger">Stop</a>
+    </div>
+    <br>
+    <div  class="container">
+        <div class="row">
+            <div class="col-6">
+                <h2 class="text-centre">ALL NEWS</h2>
+                <br>
+                {% for m in all_data%}
+                    {% for n in m %}
+                    <h5>{{ n.title }}</h5>
+                    <br>
+                    <img style="height: 350px; width: 500px" src={{ n.image }}>
+                    <h6>Source: {{ n.source }}</h6>
+                    {% if n.scraped_at != None %}
+                    <h6>Last Fetched: {{ n.scraped_at }}</h6>
+                    {% endif %}
+                    {% if n.location != None %}
+                        <h6>Location: {{ n.location }}</h6>
+                    {% endif %}
+                    <br>
+                    <p>
+                        <span id='dots-{{ n.link }}'>{{ n.content|slice:"0:200" }}...</span>
+                        <span id='more-{{ n.link }}' style="display: none">{{ n.content }}</span></p>
+                    <button onclick="myFunction('{{n.link}}')" id='myBtn-{{ n.link }}'>Read more</button>
+                    <hr>
+                        {% endfor %}
+                {% endfor %}
+                <br>
+
+                <br>
+            </div>
+        </div>
+
+</div>
+{#    FIREBASE#}
+    <script
+    src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyA7HJuzOo0HtJHZ7JZzv5yRszv7NjXNdps",
+    authDomain: "flash-94511.firebaseapp.com",
+    databaseURL: "https://flash-94511.firebaseio.com",
+    projectId: "flash-94511",
+    storageBucket: "flash-94511.appspot.com",
+    messagingSenderId: "72525595158",
+    appId: "1:72525595158:web:e642b67374c69b05f02b37",
+    measurementId: "G-5NQB6CC1JK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+</body>
+</html>
