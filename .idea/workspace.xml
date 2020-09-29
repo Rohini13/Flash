@@ -20,19 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fecfc3d-d9e8-4539-a48c-ead2bb0b0fce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/news/static/news/images/ananya.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/static/news/images/cheena.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/static/news/images/rohini.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/static/news/style1.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/templates/news/developers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news/static/news/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/news/static/news/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news/templates/news/home_alt.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/news/home_alt.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news/templates/news/navbar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/news/templates/news/single_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/news/single_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/static/news/style1.css" beforeDir="false" afterPath="$PROJECT_DIR$/news/static/news/style1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/templates/news/developers.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/news/developers.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +123,7 @@
       <workItem from="1601039777047" duration="6245000" />
       <workItem from="1601201227903" duration="21542000" />
       <workItem from="1601279683153" duration="5341000" />
-      <workItem from="1601311643702" duration="20715000" />
+      <workItem from="1601311643702" duration="21944000" />
     </task>
     <servers />
   </component>
