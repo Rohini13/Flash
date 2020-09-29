@@ -177,7 +177,7 @@ def display2(url):
         n18_news = n18S.get_articles(url.format(1))
         if(n18_news!=None):
             for n in n18_news:
-                if n["content"] == "":
+                if n["content"] == "" or n["title"] == "" or n["image"] == None:
                     n18_news.remove(n)
         else:
             print("None")
