@@ -146,7 +146,7 @@ def get_articles(url):
             lambda x: x.find("a"),
             soup.find_all("div", {
                 "class": "asp_16_9"
-            }, limit=10)
+            }, limit=20)
         ))
         # a_tags = a_tags[0:17]
         headlines = list(map(get_links, a_tags))

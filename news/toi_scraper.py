@@ -19,7 +19,7 @@ def get_articles(url):
         obj_tags = soup.find('div', {'class': "briefs_outer clearfix"})
         #print(obj_tags)
         if obj_tags:
-            objs = obj_tags.find_all("div", {"class":"brief_box"}, limit=7)
+            objs = obj_tags.find_all("div", {"class":"brief_box"}, limit=20)
         #print(objs)
         data = []
         # for tag in .find().find_all("div",{"class":"briefs_outer clearfix"}):

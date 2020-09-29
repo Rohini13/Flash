@@ -59,15 +59,11 @@ def get_articles(url):
     response = requests.get(url)
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, "html.parser")
-        #for tag in soup.find_all("a", {"class": "vodeoiconb"}):
-            #tag.parent.decompose()
-        #for tag in soup.find_all("span", {"class": "video_icon_ss"}):
-            #tag.parent.parent.decompose()
         if soup.find("div", {"class": "hotTopic"}) is None or soup.find("div", {"class": "blog-list"}) is None:
             return None
         a_tags = (
-                soup.find("div", {"class": "hotTopic"}).find_all("a", limit=5) +
-                soup.find("div", {"class": "blog-list"}).find_all("a", limit=5)
+                soup.find("div", {"class": "hotTopic"}).find_all("a", limit=20) +
+                soup.find("div", {"class": "blog-list"}).find_all("a", limit=20)
         )
         headlines = remove_duplicates(map(get_links, a_tags),"link")
         get_all_info(headlines)
