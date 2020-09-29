@@ -57,8 +57,8 @@ def get_ndtv_links(obj):
             "scraped_at": datetime.utcnow().isoformat(),
             "published_at": None,
             "title": "",
-            "source": "NDTV",
-            "logo": "../../static/news/images/ndtv.png"
+            "source": "The NDTV News",
+            "logo": "news/images/ndtv.png"
         }
     except KeyError:
         import pdb

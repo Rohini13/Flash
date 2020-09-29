@@ -79,16 +79,15 @@
                     <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-{#                      <li class="nav-item"><a class="nav-item nav-link" href="#">FEATURED</a></li>#}
-                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index1' %}">WORLD</a></li>
-                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index2' %}">INDIA</a></li>
-                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index3' %}">SCIENCE</a></li>
-                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index4' %}">ECONOMY</a></li>
-                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index5' %}">HEALTH</a></li>
-                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index6' %}">SPORTS</a></li>
-                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index7' %}">ENTERTAINMENT</a></li>
-                    </ul>
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-item nav-link" href="{% url 'index1' %}">WORLD</a>
+                        <a class="nav-item nav-link" href="{% url 'index2' %}">INDIA</a>
+                        <a class="nav-item nav-link" href="{% url 'index3' %}">SCIENCE</a>
+                        <a class="nav-item nav-link" href="{% url 'index4' %}">ECONOMY</a>
+                        <a class="nav-item nav-link" href="{% url 'index5' %}">HEALTH</a>
+                        <a class="nav-item nav-link" href="{% url 'index6' %}">SPORTS</a>
+                        <a class="nav-item nav-link" href="{% url 'index7' %}">ENTERTAINMENT</a>
+                    </div>
                   </div>
 
                 </nav>
@@ -112,7 +111,7 @@
                                         <div class="tn-img">
                                             <img style="height: 400px" src={{ a|index:0 }} />
                                             <div class="tn-title">
-                                                <a href={% url "details" forloop.counter0 0%}>{{ a|index1:0 }}</a>
+                                                <a href={% url "details" forloop.counter0 0%}><img style="height: 40px ; width: 40px" src="{% static a|logo:0 %}"/> {{ a|index1:0 }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -122,7 +121,7 @@
                                         <div class="tn-img">
                                             <img style="height: 400px" src={{ a|index:1 }} />
                                             <div class="tn-title">
-                                                <a href={% url "details" forloop.counter0 1%}>{{ a|index1:1 }}</a>
+                                                <a href={% url "details" forloop.counter0 1%}><img style="height: 40px ; width: 40px" src="{% static a|logo:0 %}"/> {{ a|index1:1 }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +137,7 @@
                                             <div class="tn-img">
                                                 <img style="height: 200px" src={{ a|index:2 }} />
                                                 <div class="tn-title">
-                                                    <a href={% url "details" forloop.counter0 2%}>{{ a|index1:2 }}</a>
+                                                    <a href={% url "details" forloop.counter0 2%}><img style="height: 25px ; width: 25px" src="{% static a|logo:0 %}"/> {{ a|index1:2 }}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -159,7 +158,7 @@
                     {% for n in news %}
                     {% if n|check:0 == True %}
                     <div class="col-md-6">
-                        <h2><img style="height: 50px ; width: 50px" src={{ n|logo:0 }}/> {{ n|index2:0 }}</h2>
+                        <h2><img style="height: 50px ; width: 50px" src="{% static n|logo:0 %}"/> {{ n|index2:0 }}</h2>
                         <div class="row cn-slider">
                             {% for a in n %}
                             <div class="col-md-6">
@@ -196,7 +195,7 @@
                                     <div class="mn-img">
                                         <img style="height: 200px" src={{ n|index:3 }} />
                                         <div class="mn-title">
-                                            <a href={% url "details" forloop.counter0 3%}>{{ n|index1:3 }}</a>
+                                            <a href={% url "details" forloop.counter0 3%}><img style="height: 25px ; width: 25px" src="{% static n|logo:0 %}"/> {{ n|index1:3 }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -206,7 +205,7 @@
                                     <div class="mn-img">
                                         <img style="height: 200px" src={{ n|index:4 }} />
                                         <div class="mn-title">
-                                            <a href={% url "details" forloop.counter0 4%}>{{ n|index1:4 }}</a>
+                                            <a href={% url "details" forloop.counter0 4%}><img style="height: 25px ; width: 25px" src="{% static n|logo:0 %}"/> {{ n|index1:4 }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -216,7 +215,7 @@
                                     <div class="mn-img">
                                         <img style="height: 200px" src={{ n|index:5 }} />
                                         <div class="mn-title">
-                                            <a href={% url "details" forloop.counter0 5%}>{{ n|index1:5 }}</a>
+                                            <a href={% url "details" forloop.counter0 5%}><img style="height: 25px ; width: 25px" src="{% static n|logo:0 %}"/> {{ n|index1:5 }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -286,5 +285,13 @@
 
         <!-- Template Javascript -->
         <script src="../../static/news/main.js"></script>
+
+        <script>
+                for (var i = 0; i < document.links.length; i++) {
+            if (document.links[i].href === document.URL) {
+            document.links[i].className += ' active';
+        }
+        }
+        </script>
     </body>
 </html>

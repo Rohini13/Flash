@@ -43,6 +43,6 @@ def get_articles(url):
                     "time": None,
                     "title": i.get("alt"),
                     "image": i.get("data-src"),
-                    "logo":"../../static/news/images/toi.jpg"
+                    "logo":"news/images/toi.jpg"
                 })
         return data

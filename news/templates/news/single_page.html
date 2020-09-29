@@ -99,8 +99,13 @@
         <!-- Single News Start-->
         <div class="single-news">
             <div class="container">
-                <div class="row">
+                  <div class="row">
                     <div class="col-lg-8">
+{#                    <marquee behavior="scroll infinite" direction="left" scrollamount="12">#}
+                    <h1 class="sidebar sidebar-widget sw-title">
+                        <img style="width: 80px; height: 80px" src="{% static article.logo%}"/>
+                          A Flash From {{ article.source }}</h1>
+{#                    </marquee>#}
                         <div class="sn-container">
                         <div class="sn-img">
                                 <figure><img src={{ article.image }} /></figure>
@@ -150,6 +155,7 @@
                     <div class="col-lg-4">
                         <div class="sidebar">
                             <div class="sidebar-widget">
+                            <br><br><br><br>
                                 <h2 class="sw-title">In This Newspaper</h2>
                                 <div class="news-list">
                                     {% for a in all_articles|get_value:newsid %}
@@ -204,5 +210,12 @@
 
         <!-- Template Javascript -->
         <script src="../../static/news/main.js"></script>
+    <script>
+            for (var i = 0; i < document.links.length; i++) {
+            if (document.links[i].href === document.URL) {
+            document.links[i].className += ' active';
+        }
+        }
+    </script>
     </body>
 </html>

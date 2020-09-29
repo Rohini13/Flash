@@ -48,7 +48,7 @@ def get_links_alt(obj):
             "source": "The Telegraph",
             "title": "",
             "image": None,
-            "logo": "../../static/news/images/telegraph.png"
+            "logo": "news/images/tele.png"
         }
     except KeyError:
         import pdb
@@ -131,7 +131,7 @@ def get_links(obj):
             "published_at": None,
             "title": "",
             "source": "The Telegraph",
-            "logo": "../../static/news/images/telegraph.png"
+            "logo": "news/images/tele.png"
         }
     except KeyError:
         import pdb

@@ -9,6 +9,8 @@
             $('.nav-bar').removeClass('nav-sticky');
         }
     });
+
+
     
     
     // Dropdown on mouse hover

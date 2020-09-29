@@ -267,4 +267,4 @@ def stop(req):
 
 def details(req, newsid, articleid):
     article = apps.all_data[newsid][articleid]
-    return render(req, 'news/single_page.html', {'article': article, 'all_articles': apps.all_data, 'newsid': newsid})
+    return render(req, 'news/single_page.html', {'article': article, 'all_articles': apps.all_data, 'newsid': newsid, 'articleid': articleid})

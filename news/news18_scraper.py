@@ -48,7 +48,7 @@ def get_links(obj):
             "source": "CNN-News18",
             "title": "",
             "image": None,
-            "logo": "../../static/news/images/news18.jpg"
+            "logo": "news/images/news18.jpg"
         }
     except KeyError:
         import pdb

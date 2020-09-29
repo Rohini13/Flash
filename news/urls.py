@@ -17,5 +17,5 @@ urlpatterns = [
     path('logout/', views.logout, name="log"),
     path('signup/', views.signUp, name="signup"),
     path('postsignup/', views.postsignup, name="postsignup"),
-    path('details/<int:newsid>/<int:articleid>', views.details, name="details")
+    path('/details/<int:newsid>/<int:articleid>', views.details, name="details")
 ]
