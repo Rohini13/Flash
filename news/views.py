@@ -83,7 +83,7 @@ def index(req):
     ddnewsURL = NEWS_SOURCES["DD News"]["home"]
     ndtvURL = NEWS_SOURCES["NDTV"]["home"]
     teleURL = NEWS_SOURCES["Telegraph"]["home"]
-    title = "Recent Headlines"
+    title = "Recent"
     #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
@@ -115,7 +115,7 @@ def index3(req):
     ddnewsURL = NEWS_SOURCES["DD News"]["technology"]
     ndtvURL = NEWS_SOURCES["NDTV"]["technology"]
     teleURL = NEWS_SOURCES["Telegraph"]["technology"]
-    title = "Science and Technology"
+    title = "Science"
     #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
@@ -125,7 +125,7 @@ def index4(req):
     ddnewsURL = NEWS_SOURCES["DD News"]["business"]
     ndtvURL = NEWS_SOURCES["NDTV"]["business"]
     teleURL = NEWS_SOURCES["Telegraph"]["business"]
-    title = "Business and Economy"
+    title = "Economy"
     #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
@@ -136,7 +136,7 @@ def index5(req):
     ddnewsURL = NEWS_SOURCES["DD News"]["health"]
     ndtvURL = NEWS_SOURCES["NDTV"]["health"]
     teleURL = NEWS_SOURCES["Telegraph"]["health"]
-    title = "Health and Lifestyle"
+    title = "Health"
     #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
@@ -268,3 +268,6 @@ def stop(req):
 def details(req, newsid, articleid):
     article = apps.all_data[newsid][articleid]
     return render(req, 'news/single_page.html', {'article': article, 'all_articles': apps.all_data, 'newsid': newsid, 'articleid': articleid})
+
+def developers(req):
+    return render(req, 'news/developers.html')

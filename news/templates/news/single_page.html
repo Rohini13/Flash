@@ -39,7 +39,7 @@
                     <div class="col-md-6">
                         <div class="tb-menu">
                             <a href="">About</a>
-                            <a href="">Developers</a>
+                            <a href="{% url 'developers' %}">Developers</a>
                             <a href="">Privacy</a>
                         </div>
                     </div>
@@ -79,16 +79,15 @@
                     <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-{#                      <li class="nav-item"><a class="nav-item nav-link" href="#">FEATURED</a></li>#}
-                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index1' %}">WORLD</a></li>
-                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index2' %}">INDIA</a></li>
-                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index3' %}">SCIENCE</a></li>
-                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index4' %}">ECONOMY</a></li>
-                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index5' %}">HEALTH</a></li>
-                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index6' %}">SPORTS</a></li>
-                        <li class="nav-item"><a class="nav-item nav-link" href="{% url 'index7' %}">ENTERTAINMENT</a></li>
-                    </ul>
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-item nav-link" href="{% url 'index1' %}">WORLD</a>
+                         <a class="nav-item nav-link" href="{% url 'index2' %}">INDIA</a>
+                         <a class="nav-item nav-link" href="{% url 'index3' %}">SCIENCE</a>
+                         <a class="nav-item nav-link" href="{% url 'index4' %}">ECONOMY</a>
+                         <a class="nav-item nav-link" href="{% url 'index5' %}">HEALTH</a>
+                         <a class="nav-item nav-link" href="{% url 'index6' %}">SPORTS</a>
+                         <a class="nav-item nav-link" href="{% url 'index7' %}">ENTERTAINMENT</a>
+                    </div>
                   </div>
 
                 </nav>
@@ -192,7 +191,7 @@
             <div class="container">
                 <div class="f-menu">
                     <a href="">About Flash</a>
-                    <a href="">Developers Info</a>
+                    <a href="{% url 'developers' %}">Developers Info</a>
                     <a href="">Privacy Policy</a>
                 </div>
             </div>
