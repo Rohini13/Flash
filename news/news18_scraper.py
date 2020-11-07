@@ -21,7 +21,9 @@ def get_all_info(objects):
             #     for t in tag.find_all("strong", {"id":"location_info" }):
             #         obj['location'] = t.get_text()
             if soup.find("ul",{"class":"Article_tags_bnow__3SqSZ"}) is not None:
-                obj['time']=soup.find("ul",{"class":"Article_tags_bnow__3SqSZ"}).find_all('li')[1].get_text()[17:-3]
+                temp = soup.find("ul",{"class":"Article_tags_bnow__3SqSZ"})
+                if len(temp.find_all('li'))>1:
+                    obj['time']=temp.find_all('li')[1].get_text()[17:-3]
             text = list()
             print(obj['time'])
             for tag in soup.find_all("article", {"class":"Article_article_content_box__2nGyy"}):
