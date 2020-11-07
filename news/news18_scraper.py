@@ -20,7 +20,8 @@ def get_all_info(objects):
             #     print(tag)
             #     for t in tag.find_all("strong", {"id":"location_info" }):
             #         obj['location'] = t.get_text()
-            obj['time']=soup.find("ul",{"class":"Article_tags_bnow__3SqSZ"}).find_all('li')[1].get_text()[17:-3]
+            if soup.find("ul",{"class":"Article_tags_bnow__3SqSZ"}) is not None:
+                obj['time']=soup.find("ul",{"class":"Article_tags_bnow__3SqSZ"}).find_all('li')[1].get_text()[17:-3]
             text = list()
             print(obj['time'])
             for tag in soup.find_all("article", {"class":"Article_article_content_box__2nGyy"}):
