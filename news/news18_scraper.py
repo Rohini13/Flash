@@ -16,19 +16,20 @@ def get_all_info(objects):
         response = requests.get(obj["link"])
         if response.status_code == 200:
             soup = BeautifulSoup(response.text, "html.parser")
-            for tag in soup.find_all("div",{ "class":"article-bnow-box"}):
-                for t in tag.find_all("strong", {"id":"location_info" }):
-                    obj['location'] = t.get_text()
-                if(tag.find("ul",{ "class":"article-bnow"})!=None):
-                    obj['time']=tag.find("ul",{ "class":"article-bnow"}).find_all('li')[1].get_text()[14:-3]
+            # for tag in soup.find_all("div",{ "class":"Article_hideDiv__1quCc"}):
+            #     print(tag)
+            #     for t in tag.find_all("strong", {"id":"location_info" }):
+            #         obj['location'] = t.get_text()
+            obj['time']=soup.find("ul",{"class":"Article_tags_bnow__3SqSZ"}).find_all('li')[1].get_text()[17:-3]
             text = list()
-            for tag in soup.find_all("article", {"class":"article-content-box first_big_character"}):
-                for t in tag.find_all("p"):
+            print(obj['time'])
+            for tag in soup.find_all("article", {"class":"Article_article_content_box__2nGyy"}):
+                for t in tag.find_all("p", limit=10):
                     text.append(t.get_text())
             obj["content"] = text
-            for tag in soup.find_all("div", {"class": "article-box"}):
+            for tag in soup.find_all("div", {"class": "Article_article_box__3UQg5"}):
                 obj['title']=tag.find("h1").get_text()
-            for tag in soup.find_all("div", {"class": "article-bimg"}):
+            for tag in soup.find_all("div", {"class": "Article_article_bimg__2Wo2a"}):
                 obj['image']=tag.find("img").get('src')
 
     for obj in objects:
@@ -59,12 +60,17 @@ def get_articles(url):
     response = requests.get(url)
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, "html.parser")
-        if soup.find("div", {"class": "hotTopic"}) is None or soup.find("div", {"class": "blog-list"}) is None:
+        if soup.find("div", {"class": "blog-list-blog"}) is None:
             return None
-        a_tags = (
-                soup.find("div", {"class": "hotTopic"}).find_all("a", limit=20) +
-                soup.find("div", {"class": "blog-list"}).find_all("a", limit=20)
-        )
+        a_list = soup.find_all("div", {"class": "blog-list-blog"}, limit=20)
+        a_tags = list()
+        for listele in a_list:
+            if listele.find("a") is not None:
+                a_tags.append(listele.find("a"))
+        # a_tags = (
+        #         soup.find("div", {"class": "blog-list-blog"}).find_all("a", limit=20)
+        # )
+        print(len(a_tags))
         headlines = remove_duplicates(map(get_links, a_tags),"link")
         get_all_info(headlines)
         return headlines

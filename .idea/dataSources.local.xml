@@ -4,7 +4,6 @@
     <data-source name="Django default" uuid="f6cd1e56-2255-48eb-93a0-1a226e1e5b16">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
       <secret-storage>forget</secret-storage>
-      <schema-mapping />
     </data-source>
   </component>
 </project>
