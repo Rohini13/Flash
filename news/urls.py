@@ -1,7 +1,8 @@
-from django.urls import path,include
+from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('', views.loading, name='loading'),
     path('main/', views.index, name='index'),
     path('world/',views.index1, name='index1'),
     path('local/',views.index2, name='index2'),
@@ -18,5 +19,6 @@ urlpatterns = [
     path('signup/', views.signUp, name="signup"),
     path('postsignup/', views.postsignup, name="postsignup"),
     path('/details/<int:newsid>/<int:articleid>', views.details, name="details"),
-    path('developers/', views.developers, name="developers")
+    path('developers/', views.developers, name="developers"),
+    path('detect/', views.detect_fake_news, name='detect')
 ]

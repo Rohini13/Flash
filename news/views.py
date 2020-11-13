@@ -19,6 +19,7 @@ from dd_news_scraper import get_dd_articles
 from ndtv_scraper import get_ndtv_articles
 from sources import NEWS_SOURCES
 import tele_scraper as teleS
+from fake_news_predictor import predict
 
 config = {
     'apiKey': "AIzaSyA7HJuzOo0HtJHZ7JZzv5yRszv7NjXNdps",
@@ -34,6 +35,9 @@ firebase = pyrebase.initialize_app(config)
 authenticate = firebase.auth()
 database = firebase.database()
 
+
+def loading(request):
+    return render(request, "news/loading_page.html")
 
 def signIn(request):
     return render(request, "news/signin.html")
@@ -271,3 +275,8 @@ def details(req, newsid, articleid):
 
 def developers(req):
     return render(req, 'news/developers.html')
+
+def detect_fake_news(req):
+    result = predict(req.POST['input_text'])
+    print(result)
+    return render(req, 'news/fake_news.html',{'result':result})
