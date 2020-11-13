@@ -278,5 +278,6 @@ def developers(req):
 
 def detect_fake_news(req):
     result = predict(req.POST['input_text'])
+    content = req.POST['input_text']
     print(result)
-    return render(req, 'news/fake_news.html',{'result':result})
+    return render(req, 'news/fake_news.html',{'result':result[0], 'content':content})

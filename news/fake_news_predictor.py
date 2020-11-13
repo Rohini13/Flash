@@ -28,13 +28,13 @@ def predict(input):
     clf.fit(count_train, y_train)
     pred = clf.predict(count_test)
     score = metrics.accuracy_score(y_test, pred)
-    new_input = [["Does not matter", input,"FAKE"],['x','x','x']]
+    new_input = [['x','x','x'],["Does not matter", input,"FAKE"]]
     print(new_input)
 
     df2 = pd.DataFrame(new_input, columns=['title','text','label'])
     y=df2.label
     df2.drop("label", axis=1)
-    A, B, C, D = train_test_split(df2['text'], y, test_size=0.5)
+    A, B, C, D = train_test_split(df2['text'], y, test_size=0.5,shuffle=False)
     print(B)
     temp = count_vectorizer.transform(B)
     new_output = clf.predict(temp)
