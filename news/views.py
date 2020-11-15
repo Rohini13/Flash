@@ -9,6 +9,11 @@ from . import apps
 from django.contrib import auth
 import pyrebase
 from datetime import datetime, timezone, timedelta
+import django
+django.setup()
+from django.contrib.auth.models import User
+from .models import FlashUser,CategoryString,NewspaperString,Article
+from django.contrib.auth import authenticate, login, logout
 
 path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 
@@ -21,63 +26,63 @@ from sources import NEWS_SOURCES
 import tele_scraper as teleS
 from fake_news_predictor import predict
 
-config = {
-    'apiKey': "AIzaSyA7HJuzOo0HtJHZ7JZzv5yRszv7NjXNdps",
-    'authDomain': "flash-94511.firebaseapp.com",
-    'databaseURL': "https://flash-94511.firebaseio.com",
-    'projectId': "flash-94511",
-    'storageBucket': "flash-94511.appspot.com",
-    'messagingSenderId': "72525595158",
-    'appId': "1:72525595158:web:e642b67374c69b05f02b37",
-    'measurementId': "G-5NQB6CC1JK"
-}
-firebase = pyrebase.initialize_app(config)
-authenticate = firebase.auth()
-database = firebase.database()
+# config = {
+#     'apiKey': "AIzaSyA7HJuzOo0HtJHZ7JZzv5yRszv7NjXNdps",
+#     'authDomain': "flash-94511.firebaseapp.com",
+#     'databaseURL': "https://flash-94511.firebaseio.com",
+#     'projectId': "flash-94511",
+#     'storageBucket': "flash-94511.appspot.com",
+#     'messagingSenderId': "72525595158",
+#     'appId': "1:72525595158:web:e642b67374c69b05f02b37",
+#     'measurementId': "G-5NQB6CC1JK"
+# }
+# firebase = pyrebase.initialize_app(config)
+# authenticate = firebase.auth()
+# database = firebase.database()
 
 
 def loading(request):
     return render(request, "news/loading_page.html")
 
-def signIn(request):
-    return render(request, "news/signin.html")
+# def signIn(request):
+#     return render(request, "news/signin.html")
+#
+#
+# def postsign(request):
+#     email = request.POST.get('email')
+#     password = request.POST.get('password')
+#     try:
+#         user = authenticate.sign_in_with_email_and_password(email, password)
+#     except:
+#         message = "Invalid Credentials"
+#         return render(request, "news/signin.html", {"msg": message})
+#     print(user['idToken'])
+#     session_id = user['idToken']
+#     request.session['uid'] = str(session_id)
+#
+#     return render(request, "news/welcome.html", {"e": email})
 
 
-def postsign(request):
-    email = request.POST.get('email')
-    password = request.POST.get('password')
-    try:
-        user = authenticate.sign_in_with_email_and_password(email, password)
-    except:
-        message = "Invalid Credentials"
-        return render(request, "news/signin.html", {"msg": message})
-    print(user['idToken'])
-    session_id = user['idToken']
-    request.session['uid'] = str(session_id)
+# def logout(request):
+#     auth.logout(request)
+#     return render(request, "news/signin.html")
+#
+#
+# def signUp(request):
+#     return render(request, "news/signup.html")
 
-    return render(request, "news/welcome.html", {"e": email})
-
-
-def logout(request):
-    auth.logout(request)
-    return render(request, "news/signin.html")
-
-
-def signUp(request):
-    return render(request, "news/signup.html")
-
-
-def postsignup(request):
-    name = request.POST.get('name')
-    email = request.POST.get('email')
-    password = request.POST.get('password')
-
-    user = authenticate.create_user_with_email_and_password(email, password)
-    uid = user['localId']
-    data = {"name": name, "status": "1"}
-    database.child("users").child(uid).child("details").set(data)
-
-    return render(request, "news/signin.html")
+#
+# def postsignup(request):
+#     name = request.POST.get('name')
+#     email = request.POST.get('email')
+#     password = request.POST.get('password')
+#
+#     user = authenticate.create_user_with_email_and_password(email, password)
+#     uid = user['localId']
+#     data = {"name": name, "status": "1"}
+#     database.child("users").child(uid).child("details").set(data)
+#
+#     return render(request, "news/signin.html")
 
 
 
@@ -219,6 +224,7 @@ def display2(url):
         print("dd news done")
         return dd_news
 
+
 def display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title):
 
     tele_news = teleS.get_articles(teleURL.format(1))
@@ -248,7 +254,6 @@ def display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title):
     return render(req, 'news/index.html',{'title':title, 'tele': tele_news, 'toi':toi_news, 'n18': n18_news, 'dd': dd_news, 'ndtv': ndtv_news})
 
 
-
 def readAloud(req):
     engine = pyttsx3.init()
     end = len(apps.headlines)
@@ -273,11 +278,65 @@ def details(req, newsid, articleid):
     article = apps.all_data[newsid][articleid]
     return render(req, 'news/single_page.html', {'article': article, 'all_articles': apps.all_data, 'newsid': newsid, 'articleid': articleid})
 
+
 def developers(req):
     return render(req, 'news/developers.html')
+
 
 def detect_fake_news(req):
     result = predict(req.POST['input_text'])
     content = req.POST['input_text']
     print(result)
     return render(req, 'news/fake_news.html',{'result':result[0], 'content':content})
+
+
+def for_you(req, user_id):
+    user = User.objects.get(pk=user_id)
+
+    return render(req, 'news/for_you.html')
+
+
+def loginFunction(req):
+
+    if req.method == "GET":
+        return render(req, 'news/login.html')
+
+    if req.method == "POST":
+        username = req.POST['username']
+        password = req.POST['password']
+        user = authenticate(req, username=username, password=password)
+        if user is not None:
+            login(req, user)
+            return redirect('for_you', user.id)
+        else:
+            return render(req, 'news/login.html')
+
+
+def register(req):
+
+    if req.method == "GET":
+        return render(req, 'news/register.html')
+
+    if req.method == "POST":
+        username = req.POST['username']
+        password = req.POST['password']
+        category_list = req.POST.getlist('category')
+        newspaper_list = req.POST.getlist('newspaper')
+        user = User.objects.create_user(username=username,password=password)
+        user.save()
+        flashuser = FlashUser.objects.create(user=user)
+        for cat in category_list:
+            obj = CategoryString.objects.get(category_obj=cat)
+            flashuser.categories.add(obj)
+        for newspaper in newspaper_list:
+            obj = NewspaperString.objects.get(newspaper_obj=newspaper)
+            flashuser.newspapers.add(obj)
+        flashuser.save()
+        return redirect('for_you', user.id)
+
+
+def logoutFunction(request, user_id):
+    if request.user.id != user_id:
+        return redirect('login')
+    logout(request)
+    return redirect('main')
