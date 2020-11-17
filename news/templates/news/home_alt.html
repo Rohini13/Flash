@@ -38,6 +38,12 @@
                     </div>
                     <div class="col-md-6">
                         <div class="tb-menu">
+                            {% if logged_in is True %}
+                                <a href="{% url 'logout' %}">Logout</a>
+                            {% else %}
+                                <a href="{% url 'login' %}">Login</a>
+                                <a href="{% url 'register' %}">Register</a>
+                            {% endif %}
                             <a href="">About</a>
                             <a href="{% url 'developers' %}">Developers</a>
                             <a href="">Privacy</a>
@@ -90,6 +96,7 @@
                         <a class="nav-item nav-link" href="{% url 'index5' %}">HEALTH</a>
                         <a class="nav-item nav-link" href="{% url 'index6' %}">SPORTS</a>
                         <a class="nav-item nav-link" href="{% url 'index7' %}">ENTERTAINMENT</a>
+                        <a class="nav-item nav-link" href="{% url 'for_you' num %}">FOR YOU</a>
                     </div>
                   </div>
 

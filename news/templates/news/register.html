@@ -38,6 +38,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="tb-menu">
+                            <a href="{% url 'login' %}">Login</a>
+                            <a href="{% url 'register' %}">Register</a>
                             <a href="">About</a>
                             <a href="{% url 'developers' %}">Developers</a>
                             <a href="">Privacy</a>
@@ -90,6 +92,7 @@
                         <a class="nav-item nav-link" href="{% url 'index5' %}">HEALTH</a>
                         <a class="nav-item nav-link" href="{% url 'index6' %}">SPORTS</a>
                         <a class="nav-item nav-link" href="{% url 'index7' %}">ENTERTAINMENT</a>
+                        <a class="nav-item nav-link" href="{% url 'for_you' num %}">FOR YOU</a>
                     </div>
                   </div>
 
@@ -107,16 +110,16 @@
             <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
               <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password" />
             Select the categories you like<br>
-              <input type="checkbox" name="category" id="Local" value="Local" /><label for="Local">Local</label><br>
-              <input type="checkbox" name="category" id="Health" value="Health"><label for="Health">Health and Lifestyle</label><br>
-              <input type="checkbox" name="category" id="Business" value="Business"><label for="Business">Economy and Business</label><br>
-              <input type="checkbox" name="category" id="Entertainment" value="Entertainment"><label for="Entertainment">Entertainment</label><br>
-              <input type="checkbox" name="category" id="Sports" value="Sports"><label for="Sports">Sports</label><br>
-              <input type="checkbox" name="category" id="World" value="World"><label for="World">World</label><br>
-              <input type="checkbox" name="category" id="Technology" value="Technology"><label for="Technology">Science and Technology</label><br>
+              <input type="checkbox" name="category" id="Local" value="local" /><label for="Local">Local</label><br>
+              <input type="checkbox" name="category" id="Health" value="health"><label for="Health">Health and Lifestyle</label><br>
+              <input type="checkbox" name="category" id="Business" value="business"><label for="Business">Economy and Business</label><br>
+              <input type="checkbox" name="category" id="Entertainment" value="entertainment"><label for="Entertainment">Entertainment</label><br>
+              <input type="checkbox" name="category" id="Sports" value="sports"><label for="Sports">Sports</label><br>
+              <input type="checkbox" name="category" id="World" value="world"><label for="World">World</label><br>
+              <input type="checkbox" name="category" id="Technology" value="technology"><label for="Technology">Science and Technology</label><br>
              Select the news websites you trust<br>
-              <input type="checkbox" name="newspaper" id="News18" value="News18"><label for="News18">CNN-News18</label><br>
-              <input type="checkbox" name="newspaper" id="Toi" value="Toi"><label for="Toi">Times of India</label><br>
+              <input type="checkbox" name="newspaper" id="News18" value="NEWS18"><label for="News18">CNN-News18</label><br>
+              <input type="checkbox" name="newspaper" id="Toi" value="Times of India"><label for="Toi">Times of India</label><br>
               <input type="checkbox" name="newspaper" id="NDTV" value="NDTV"><label for="NDTV">The NDTV News</label><br>
               <input type="checkbox" name="newspaper" id="Telegraph" value="Telegraph"><label for="Telegraph">The Telegraph</label><br>
               <input type="submit" name="login" class="submit action-button" id="Register" value="Register">

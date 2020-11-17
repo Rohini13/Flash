@@ -23,5 +23,6 @@ urlpatterns = [
     path('detect/', views.detect_fake_news, name='detect'),
     path('login/', views.loginFunction, name='login'),
     path('foryou/<int:user_id>/', views.for_you, name='for_you'),
-    path('register/', views.register, name='register')
+    path('register/', views.register, name='register'),
+    path('logout/', views.logoutFunction, name='logout')
 ]

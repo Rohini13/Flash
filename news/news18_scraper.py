@@ -13,7 +13,10 @@ path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 def get_all_info(objects):
 
     def get_info(obj):
-        response = requests.get(obj["link"])
+        try:
+            response = requests.get(obj["link"])
+        except:
+            return
         if response.status_code == 200:
             soup = BeautifulSoup(response.text, "html.parser")
             if soup.find("ul", {"class":"Article_tags_bnow__3SqSZ"}) is not None:

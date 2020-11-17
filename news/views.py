@@ -2,21 +2,16 @@ from django.shortcuts import render, redirect
 from multiprocessing import Pool
 import os
 from sys import path
-import requests
-from bs4 import BeautifulSoup
 import pyttsx3
 from . import apps
-from django.contrib import auth
-import pyrebase
-from datetime import datetime, timezone, timedelta
 import django
 django.setup()
 from django.contrib.auth.models import User
-from .models import FlashUser,CategoryString,NewspaperString,Article
+from .models import FlashUser, CategoryString, NewspaperString
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 path.insert(0, os.path.dirname(os.path.realpath(__file__)))
-
 
 import news18_scraper as n18S
 import toi_scraper as toiS
@@ -60,7 +55,7 @@ def loading(request):
 #     session_id = user['idToken']
 #     request.session['uid'] = str(session_id)
 #
-#     return render(request, "news/welcome.html", {"e": email})
+#     return render(request, "news/home_alt.html", {"e": email})
 
 
 # def logout(request):
@@ -84,8 +79,6 @@ def loading(request):
 #
 #     return render(request, "news/signin.html")
 
-
-
 def index(req):
     toiURL = NEWS_SOURCES["Times of India"]["home"]
     news18URL = NEWS_SOURCES["NEWS18"]["home"]
@@ -93,7 +86,6 @@ def index(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["home"]
     teleURL = NEWS_SOURCES["Telegraph"]["home"]
     title = "Recent"
-    #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 def index1(req):
@@ -103,7 +95,6 @@ def index1(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["world"]
     teleURL = NEWS_SOURCES["Telegraph"]["world"]
     title = "World"
-    #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
@@ -114,7 +105,6 @@ def index2(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["local"]
     teleURL = NEWS_SOURCES["Telegraph"]["local"]
     title = "India"
-    #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
@@ -125,7 +115,6 @@ def index3(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["technology"]
     teleURL = NEWS_SOURCES["Telegraph"]["technology"]
     title = "Science"
-    #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 def index4(req):
@@ -135,7 +124,6 @@ def index4(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["business"]
     teleURL = NEWS_SOURCES["Telegraph"]["business"]
     title = "Economy"
-    #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
@@ -146,7 +134,6 @@ def index5(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["health"]
     teleURL = NEWS_SOURCES["Telegraph"]["health"]
     title = "Health"
-    #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
@@ -157,7 +144,6 @@ def index6(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["sports"]
     teleURL = NEWS_SOURCES["Telegraph"]["sports"]
     title = "Sports"
-    #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
@@ -168,7 +154,6 @@ def index7(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["entertainment"]
     teleURL = NEWS_SOURCES["Telegraph"]["entertainment"]
     title = "Entertainment"
-    #return display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
@@ -178,7 +163,14 @@ def multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, titl
     apps.all_data = p.map(display2, all_urls)
     p.terminate()
     p.join()
-    return render(req, 'news/home_alt.html', {'title': title,'news' : apps.all_data})
+    num = 99999
+    flag = False
+    if req.user.is_authenticated is True:
+        flag = True
+        num = req.user.id
+        return render(req, 'news/home_alt.html', {'num': num, 'title': title,'news' : apps.all_data, 'logged_in': flag, 'user': req.user})
+    else:
+        return render(req, 'news/home_alt.html', {'num': num, 'title': title,'news' : apps.all_data, 'logged_in': flag})
 
 
 def display2(url):
@@ -225,35 +217,6 @@ def display2(url):
         return dd_news
 
 
-def display(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title):
-
-    tele_news = teleS.get_articles(teleURL.format(1))
-    n18_news = n18S.get_articles(news18URL.format(1))
-    toi_news = toiS.get_articles(toiURL)
-    dd_news = get_dd_articles(ddnewsURL.format(1))
-    ndtv_news = get_ndtv_articles(ndtvURL.format(1))
-
-    for dd in dd_news:
-        if dd["link"] == "#":
-            dd_news.remove(dd)
-        if dd["content"] == "":
-            dd_news.remove(dd)
-
-    for n in n18_news:
-        if n["content"] == "":
-            n18_news.remove(n)
-
-    for t in toi_news:
-        if t["content"] == "":
-            toi_news.remove(t)
-
-    for ndtv in ndtv_news:
-        if ndtv["content"] == "":
-            ndtv_news.remove(ndtv)
-
-    return render(req, 'news/index.html',{'title':title, 'tele': tele_news, 'toi':toi_news, 'n18': n18_news, 'dd': dd_news, 'ndtv': ndtv_news})
-
-
 def readAloud(req):
     engine = pyttsx3.init()
     end = len(apps.headlines)
@@ -265,7 +228,7 @@ def readAloud(req):
         engine.say(apps.headlines[i])
         engine.runAndWait()
     apps.flag = False
-    return render(req, 'news/index.html',
+    return render(req, 'news/home_alt.html',
     {'title': "Reading aloud...", 'toi_news': apps.toi_news, 'ht_news': apps.ht_news})
 
 
@@ -276,30 +239,53 @@ def stop(req):
 
 def details(req, newsid, articleid):
     article = apps.all_data[newsid][articleid]
-    return render(req, 'news/single_page.html', {'article': article, 'all_articles': apps.all_data, 'newsid': newsid, 'articleid': articleid})
+    flag = False
+    num = 99999
+    if req.user.is_authenticated is True:
+        flag = True
+        num = req.user.id
+    return render(req, 'news/single_page.html', {'num': num, 'logged_in': flag, 'article': article, 'all_articles': apps.all_data, 'newsid': newsid, 'articleid': articleid})
 
 
 def developers(req):
-    return render(req, 'news/developers.html')
+    flag = False
+    num = 99999
+    if req.user.is_authenticated is True:
+        flag = True
+        num = req.user.id
+    return render(req, 'news/developers.html', {'num': num, 'logged_in': flag})
 
 
 def detect_fake_news(req):
     result = predict(req.POST['input_text'])
     content = req.POST['input_text']
-    print(result)
-    return render(req, 'news/fake_news.html',{'result':result[0], 'content':content})
+    flag = False
+    num = 99999
+    if req.user.is_authenticated is True:
+        flag = True
+        num = req.user.id
+    return render(req, 'news/fake_news.html',{'num': num, 'result':result[0], 'content':content, 'logged_in': flag})
 
 
+@login_required(login_url='login')
 def for_you(req, user_id):
     user = User.objects.get(pk=user_id)
-
-    return render(req, 'news/for_you.html')
+    flashuser = FlashUser.objects.get(user=user)
+    all_urls = list()
+    for cat in flashuser.categories.all():
+        for np in flashuser.newspapers.all():
+            all_urls.append(NEWS_SOURCES[np.newspaper_obj][cat.category_obj])
+    p = Pool(len(all_urls))
+    apps.all_data = p.map(display2, all_urls)
+    p.terminate()
+    p.join()
+    return render(req, 'news/for_you.html', {'num': req.user.id, 'news': apps.all_data, 'user': req.user})
 
 
 def loginFunction(req):
 
     if req.method == "GET":
-        return render(req, 'news/login.html')
+        return render(req, 'news/login.html', {'num': 99999})
 
     if req.method == "POST":
         username = req.POST['username']
@@ -309,13 +295,13 @@ def loginFunction(req):
             login(req, user)
             return redirect('for_you', user.id)
         else:
-            return render(req, 'news/login.html')
+            return render(req, 'news/login.html', {'num': 99999})
 
 
 def register(req):
 
     if req.method == "GET":
-        return render(req, 'news/register.html')
+        return render(req, 'news/register.html', {'num': 99999})
 
     if req.method == "POST":
         username = req.POST['username']
@@ -335,8 +321,7 @@ def register(req):
         return redirect('for_you', user.id)
 
 
-def logoutFunction(request, user_id):
-    if request.user.id != user_id:
-        return redirect('login')
+@login_required(login_url='login')
+def logoutFunction(request):
     logout(request)
-    return redirect('main')
+    return redirect('index')
