@@ -21,63 +21,10 @@ from sources import NEWS_SOURCES
 import tele_scraper as teleS
 from fake_news_predictor import predict
 
-# config = {
-#     'apiKey': "AIzaSyA7HJuzOo0HtJHZ7JZzv5yRszv7NjXNdps",
-#     'authDomain': "flash-94511.firebaseapp.com",
-#     'databaseURL': "https://flash-94511.firebaseio.com",
-#     'projectId': "flash-94511",
-#     'storageBucket': "flash-94511.appspot.com",
-#     'messagingSenderId': "72525595158",
-#     'appId': "1:72525595158:web:e642b67374c69b05f02b37",
-#     'measurementId': "G-5NQB6CC1JK"
-# }
-# firebase = pyrebase.initialize_app(config)
-# authenticate = firebase.auth()
-# database = firebase.database()
-
 
 def loading(request):
     return render(request, "news/loading_page.html")
 
-# def signIn(request):
-#     return render(request, "news/signin.html")
-#
-#
-# def postsign(request):
-#     email = request.POST.get('email')
-#     password = request.POST.get('password')
-#     try:
-#         user = authenticate.sign_in_with_email_and_password(email, password)
-#     except:
-#         message = "Invalid Credentials"
-#         return render(request, "news/signin.html", {"msg": message})
-#     print(user['idToken'])
-#     session_id = user['idToken']
-#     request.session['uid'] = str(session_id)
-#
-#     return render(request, "news/home_alt.html", {"e": email})
-
-
-# def logout(request):
-#     auth.logout(request)
-#     return render(request, "news/signin.html")
-#
-#
-# def signUp(request):
-#     return render(request, "news/signup.html")
-
-#
-# def postsignup(request):
-#     name = request.POST.get('name')
-#     email = request.POST.get('email')
-#     password = request.POST.get('password')
-#
-#     user = authenticate.create_user_with_email_and_password(email, password)
-#     uid = user['localId']
-#     data = {"name": name, "status": "1"}
-#     database.child("users").child(uid).child("details").set(data)
-#
-#     return render(request, "news/signin.html")
 
 def index(req):
     toiURL = NEWS_SOURCES["Times of India"]["home"]
@@ -87,6 +34,7 @@ def index(req):
     teleURL = NEWS_SOURCES["Telegraph"]["home"]
     title = "Recent"
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+
 
 def index1(req):
     toiURL = NEWS_SOURCES["Times of India"]["world"]
@@ -116,6 +64,7 @@ def index3(req):
     teleURL = NEWS_SOURCES["Telegraph"]["technology"]
     title = "Science"
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
+
 
 def index4(req):
     toiURL = NEWS_SOURCES["Times of India"]["business"]
