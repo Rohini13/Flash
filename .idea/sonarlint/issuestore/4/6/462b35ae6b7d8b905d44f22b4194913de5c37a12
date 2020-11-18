@@ -1,4 +1,11 @@
 
-w%Web:ItemTagNotWithinContainerTagCheck"<Surround this <li> item tag by a <ul> or <ol> container one.(ö¶üÿÿÿÿ8Ê©·ªÆ.
-X	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷Ãûÿÿÿÿ
-w%Web:ItemTagNotWithinContainerTagCheck"<Surround this <li> item tag by a <ul> or <ol> container one.(ö¶üÿÿÿÿ8˜ÜŸ«Æ.
+SWeb:ImgWithoutAltCheckE"%Add an "alt" attribute to this image.(­–£¥ùÿÿÿÿ8ú¯åÌ.
+a	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷Ãûÿÿÿÿ8§®ó¶Ì.
+SWeb:ImgWithoutAltChecku"%Add an "alt" attribute to this image.(„ÃÙ¢şÿÿÿÿ8ú¯åÌ.
+`Web:UnsupportedTagsInHtml5CheckG")Remove this deprecated "marquee" element.(—–Ó´şÿÿÿÿ8ú¯åÌ.
+SWeb:ImgWithoutAltCheck`"%Add an "alt" attribute to this image.(„ÃÙ¢şÿÿÿÿ8ÍÈÈçÌ.
+TWeb:ImgWithoutAltCheck­"%Add an "alt" attribute to this image.(„ÃÙ¢şÿÿÿÿ8œƒó¬Í.
+J	Web:S1827N")Remove this deprecated "align" attribute.(¬‹÷şÿÿÿÿ8ú¯åÌ.
+TWeb:ImgWithoutAltCheck›"%Add an "alt" attribute to this image.(„ÃÙ¢şÿÿÿÿ8œƒó¬Í.
+TWeb:ImgWithoutAltCheck‰"%Add an "alt" attribute to this image.(„ÃÙ¢şÿÿÿÿ8ú¯åÌ.
+Q	Web:S1135Ê"4Complete the task associated to this "TODO" comment.(óúÈœ8§®ó¶Ì.

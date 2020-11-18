@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+{% load static %}
+{% load index1 %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ title }}</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Bootstrap News Template - Free HTML Templates" name="keywords">
+        <meta content="Bootstrap News Template - Free HTML Templates" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="../../static/news/slick-theme.css" rel="stylesheet">
+        <link href="../../static/news/slick.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="../../static/news/style.css"  rel="stylesheet" >
+    </head>
+
+    <body>
+        <!-- Top Bar Start -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="tb-contact">
+                            <p><i class="fas fa-envelope"></i>flash24news7@gmail.com</p>
+                            <p><i class="fas fa-phone-alt"></i>+91 7463917738</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tb-menu">
+                            {% if logged_in is True %}
+                                <a href="{% url 'edit_profile' num%}">Edit Profile</a>
+                                <a href="{% url 'logout' %}">Logout</a>
+                            {% else %}
+                                <a href="{% url 'login' %}">Login</a>
+                                <a href="{% url 'register' %}">Register</a>
+                            {% endif %}
+                            <a href="">About</a>
+                            <a href="{% url 'developers' %}">Developers</a>
+                            <a href="">Privacy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top Bar Start -->
+
+        <!-- Logo Start -->
+        <div class="brand">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4">
+                        <div class="b-logo">
+                            <a href={% url 'index' %}>
+                                <img src="../../static/news/images/flash.png" alt="Logo" >
+                            </a>
+                        </div>
+                    </div>
+                     <div class="col-lg-3 col-md-4">
+                         <form method="post" action="{% url 'detect' %}">
+                             {% csrf_token %}
+                        <div class="b-search">
+                            <input type="text" placeholder="Detect Fake News" name="input_text" id="input_text">
+                            <button><i class="fa fa-search"></i></button>
+                        </div>
+                        </form>
+                     </div>
+                    <div class="col-lg-3 col-md-2">
+                         <a href="{% url 'voice_command1' %}"><button><i class="fa fa-microphone"></i></button></a>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- Logo End -->
+
+        <!-- Nav Bar Start -->
+        <div class="nav-bar">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed">
+                  <a class="navbar-brand" href="{% url 'index' %}">FLASH</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-item nav-link" href="{% url 'index1' %}">WORLD</a>
+                        <a class="nav-item nav-link" href="{% url 'index2' %}">INDIA</a>
+                        <a class="nav-item nav-link" href="{% url 'index3' %}">SCIENCE</a>
+                        <a class="nav-item nav-link" href="{% url 'index4' %}">ECONOMY</a>
+                        <a class="nav-item nav-link" href="{% url 'index5' %}">HEALTH</a>
+                        <a class="nav-item nav-link" href="{% url 'index6' %}">SPORTS</a>
+                        <a class="nav-item nav-link" href="{% url 'index7' %}">ENTERTAINMENT</a>
+                        <a class="nav-item nav-link" href="{% url 'for_you' num %}">FOR YOU</a>
+                    </div>
+                  </div>
+
+                </nav>
+            </div>
+        </div>
+        <br>
+        <!-- Nav Bar End -->
+
+        <!-- Top News Start-->
+        <div class="top-news">
+            <div class="container">
+                <div class="row">
+{#                <div class="main-news mn-list">#}
+{#                    <h2>Top Headlines</h2>#}
+{#                </div>#}
+                    <div class="col-md-6 tn-left">
+                            <div class="row tn-slider">
+                                {% for a in news%}
+                                    {% if a|check:0 == True %}
+                                    <div class="col-md-6">
+                                        <div class="tn-img">
+                                            <img style="height: 400px" src={{ a|index:0 }} />
+                                            <div class="tn-title">
+                                                <a href={% url "details" forloop.counter0 0%}><img style="height: 40px ; width: 40px" src="{% static a|logo:0 %}"/> {{ a|index1:0 }}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% if a|check:1 == True %}
+                                    <div class="col-md-6">
+                                        <div class="tn-img">
+                                            <img style="height: 400px" src={{ a|index:1 }} />
+                                            <div class="tn-title">
+                                                <a href={% url "details" forloop.counter0 1%}><img style="height: 40px ; width: 40px" src="{% static a|logo:0 %}"/> {{ a|index1:1 }}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-md-6 tn-right">
+                                <div class="row">
+                                    {% for a in news%}
+                                    {% if a|check:2 == True %}
+                                        <div class="col-md-6">
+                                            <div class="tn-img">
+                                                <img style="height: 200px" src={{ a|index:2 }} />
+                                                <div class="tn-title">
+                                                    <a href={% url "details" forloop.counter0 2%}><img style="height: 25px ; width: 25px" src="{% static a|logo:0 %}"/> {{ a|index1:2 }}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <br>
+        <!-- Top News End-->
+
+         <!-- Category News Start-->
+        <div class="cat-news">
+            <div class="container">
+                <div class="row">
+                    {% for n in news %}
+                    {% if n|check:0 == True %}
+                    <div class="col-md-6">
+                        <h2><img style="height: 50px ; width: 50px" src="{% static n|logo:0 %}"/> {{ n|index2:0 }}</h2>
+                        <div class="row cn-slider">
+                            {% for a in n %}
+                            <div class="col-md-6">
+                                <div class="cn-img">
+                                    <img style="height: 200px" src={{ a.image }} />
+                                    <div class="cn-title">
+                                        <a href={% url "details" forloop.parentloop.counter0 forloop.counter0%}>{{ a.title }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- Category News End-->
+
+        <!-- Main News Start-->
+        <div class="main-news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="mn-list">
+                            <h2>More Stories</h2>
+                        </div>
+                        <div class="row">
+                            {% for n in news %}
+                                {% if n|check:3 == True %}
+                                <div class="col-md-4">
+                                    <div class="mn-img">
+                                        <img style="height: 200px" src={{ n|index:3 }} />
+                                        <div class="mn-title">
+                                            <a href={% url "details" forloop.counter0 3%}><img style="height: 25px ; width: 25px" src="{% static n|logo:0 %}"/> {{ n|index1:3 }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% if n|check:4 == True %}
+                                <div class="col-md-4">
+                                    <div class="mn-img">
+                                        <img style="height: 200px" src={{ n|index:4 }} />
+                                        <div class="mn-title">
+                                            <a href={% url "details" forloop.counter0 4%}><img style="height: 25px ; width: 25px" src="{% static n|logo:0 %}"/> {{ n|index1:4 }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% if n|check:5 == True %}
+                                <div class="col-md-4">
+                                    <div class="mn-img">
+                                        <img style="height: 200px" src={{ n|index:5 }} />
+                                        <div class="mn-title">
+                                            <a href={% url "details" forloop.counter0 5%}><img style="height: 25px ; width: 25px" src="{% static n|logo:0 %}"/> {{ n|index1:5 }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="mn-list">
+                            <h2>Also Read</h2>
+                            <ul>
+                                {% for n in news %}
+                                    {% if n|check:6 == True %}
+                                        <li><a href={% url "details" forloop.counter0 6%}>{{ n|index1:6 }}</a></li>
+                                    {% endif %}
+                                    {% if n|check:7 == True %}
+                                        <li><a href={% url "details" forloop.counter0 7%}>{{ n|index1:7 }}</a></li>
+                                    {% endif %}
+                                    {% if n|check:8 == True %}
+                                        <li><a href={% url "details" forloop.counter0 8%}>{{ n|index1:8 }}</a></li>
+                                    {% endif %}
+                                    {% if n|check:9 == True %}
+                                        <li><a href={% url "details" forloop.counter0 9%}>{{ n|index1:9 }}</a></li>
+                                    {% endif %}
+                                    {% if n|check:10 == True %}
+                                        <li><a href={% url "details" forloop.counter0 10%}>{{ n|index1:10 }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main News End-->
+
+        <!-- Footer Start -->
+        <div class="footer">
+            <div class="social ">
+                <h6 style="color: white">FOLLOW US ON</h6>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-github"></i></a>
+                <a href=""><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="footer-menu">
+            <div class="container">
+                <div class="f-menu">
+                    <a href="">About Flash</a>
+                    <a href="{% url 'developers' %}">Developers Info</a>
+                    <a href="">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="../../static/news/easing.min.js"></script>
+        <script src="../../static/news/slick.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="../../static/news/main.js"></script>
+
+        <script>
+                for (var i = 0; i < document.links.length; i++) {
+            if (document.links[i].href === document.URL) {
+            document.links[i].className += ' active';
+        }
+        }
+        </script>
+    </body>
+</html>

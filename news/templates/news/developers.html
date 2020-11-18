@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel = "icon" href ="{% static 'index/images/logo.png' %}" type = "image/x-icon">
+    <title>Developers</title>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:wght@700|Libre+Baskerville|Dancing+Script|Montserrat|Cookie|Lobster|Open+Sans:wght@300|Satisfy&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="../../static/news/style1.css" rel="stylesheet">
+    <link href="../../static/news/style.css" rel="stylesheet">
+    <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="../../static/news/slick-theme.css" rel="stylesheet">
+        <link href="../../static/news/slick.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="../../static/news/style.css"  rel="stylesheet" >
+</head>
+
+    <body>
+     <!-- Top Bar Start -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="tb-contact">
+                            <p><i class="fas fa-envelope"></i>flash24news7@gmail.com</p>
+                            <p><i class="fas fa-phone-alt"></i>+91 7463917738</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tb-menu">
+                            {% if logged_in is True %}
+                                <a href="{% url 'edit_profile' num%}">Edit Profile</a>
+                                <a href="{% url 'logout' %}">Logout</a>
+                            {% else %}
+                                <a href="{% url 'login' %}">Login</a>
+                                <a href="{% url 'register' %}">Register</a>
+                            {% endif %}
+                            <a href="">About</a>
+                            <a href="">Developers</a>
+                            <a href="">Privacy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top Bar Start -->
+
+        <!-- Brand Start -->
+        <div class="brand">
+            <div class="container" >
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4">
+                        <div class="b-logo">
+                            <a href="index.html">
+                                <img src="../../static/news/images/flash.png" alt="Logo" >
+                            </a>
+                            <h1 class="container align-center">
+                                DEVELOPERS
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Brand End -->
+     <div class="container" style="background-color: black">
+         <br>
+     </div>
+     <br>
+
+        <div class=" centerflipcards">
+            <div class="square-flip">
+                <div class='square'
+                    data-image="https://images.unsplash.com/photo-1477313372947-d68a7d410e9f?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb">
+                    <div class="square-container">
+                        <div class="align-center"><img src="../../static/news/images/ananya.JPG" class="boxshadow" alt="" height="300"></div>
+                        <h2 class="textshadow">Ananya Mohanty</h2>
+                    </div>
+                    <div class="flip-overlay"></div>
+                </div>
+                <div class='square2'
+                    data-image="https://images.unsplash.com/photo-1477313372947-d68a7d410e9f?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb">
+                    <div class="square-container2">
+                        <div class="align-center"></div>
+                        <h2>Ananya is currently pursuing her B.Tech in Information Technology from IIIT-A. She has an
+                            enthusiasm about learning new frameworks and creating web and ios mobile applications. </h2>
+                    </div>
+                    <div class="flip-overlay"></div>
+                </div>
+            </div>
+
+            <div class="square-flip">
+                <div class='square' >
+                    <div class="square-container" >
+                        <div class="align-center"><img src="../../static/news/images/cheena.JPG" alt="" height="300">
+                        </div>
+                        <h2 class="textshadow">Cheena Budhiraja</h2>
+                    </div>
+                    <div class="flip-overlay"></div>
+                </div>
+                <div class='square2' >
+                    <div class="square-container2">
+                        <div class="align-center"></div>
+                        <h2> Cheena is a second year undergraduate student at IIIT-A hailing from Rohtak. She enjoys
+                            making web applications and spends her free time doing volunteer work.</h2>
+                    </div>
+                    <div class="flip-overlay"></div>
+                </div>
+            </div>
+
+            <div class="square-flip">
+                <div class='square'>
+                    <div class="square-container">
+                        <div class="align-center"><img src="../../static/news/images/rohini.JPG" class="boxshadow" alt="" height="300"></div>
+                        <h2 class="textshadow">Rohini Mishra</h2>
+                    </div>
+                    <div class="flip-overlay"></div>
+                </div>
+                <div class='square2' data-image="http://titanicthemes.com/files/flipbox/kallyas-wedding.jpg">
+                    <div class="square-container2">
+                        <div class="align-center"></div>
+                        <h2>Rohini is an enthusiastic undergrad student, and is keen in learning about Machine Learning
+                            and latest technologies that surround the IT industry. She is also currently pursuing her
+                            B.Tech from IIIT-Allahabad. </h2>
+                    </div>
+                    <div class="flip-overlay"></div>
+                </div>
+            </div>
+
+        </div>
+     <br><br>
+
+     <!-- Footer Start -->
+        <div class="footer">
+            <div class="social ">
+                <h6 style="color: white">FOLLOW US ON</h6>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-github"></i></a>
+                <a href=""><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="footer-menu">
+            <div class="container">
+                <div class="f-menu">
+                    <a href="">About Flash</a>
+                    <a href="">Developers Info</a>
+                    <a href="">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="../../static/news/easing.min.js"></script>
+        <script src="../../static/news/slick.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="../../static/news/main.js"></script>
+    </body>
+</html>
