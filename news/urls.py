@@ -24,6 +24,8 @@ urlpatterns = [
     path('username/<int:user_id>', views.changeUsername, name='change_username'),
     path('password/<int:user_id>', views.changePassword, name='change_password'),
     path('categories/<int:user_id>', views.changeCategories, name='change_categories'),
-    path('newspapers/<int:user_id>', views.changeNewspapers, name='change_newspapers')
+    path('newspapers/<int:user_id>', views.changeNewspapers, name='change_newspapers'),
+    path('voice/', views.voice_command1, name='voice_command1'),
+    path('details/<int:newsid>/<int:articleid>', views.voice_command2, name='voice_command2')
 
 ]

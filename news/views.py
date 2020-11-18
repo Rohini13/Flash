@@ -11,6 +11,33 @@ from .models import FlashUser, CategoryString, NewspaperString
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 
+# import subprocess
+# import wolframalpha
+import pyttsx3
+# import tkinter
+# import json
+# import random
+# import operator
+import speech_recognition as sr
+# import datetime
+# import wikipedia
+# import webbrowser
+import os
+# import winshell
+# import pyjokes
+# import feedparser
+# import smtplib
+# import ctypes
+# import time
+# import requests
+# import shutil
+# from twilio.rest import Client
+# from clint.textui import progress
+# from ecapture import ecapture as ec
+# from bs4 import BeautifulSoup
+# import win32com.client as wincl
+# from urllib.request import urlopen
+
 path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 
 import news18_scraper as n18S
@@ -20,6 +47,36 @@ from ndtv_scraper import get_ndtv_articles
 from sources import NEWS_SOURCES
 import tele_scraper as teleS
 from fake_news_predictor import predict
+
+
+def speak(audio):
+    engine = pyttsx3.init('sapi5')
+    voices = engine.getProperty('voices')
+    engine.setProperty('voice', voices[1].id)
+    engine.say(audio)
+    engine.runAndWait()
+
+
+def takeCommand():
+    r = sr.Recognizer()
+
+    with sr.Microphone() as source:
+
+        print("Listening...")
+        r.pause_threshold = 1
+        audio = r.listen(source)
+
+    try:
+        print("Recognizing...")
+        query = r.recognize_google(audio, language='en-in')
+        print(f"User said: {query}\n")
+
+    except Exception as e:
+        print(e)
+        print("Unable to recognize your voice.")
+        return "None"
+
+    return query
 
 
 def loading(request):
@@ -93,6 +150,7 @@ def index6(req):
     ndtvURL = NEWS_SOURCES["NDTV"]["sports"]
     teleURL = NEWS_SOURCES["Telegraph"]["sports"]
     title = "Sports"
+    print('here')
     return multithreadingFunc(req, toiURL, news18URL, ddnewsURL, ndtvURL, teleURL, title)
 
 
@@ -351,3 +409,59 @@ def changeNewspapers(req, user_id):
         flashuser.newspapers.add(obj)
     flashuser.save()
     return redirect('edit_profile', user_id)
+
+
+def voice_command1(req):
+    clear = lambda: os.system('cls')
+    clear()
+    speak('What can I do for you?')
+    query = takeCommand().lower()
+    if 'local' in query:
+        speak('Directing to the local category')
+        return redirect('index2')
+    elif 'world' in query:
+        speak('Directing to the world category')
+        return redirect('index1')
+    elif 'entertainment' in query:
+        speak('Directing to the entertainment category')
+        return redirect('index7')
+    elif 'sports' in query:
+        speak('Directing to the sports category')
+        return redirect('index6')
+    elif 'health' in query or 'lifestyle' in query:
+        speak('Directing to the health and lifestyle category')
+        return redirect('index5')
+    elif 'business' in query or 'economy' in query:
+        speak('Directing to the economy and business category')
+        return redirect('index4')
+    elif 'technology' in query or 'science' in query:
+        speak('Directing to the science and technology category')
+        return redirect('index3')
+    elif 'home' in query or 'main' in query:
+        speak('Directing to the main page')
+        return redirect('index')
+    elif 'for you' in query or 'for me' in query or 'my news' in query:
+        if req.user.is_authenticated:
+            speak('Directing to the news for you')
+            return redirect('for_you', req.user.id)
+        else:
+            speak('You would need to login first')
+            return redirect('login')
+    elif 'login' in query or 'log in' in query or 'sign in' in query:
+        speak('Taking you to the login page')
+        return redirect('login')
+    elif 'register' in query or 'sign up' in query:
+        speak('Taking you to the register page')
+        return redirect('register')
+    elif 'logout' in query or 'log out' in query or 'sign out' in query:
+        if req.user.is_authenticated:
+            speak('Logging out')
+            return redirect('logout')
+        else:
+            speak('You would need to login first')
+            return redirect('login')
+    return redirect('index')
+
+
+def voice_command2(req, newsid, articleid):
+    return
