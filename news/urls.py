@@ -11,7 +11,7 @@ urlpatterns = [
     path('health/',views.index5,name='index5'),
     path('sports/',views.index6,name='index6'),
     path('entertainment/',views.index7,name='index7'),
-    path('readAloud/', views.readAloud, name='readAloud'),
+    path('readAloud/<int:newsid>/<int:articleid>', views.readAloud, name='readAloud'),
     path('stop/', views.stop, name='stop'),
     path('details/<int:newsid>/<int:articleid>', views.details, name="details"),
     path('developers/', views.developers, name="developers"),
@@ -25,7 +25,6 @@ urlpatterns = [
     path('password/<int:user_id>', views.changePassword, name='change_password'),
     path('categories/<int:user_id>', views.changeCategories, name='change_categories'),
     path('newspapers/<int:user_id>', views.changeNewspapers, name='change_newspapers'),
-    path('voice/', views.voice_command1, name='voice_command1'),
-    path('details/<int:newsid>/<int:articleid>', views.voice_command2, name='voice_command2')
+    path('voice/', views.voice_command1, name='voice_command1')
 
 ]

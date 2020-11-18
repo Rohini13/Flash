@@ -75,6 +75,9 @@
                         </div>
                          </form>
                     </div>
+                    <div class="col-lg-3 col-md-2">
+                         <a href="{% url 'voice_command1'%}"><button><i class="fa fa-microphone"></i></button></a>
+                     </div>
                 </div>
             </div>
         </div>
@@ -115,6 +118,8 @@
                     <h1 class="sidebar sidebar-widget sw-title">
                         <img style="width: 80px; height: 80px" src="{% static article.logo%}"/>
                           A Flash From {{ article.source }}</h1>
+                    <a href="{% url 'readAloud' newsid articleid%}">Read Aloud</a>
+                    <a href="{% url 'stop' %}">Stop</a>
 {#                    </marquee>#}
                         <div class="sn-container">
                         <div class="sn-img">

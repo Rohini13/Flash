@@ -10,33 +10,10 @@ from django.contrib.auth.models import User
 from .models import FlashUser, CategoryString, NewspaperString
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
-
-# import subprocess
-# import wolframalpha
+from django.http import HttpResponseRedirect
 import pyttsx3
-# import tkinter
-# import json
-# import random
-# import operator
 import speech_recognition as sr
-# import datetime
-# import wikipedia
-# import webbrowser
 import os
-# import winshell
-# import pyjokes
-# import feedparser
-# import smtplib
-# import ctypes
-# import time
-# import requests
-# import shutil
-# from twilio.rest import Client
-# from clint.textui import progress
-# from ecapture import ecapture as ec
-# from bs4 import BeautifulSoup
-# import win32com.client as wincl
-# from urllib.request import urlopen
 
 path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 
@@ -222,26 +199,6 @@ def display2(url):
                 dd_news.remove(dd)
         print("dd news done")
         return dd_news
-
-
-def readAloud(req):
-    engine = pyttsx3.init()
-    end = len(apps.headlines)
-    start = apps.idx % end
-    for i in range(start, end):
-        if apps.flag:
-            apps.idx = i % end
-            break
-        engine.say(apps.headlines[i])
-        engine.runAndWait()
-    apps.flag = False
-    return render(req, 'news/home_alt.html',
-    {'title': "Reading aloud...", 'toi_news': apps.toi_news, 'ht_news': apps.ht_news})
-
-
-def stop(req):
-    apps.flag = True
-    return redirect('/')
 
 
 def details(req, newsid, articleid):
@@ -440,6 +397,9 @@ def voice_command1(req):
     elif 'home' in query or 'main' in query:
         speak('Directing to the main page')
         return redirect('index')
+    elif 'read' in query:
+        speak('to make me read an article, click on the read aloud button after expanding it')
+        return HttpResponseRedirect(req.META.get('HTTP_REFERER'))
     elif 'for you' in query or 'for me' in query or 'my news' in query:
         if req.user.is_authenticated:
             speak('Directing to the news for you')
@@ -460,8 +420,37 @@ def voice_command1(req):
         else:
             speak('You would need to login first')
             return redirect('login')
-    return redirect('index')
+    else:
+        speak('Sorry, I could not understand')
+        return HttpResponseRedirect(req.META.get('HTTP_REFERER'))
 
 
-def voice_command2(req, newsid, articleid):
-    return
+def readAloud(req, newsid, articleid):
+    article = apps.all_data[newsid][articleid]
+    apps.engine = pyttsx3.init('sapi5')
+    voices = apps.engine.getProperty('voices')
+    apps.engine.setProperty('voice', voices[1].id)
+    apps.engine.say("Reading the article for you. To make me stop, click on the stop button.")
+    apps.engine.runAndWait()
+    apps.engine.say(article['content'])
+    apps.engine.runAndWait()
+    return HttpResponseRedirect(req.META.get('HTTP_REFERER'))
+    # engine = pyttsx3.init()
+    # end = len(apps.headlines)
+    # start = apps.idx % end
+    # for i in range(start, end):
+    #     if apps.flag:
+    #         apps.idx = i % end
+    #         break
+    #     engine.say(apps.headlines[i])
+    #     engine.runAndWait()
+    # apps.flag = False
+    # return render(req, 'news/home_alt.html',
+    # {'title': "Reading aloud...", 'toi_news': apps.toi_news, 'ht_news': apps.ht_news})
+
+
+def stop(req):
+    print("first")
+    apps.engine.stop()
+    print("heya")
+    return HttpResponseRedirect(req.META.get('HTTP_REFERER'))

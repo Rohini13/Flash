@@ -8,6 +8,7 @@ ht_news=[]
 toi_news_images=[]
 ht_news_images=[]
 all_data = []
+engine = None
 
 class NewsConfig(AppConfig):
     name = 'news'
