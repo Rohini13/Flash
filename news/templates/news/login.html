@@ -70,9 +70,6 @@
                         </div>
                          </form>
                     </div>
-                    <div class="col-lg-3 col-md-2">
-                         <a href="{% url 'voice_command1' %}"><button><i class="fa fa-microphone"></i></button></a>
-                     </div>
                 </div>
             </div>
         </div>
@@ -104,16 +101,19 @@
         </div>
         <br>
         <!-- Nav Bar End -->
+        <div class="login-card">
         <form id="msform" action="" method="post">
             {% csrf_token %}
           <fieldset>
-            <h2 class="fs-title">Log In</h2>
+            <div class="title-login">Sign In</div>
             <h3 class="fs-subtitle"></h3>
             <input type="text" name="username" id="username" class="form-control" placeholder="Username" />
             <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
             <input type="submit" name="login" class="submit action-button" value="Log In" />
           </fieldset>
         </form>
+        </div>
+
 
 </body>
 </html>
