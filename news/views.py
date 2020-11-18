@@ -8,7 +8,7 @@ import django
 django.setup()
 from django.contrib.auth.models import User
 from .models import FlashUser, CategoryString, NewspaperString
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 
 path.insert(0, os.path.dirname(os.path.realpath(__file__)))
@@ -253,6 +253,8 @@ def register(req):
         return render(req, 'news/register.html', {'num': 99999})
 
     if req.method == "POST":
+        if req.POST['password'] != req.POST['confirm_password']:
+            return redirect('register')
         username = req.POST['username']
         password = req.POST['password']
         category_list = req.POST.getlist('category')
@@ -274,3 +276,78 @@ def register(req):
 def logoutFunction(request):
     logout(request)
     return redirect('index')
+
+
+@login_required(login_url='login')
+def edit_profile(req, user_id):
+    if req.user.id != user_id:
+        redirect('edit_profile', req.user.id)
+    user = User.objects.get(pk=user_id)
+    flashuser = FlashUser.objects.get(user=user)
+    flag = {'local': False, 'health': False, 'business': False, 'entertainment': False, 'sports': False, 'world': False, 'technology': False, 'NEWS18': False, 'Times of India': False, 'NDTV': False, 'Telegraph': False}
+    for cat in flashuser.categories.all():
+        flag[cat.category_obj] = True
+    for newspaper in flashuser.newspapers.all():
+        flag[newspaper.newspaper_obj] = True
+    flag2 = list(flag.values())
+    return render(req, 'news/edit_profile.html', {'flashuser': flashuser, 'num': user_id, 'flag': flag2})
+
+
+@login_required(login_url='login')
+def changeUsername(req, user_id):
+    if req.user.id != user_id:
+        return redirect('edit_profile', req.user.id)
+    user = User.objects.get(pk=user_id)
+    flashuser = FlashUser.objects.get(user=user)
+    user.username = req.POST['username']
+    user.save()
+    flashuser.user = user
+    flashuser.save()
+    return redirect('edit_profile', user_id)
+
+
+@login_required(login_url='login')
+def changePassword(req, user_id):
+    if req.user.id != user_id:
+        return redirect('edit_profile', req.user.id)
+    if req.POST['password'] != req.POST['confirm_password']:
+        return redirect('edit_profile', req.user.id)
+    user = User.objects.get(pk=user_id)
+    flashuser = FlashUser.objects.get(user=user)
+    user.set_password(req.POST['password'])
+    user.save()
+    update_session_auth_hash(req, user)
+    flashuser.user = user
+    flashuser.save()
+    return redirect('edit_profile', user_id)
+
+
+@login_required(login_url='login')
+def changeCategories(req, user_id):
+    if req.user.id != user_id:
+        return redirect('edit_profile', req.user.id)
+    user = User.objects.get(pk=user_id)
+    flashuser = FlashUser.objects.get(user=user)
+    category_list = req.POST.getlist('category')
+    flashuser.categories.all().delete()
+    for cat in category_list:
+        print(cat)
+        obj = CategoryString.objects.get(category_obj=cat)
+        flashuser.categories.add(obj)
+    flashuser.save()
+    return redirect('edit_profile', user_id)
+
+
+@login_required(login_url='login')
+def changeNewspapers(req, user_id):
+    if req.user.id != user_id:
+        return redirect('edit_profile', req.user.id)
+    user = User.objects.get(pk=user_id)
+    flashuser = FlashUser.objects.get(user=user)
+    newspaper_list = req.POST.getlist('newspaper')
+    flashuser.newspapers.all().delete()
+    for newspaper in newspaper_list:
+        obj = NewspaperString.objects.get(newspaper_obj=newspaper)
+        flashuser.newspapers.add(obj)
+    flashuser.save()
+    return redirect('edit_profile', user_id)

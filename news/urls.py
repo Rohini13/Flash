@@ -19,5 +19,11 @@ urlpatterns = [
     path('login/', views.loginFunction, name='login'),
     path('foryou/<int:user_id>/', views.for_you, name='for_you'),
     path('register/', views.register, name='register'),
-    path('logout/', views.logoutFunction, name='logout')
+    path('logout/', views.logoutFunction, name='logout'),
+    path('profile/<int:user_id>', views.edit_profile, name='edit_profile'),
+    path('username/<int:user_id>', views.changeUsername, name='change_username'),
+    path('password/<int:user_id>', views.changePassword, name='change_password'),
+    path('categories/<int:user_id>', views.changeCategories, name='change_categories'),
+    path('newspapers/<int:user_id>', views.changeNewspapers, name='change_newspapers')
+
 ]
