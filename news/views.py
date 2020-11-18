@@ -427,9 +427,18 @@ def voice_command1(req):
 
 def readAloud(req, newsid, articleid):
     article = apps.all_data[newsid][articleid]
+
+    def onWord(name, location, length):
+        print(apps.stopVar)
+        print('word', name, location, length)
+        if apps.stopVar is True:
+            apps.engine.stop()
+
     apps.engine = pyttsx3.init('sapi5')
     voices = apps.engine.getProperty('voices')
     apps.engine.setProperty('voice', voices[1].id)
+    apps.engine.connect('started-word', onWord)
+    apps.stopvar = False
     apps.engine.say("Reading the article for you. To make me stop, click on the stop button.")
     apps.engine.runAndWait()
     apps.engine.say(article['content'])
@@ -451,6 +460,7 @@ def readAloud(req, newsid, articleid):
 
 def stop(req):
     print("first")
-    apps.engine.stop()
+    apps.stopvar = True
+    #apps.engine.stop()
     print("heya")
     return HttpResponseRedirect(req.META.get('HTTP_REFERER'))
