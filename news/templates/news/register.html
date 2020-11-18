@@ -104,30 +104,44 @@
         </div>
         <br>
         <!-- Nav Bar End -->
+        <div class="login-card">
         <form id="msform" action="" method="post">
             {% csrf_token %}
           <fieldset>
-            <h2 class="fs-title">Register</h2>
+           <div class="title-login">Sign Up</div>
             <h3 class="fs-subtitle"></h3>
             <input type="text" name="username" id="username" class="form-control" placeholder="Username" />
             <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
               <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password" />
-            Select the categories you like<br>
+              <div class="signup-text"> Select the categories you like </div>
+{#<div class="checkbox-style">#}
+              <div class="checkbox-style">
               <input type="checkbox" name="category" id="Local" value="local" /><label for="Local">Local</label><br>
+
               <input type="checkbox" name="category" id="Health" value="health"><label for="Health">Health and Lifestyle</label><br>
+
+
               <input type="checkbox" name="category" id="Business" value="business"><label for="Business">Economy and Business</label><br>
               <input type="checkbox" name="category" id="Entertainment" value="entertainment"><label for="Entertainment">Entertainment</label><br>
               <input type="checkbox" name="category" id="Sports" value="sports"><label for="Sports">Sports</label><br>
               <input type="checkbox" name="category" id="World" value="world"><label for="World">World</label><br>
               <input type="checkbox" name="category" id="Technology" value="technology"><label for="Technology">Science and Technology</label><br>
-             Select the news websites you trust<br>
+       </div>
+              <br>
+    <div class="signup-text">Select the news websites you trust</div>
+
+
+<div class="checkbox-style">
               <input type="checkbox" name="newspaper" id="News18" value="NEWS18"><label for="News18">CNN-News18</label><br>
-              <input type="checkbox" name="newspaper" id="Toi" value="Times of India"><label for="Toi">Times of India</label><br>
+
+                  <input type="checkbox" name="newspaper" id="Toi" value="Times of India"><label for="Toi">Times of India</label><br>
               <input type="checkbox" name="newspaper" id="NDTV" value="NDTV"><label for="NDTV">The NDTV News</label><br>
               <input type="checkbox" name="newspaper" id="Telegraph" value="Telegraph"><label for="Telegraph">The Telegraph</label><br>
+                <br>
               <input type="submit" name="login" class="submit action-button" id="Register" value="Register">
+                  </div>
           </fieldset>
         </form>
-
+        </div>
 </body>
 </html>
