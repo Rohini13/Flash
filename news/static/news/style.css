@@ -481,6 +481,14 @@ button.btn:hover {
     border-radius: 4px 4px 4px 4px;
 }
 
+#fakenewsarea {
+    padding: 10px;
+    /*background: rgba(66,155,255,0.05);*/
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    color: #666666;
+}
+
 /**********************************/
 /*********** Nav Bar CSS **********/
 /**********************************/

@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8fecfc3d-d9e8-4539-a48c-ead2bb0b0fce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/news/static/news/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/news/static/news/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news/templates/news/single_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/news/single_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/templates/news/fake_news.html" beforeDir="false" afterPath="$PROJECT_DIR$/news/templates/news/fake_news.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,17 +51,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/news/templates/news/fake_news.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
+            <state relative-caret-position="238">
+              <caret line="122" column="59" lean-forward="true" selection-start-line="122" selection-start-column="59" selection-end-line="122" selection-end-column="59" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/news/static/news/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="468" column="19" lean-forward="true" selection-start-line="468" selection-start-column="19" selection-end-line="468" selection-end-column="19" />
+            <state relative-caret-position="221">
+              <caret line="486" column="30" lean-forward="true" selection-start-line="486" selection-start-column="30" selection-end-line="486" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -111,11 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/news/templates/news/single_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="175" column="56" selection-start-line="175" selection-start-column="56" selection-end-line="175" selection-end-column="56" />
+            <state relative-caret-position="170">
+              <caret line="180" column="65" lean-forward="true" selection-start-line="180" selection-start-column="65" selection-end-line="180" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -168,13 +168,13 @@
         <option value="$PROJECT_DIR$/news/apps.py" />
         <option value="$PROJECT_DIR$/news/views.py" />
         <option value="$PROJECT_DIR$/news/templates/news/edit_profile.html" />
-        <option value="$PROJECT_DIR$/news/templates/news/fake_news.html" />
         <option value="$PROJECT_DIR$/news/templates/news/for_you.html" />
         <option value="$PROJECT_DIR$/news/templates/news/home_alt.html" />
         <option value="$PROJECT_DIR$/news/templates/news/login.html" />
         <option value="$PROJECT_DIR$/news/templates/news/register.html" />
-        <option value="$PROJECT_DIR$/news/static/news/style.css" />
         <option value="$PROJECT_DIR$/news/templates/news/single_page.html" />
+        <option value="$PROJECT_DIR$/news/templates/news/fake_news.html" />
+        <option value="$PROJECT_DIR$/news/static/news/style.css" />
       </list>
     </option>
   </component>
@@ -359,7 +359,7 @@
       <workItem from="1605690722024" duration="6273000" />
       <workItem from="1605720178753" duration="6392000" />
       <workItem from="1605732773600" duration="4333000" />
-      <workItem from="1605779252225" duration="8988000" />
+      <workItem from="1605779252225" duration="11193000" />
     </task>
     <task id="LOCAL-00001" summary="frontend">
       <created>1605735782850</created>
@@ -379,7 +379,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94746000" />
+    <option name="totallyTimeSpent" value="96951000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
@@ -720,13 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news/templates/news/fake_news.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/news/templates/news/for_you.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -762,17 +755,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news/static/news/style.css">
+    <entry file="file://$PROJECT_DIR$/news/templates/news/single_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="468" column="19" lean-forward="true" selection-start-line="468" selection-start-column="19" selection-end-line="468" selection-end-column="19" />
+        <state relative-caret-position="170">
+          <caret line="180" column="65" lean-forward="true" selection-start-line="180" selection-start-column="65" selection-end-line="180" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news/templates/news/single_page.html">
+    <entry file="file://$PROJECT_DIR$/news/templates/news/fake_news.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="175" column="56" selection-start-line="175" selection-start-column="56" selection-end-line="175" selection-end-column="56" />
+        <state relative-caret-position="238">
+          <caret line="122" column="59" lean-forward="true" selection-start-line="122" selection-start-column="59" selection-end-line="122" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news/static/news/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="486" column="30" lean-forward="true" selection-start-line="486" selection-start-column="30" selection-end-line="486" selection-end-column="30" />
         </state>
       </provider>
     </entry>
