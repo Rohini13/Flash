@@ -37,20 +37,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
@@ -189,12 +175,6 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="741" />
-    <option name="y" value="-12" />
-    <option name="width" value="1104" />
-    <option name="height" value="960" />
-  </component>
   <component name="ProjectId" id="1h9lYQjnpyIvdOXAvLIt0tuVSBK" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -281,7 +261,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -319,7 +299,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="Flash.settings" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\Cheena\AppData\Local\Programs\Python\Python36\python.exe" />
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -328,7 +308,7 @@
       <option name="port" value="8000" />
       <option name="host" value="" />
       <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
+      <option name="browserUrl" value="http://127.5.0.1:8300/" />
       <option name="runTestServer" value="false" />
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
@@ -395,7 +375,28 @@
       <option name="project" value="LOCAL" />
       <updated>1605735833429</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="frontend register">
+      <created>1605738288691</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605738288691</updated>
+    </task>
+    <task id="LOCAL-00004" summary="frontend edit profile">
+      <created>1605739293009</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605739293009</updated>
+    </task>
+    <task id="LOCAL-00005" summary="about us page">
+      <created>1605807553834</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605807553834</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -466,7 +467,10 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="frontend" />
+    <MESSAGE value="frontend register" />
+    <MESSAGE value="frontend edit profile" />
+    <MESSAGE value="about us page" />
+    <option name="LAST_COMMIT_MESSAGE" value="about us page" />
   </component>
   <component name="WindowStateProjectService">
     <state x="461" y="23" key="#Flash" timestamp="1605732789473">
@@ -478,69 +482,87 @@
       <screen x="0" y="23" width="1680" height="971" />
     </state>
     <state x="854" y="190" key="#Inspections/0.23.1680.971@0.23.1680.971" timestamp="1600092940578" />
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601328565430">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="126" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605739217914">
+      <screen x="0" y="23" width="1680" height="973" />
     </state>
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1601328565430" />
     <state x="126" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.971@0.23.1680.971" timestamp="1600087977626" />
+    <state x="126" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.973@0.23.1680.973" timestamp="1605739217914" />
     <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1601344644317">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1601344644317" />
-    <state width="1309" height="161" key="GridCell.Tab.0.bottom" timestamp="1605733522320">
-      <screen x="0" y="23" width="1680" height="967" />
+    <state width="1309" height="331" key="GridCell.Tab.0.bottom" timestamp="1605739399657">
+      <screen x="0" y="23" width="1680" height="974" />
     </state>
     <state width="1237" height="124" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1601354336819" />
     <state width="1638" height="268" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1600092976558" />
     <state width="1072" height="558" key="GridCell.Tab.0.bottom/0.23.1680.966@0.23.1680.966" timestamp="1600101042729" />
-    <state width="1309" height="161" key="GridCell.Tab.0.bottom/0.23.1680.967@0.23.1680.967" timestamp="1605733522320" />
+    <state width="1309" height="161" key="GridCell.Tab.0.bottom/0.23.1680.967@0.23.1680.967" timestamp="1605738293994" />
     <state width="1072" height="268" key="GridCell.Tab.0.bottom/0.23.1680.971@0.23.1680.971" timestamp="1600092994793" />
-    <state width="1309" height="161" key="GridCell.Tab.0.center" timestamp="1605733522319">
-      <screen x="0" y="23" width="1680" height="967" />
+    <state width="1309" height="161" key="GridCell.Tab.0.bottom/0.23.1680.973@0.23.1680.973" timestamp="1605739308654" />
+    <state width="1309" height="331" key="GridCell.Tab.0.bottom/0.23.1680.974@0.23.1680.974" timestamp="1605739399657" />
+    <state width="1309" height="331" key="GridCell.Tab.0.center" timestamp="1605739399657">
+      <screen x="0" y="23" width="1680" height="974" />
     </state>
     <state width="1237" height="124" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1601354336818" />
     <state width="1638" height="268" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1600092976557" />
     <state width="1072" height="558" key="GridCell.Tab.0.center/0.23.1680.966@0.23.1680.966" timestamp="1600101042728" />
-    <state width="1309" height="161" key="GridCell.Tab.0.center/0.23.1680.967@0.23.1680.967" timestamp="1605733522319" />
+    <state width="1309" height="161" key="GridCell.Tab.0.center/0.23.1680.967@0.23.1680.967" timestamp="1605738293993" />
     <state width="1072" height="268" key="GridCell.Tab.0.center/0.23.1680.971@0.23.1680.971" timestamp="1600092994792" />
-    <state width="1309" height="161" key="GridCell.Tab.0.left" timestamp="1605733522319">
-      <screen x="0" y="23" width="1680" height="967" />
+    <state width="1309" height="161" key="GridCell.Tab.0.center/0.23.1680.973@0.23.1680.973" timestamp="1605739308653" />
+    <state width="1309" height="331" key="GridCell.Tab.0.center/0.23.1680.974@0.23.1680.974" timestamp="1605739399657" />
+    <state width="1309" height="331" key="GridCell.Tab.0.left" timestamp="1605739399657">
+      <screen x="0" y="23" width="1680" height="974" />
     </state>
     <state width="1237" height="124" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1601354336818" />
     <state width="1638" height="268" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1600092976556" />
     <state width="1072" height="558" key="GridCell.Tab.0.left/0.23.1680.966@0.23.1680.966" timestamp="1600101042727" />
-    <state width="1309" height="161" key="GridCell.Tab.0.left/0.23.1680.967@0.23.1680.967" timestamp="1605733522319" />
+    <state width="1309" height="161" key="GridCell.Tab.0.left/0.23.1680.967@0.23.1680.967" timestamp="1605738293992" />
     <state width="1072" height="268" key="GridCell.Tab.0.left/0.23.1680.971@0.23.1680.971" timestamp="1600092994792" />
-    <state width="1309" height="161" key="GridCell.Tab.0.right" timestamp="1605733522320">
-      <screen x="0" y="23" width="1680" height="967" />
+    <state width="1309" height="161" key="GridCell.Tab.0.left/0.23.1680.973@0.23.1680.973" timestamp="1605739308653" />
+    <state width="1309" height="331" key="GridCell.Tab.0.left/0.23.1680.974@0.23.1680.974" timestamp="1605739399657" />
+    <state width="1309" height="331" key="GridCell.Tab.0.right" timestamp="1605739399657">
+      <screen x="0" y="23" width="1680" height="974" />
     </state>
     <state width="1237" height="124" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1601354336819" />
     <state width="1638" height="268" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1600092976558" />
     <state width="1072" height="558" key="GridCell.Tab.0.right/0.23.1680.966@0.23.1680.966" timestamp="1600101042728" />
-    <state width="1309" height="161" key="GridCell.Tab.0.right/0.23.1680.967@0.23.1680.967" timestamp="1605733522320" />
+    <state width="1309" height="161" key="GridCell.Tab.0.right/0.23.1680.967@0.23.1680.967" timestamp="1605738293993" />
     <state width="1072" height="268" key="GridCell.Tab.0.right/0.23.1680.971@0.23.1680.971" timestamp="1600092994792" />
-    <state width="1222" height="201" key="GridCell.Tab.1.bottom" timestamp="1601297243051">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1309" height="161" key="GridCell.Tab.0.right/0.23.1680.973@0.23.1680.973" timestamp="1605739308654" />
+    <state width="1309" height="331" key="GridCell.Tab.0.right/0.23.1680.974@0.23.1680.974" timestamp="1605739399657" />
+    <state width="1309" height="331" key="GridCell.Tab.1.bottom" timestamp="1605739399658">
+      <screen x="0" y="23" width="1680" height="974" />
     </state>
     <state width="1222" height="201" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1601297243051" />
-    <state width="1222" height="201" key="GridCell.Tab.1.center" timestamp="1601297243050">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1309" height="331" key="GridCell.Tab.1.bottom/0.23.1680.973@0.23.1680.973" timestamp="1605739152650" />
+    <state width="1309" height="331" key="GridCell.Tab.1.bottom/0.23.1680.974@0.23.1680.974" timestamp="1605739399658" />
+    <state width="1309" height="331" key="GridCell.Tab.1.center" timestamp="1605739399658">
+      <screen x="0" y="23" width="1680" height="974" />
     </state>
     <state width="1222" height="201" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1601297243050" />
-    <state width="1222" height="201" key="GridCell.Tab.1.left" timestamp="1601297243050">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1309" height="331" key="GridCell.Tab.1.center/0.23.1680.973@0.23.1680.973" timestamp="1605739152649" />
+    <state width="1309" height="331" key="GridCell.Tab.1.center/0.23.1680.974@0.23.1680.974" timestamp="1605739399658" />
+    <state width="1309" height="331" key="GridCell.Tab.1.left" timestamp="1605739399658">
+      <screen x="0" y="23" width="1680" height="974" />
     </state>
     <state width="1222" height="201" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1601297243050" />
-    <state width="1222" height="201" key="GridCell.Tab.1.right" timestamp="1601297243051">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1309" height="331" key="GridCell.Tab.1.left/0.23.1680.973@0.23.1680.973" timestamp="1605739152649" />
+    <state width="1309" height="331" key="GridCell.Tab.1.left/0.23.1680.974@0.23.1680.974" timestamp="1605739399658" />
+    <state width="1309" height="331" key="GridCell.Tab.1.right" timestamp="1605739399658">
+      <screen x="0" y="23" width="1680" height="974" />
     </state>
     <state width="1222" height="201" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1601297243051" />
-    <state x="186" y="23" key="SettingsEditor" timestamp="1605733024740">
-      <screen x="0" y="23" width="1680" height="967" />
+    <state width="1309" height="331" key="GridCell.Tab.1.right/0.23.1680.973@0.23.1680.973" timestamp="1605739152649" />
+    <state width="1309" height="331" key="GridCell.Tab.1.right/0.23.1680.974@0.23.1680.974" timestamp="1605739399658" />
+    <state x="186" y="23" key="SettingsEditor" timestamp="1605738994874">
+      <screen x="0" y="23" width="1680" height="973" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1601063934997" />
     <state x="186" y="23" key="SettingsEditor/0.23.1680.967@0.23.1680.967" timestamp="1605733024740" />
     <state x="0" y="23" width="1680" height="971" key="SettingsEditor/0.23.1680.971@0.23.1680.971" timestamp="1600088737118" />
+    <state x="186" y="23" key="SettingsEditor/0.23.1680.973@0.23.1680.973" timestamp="1605738994874" />
     <state x="245" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1601339742027">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

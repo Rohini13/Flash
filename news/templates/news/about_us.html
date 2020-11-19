@@ -40,9 +40,9 @@
                         <div class="tb-menu">
                             <a href="{% url 'login' %}">Login</a>
                             <a href="{% url 'register' %}">Register</a>
-                            <a href="{">About</a>
+                            <a href="">About</a>
                             <a href="{% url 'developers' %}">Developers</a>
-{#                            <a href="">Privacy</a>#}
+                            <a href="">Privacy</a>
                         </div>
                     </div>
                 </div>
@@ -62,16 +62,16 @@
                         </div>
                     </div>
                      <div class="col-lg-3 col-md-4">
-
-                        <div class="b-search">
-                            <form method="post" action="{% url 'detect' %}">
+                         <form method="post" action="{% url 'detect' %}">
                              {% csrf_token %}
+                        <div class="b-search">
                             <input type="text" placeholder="Detect Fake News" name="input_text" id="input_text">
-                            <button id="button1"><i class="fa fa-search"></i></button>
-                            </form>
-                            <a href="{% url 'voice_command1' %}"><button id="button2"><i class="fa fa-microphone"></i></button></a>
+                            <button><i class="fa fa-search"></i></button>
                         </div>
-
+                         </form>
+                    </div>
+                    <div class="col-lg-3 col-md-2">
+                         <a href="{% url 'voice_command1' %}"><button><i class="fa fa-microphone"></i></button></a>
                      </div>
                 </div>
             </div>
@@ -103,58 +103,20 @@
             </div>
         </div>
         <br>
-        <!-- Nav Bar End -->
-        <div class="login-top">
-
-
-        <div class="login-card">
-        <form id="msform" action="" method="post">
-            {% csrf_token %}
-          <fieldset>
-            <div class="title-login">Sign In</div>
-            <h3 class="fs-subtitle"></h3>
-            <input type="text" name="username" id="username" class="form-control" placeholder="Username" />
-            <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
-            <input type="submit" name="login" class="submit action-button" value="Log In" />
-          </fieldset>
-        </form>
-        </div>
+         <div class="about-us-card">
+              <div class="title-login">About Us</div>
+             <div class="about-us-text">
+                 Flash aims at giving its users a platform where they can view news of their interest, read and compare articles from various trustworthy sources. This website allows audio interaction which means that users can interact with the application through voice commands. It also has the Read ALoud feature with reads the articles for the users. Flash also believes in protecting its readers from falling prey to fake propaganda and has Fake News Detection for the same.
+                 <br>
+                 This website is for people who are on-the-go in this fast paced world and do not have the time to scan through an entire newspaper to find content that they like. It aims to serve as a more advanced substitute to the morning newspaper.
+                 <br>
+                 <hr>
+                 It is for you, it is for us and it is for anyone who wants a tailor-made news source that fits their interests.
+                <hr>
              </div>
-        </div><br><br><br><br>
-
-    <!-- Footer Start -->
-        <div class="footer">
-            <div class="social ">
-                <h6 style="color: white">FOLLOW US ON</h6>
-                <a href=""><i class="fab fa-twitter"></i></a>
-                <a href=""><i class="fab fa-facebook-f"></i></a>
-                <a href=""><i class="fab fa-github"></i></a>
-                <a href=""><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <div class="footer-menu">
-            <div class="container">
-                <div class="f-menu">
-                    <a href="">About Flash</a>
-                    <a href="">Developers Info</a>
-{#                    <a href="">Privacy Policy</a>#}
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <!-- Back to Top -->
-        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="../../static/news/easing.min.js"></script>
-        <script src="../../static/news/slick.min.js"></script>
-
-        <!-- Template Javascript -->
-        <script src="../../static/news/main.js"></script>
+             </div>
 
 
-
+         </div>
 </body>
 </html>
