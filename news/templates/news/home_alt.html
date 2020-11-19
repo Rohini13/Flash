@@ -133,7 +133,7 @@
                                     {% if a|check:1 == True %}
                                     <div class="col-md-6">
                                         <div class="tn-img">
-                                            <img style="height: 400px" src={{ a|index:1 }} />
+                                            <img style="height: 400px" src="{{ a|index:1 }}" onerror="this.src='news/images/news18.jpg';" />
                                             <div class="tn-title">
                                                 <a href={% url "details" forloop.counter0 1%}><img style="height: 40px ; width: 40px" src="{% static a|logo:0 %}"/> {{ a|index1:1 }}</a>
                                             </div>
