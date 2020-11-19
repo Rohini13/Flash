@@ -67,16 +67,16 @@
                         </div>
                     </div>
                      <div class="col-lg-3 col-md-4">
-                         <form method="post" action="{% url 'detect' %}">
-                             {% csrf_token %}
+
                         <div class="b-search">
+                            <form method="post" action="{% url 'detect' %}">
+                             {% csrf_token %}
                             <input type="text" placeholder="Detect Fake News" name="input_text" id="input_text">
-                            <button><i class="fa fa-search"></i></button>
+                            <button id="button1"><i class="fa fa-search"></i></button>
+                            </form>
+                            <a href="{% url 'voice_command1' %}"><button id="button2"><i class="fa fa-microphone"></i></button></a>
                         </div>
-                         </form>
-                    </div>
-                    <div class="col-lg-3 col-md-2">
-                         <a href="{% url 'voice_command1' %}"><button><i class="fa fa-microphone"></i></button></a>
+
                      </div>
                 </div>
             </div>

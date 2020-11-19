@@ -61,18 +61,17 @@
                         </div>
                     </div>
                      <div class="col-lg-3 col-md-4">
-                         <form method="post" action="{% url 'detect' %}">
-                             {% csrf_token %}
+
                         <div class="b-search">
+                            <form method="post" action="{% url 'detect' %}">
+                             {% csrf_token %}
                             <input type="text" placeholder="Detect Fake News" name="input_text" id="input_text">
-                            <button><i class="fa fa-search"></i></button>
+                            <button id="button1"><i class="fa fa-search"></i></button>
+                            </form>
+                            <a href="{% url 'voice_command1' %}"><button id="button2"><i class="fa fa-microphone"></i></button></a>
                         </div>
-                         </form>
-                    </div>
-                         <div class="col-lg-3 col-md-2">
-                         <a href="{% url 'voice_command1' %}"><button><i class="fa fa-microphone"></i></button></a>
+
                      </div>
-                </div>
             </div>
         </div>
         <!-- Logo End -->
@@ -104,7 +103,7 @@
         <br>
         <!-- Nav Bar End -->
          <div class="login-card">
-           <div class="title-login">Update Profile</div>
+           <div class="title-login">Update Profile</div><br>
         <form id="msform" action="{% url 'change_username' num %}" method="post">
             {% csrf_token %}
             <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="{{ flashuser.user.username }}"/>
@@ -112,10 +111,10 @@
         </form>
         <form id="msform" action="{% url 'change_password' num %}" method="post">
             {% csrf_token %}
-            <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
+            <br><input type="password" class="form-control" id="password" name="password" placeholder="Password" />
               <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password" />
             <input type="submit" name="change" class="submit action-button" id="change" value="Update">
-        </form>
+        </form><br>
         <form id="msform" action="{% url 'change_categories' num %}" method="post">
             {% csrf_token %}
               Select the categories you like<br>
@@ -154,8 +153,8 @@
               {% else %}
                   <input type="checkbox" name="category" id="Technology" value="technology"><label for="Technology">Science and Technology</label><br>
               {% endif %}
-               <input type="submit" name="change" class="submit action-button" id="change" value="Update">
-        </form>
+               <br><input type="submit" name="change" class="submit action-button" id="change" value="Update">
+        </form><br>
         <form id="msform" action="{% url 'change_newspapers' num %}" method="post">
         {% csrf_token %}
               Select the news websites you trust<br>
@@ -179,7 +178,7 @@
               {% else %}
                   <input type="checkbox" name="newspaper" id="Telegraph" value="Telegraph"><label for="Telegraph">The Telegraph</label><br>
               {% endif %}
-              <input type="submit" name="change" class="submit action-button" id="change" value="Update">
+              <br><input type="submit" name="change" class="submit action-button" id="change" value="Update">
         </form>
          </div>
 
