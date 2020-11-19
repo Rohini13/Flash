@@ -47,7 +47,7 @@
                             {% endif %}
                             <a href="">About</a>
                             <a href="{% url 'developers' %}">Developers</a>
-                            <a href="">Privacy</a>
+{#                            <a href="">Privacy</a>#}
                         </div>
                     </div>
                 </div>
@@ -252,12 +252,12 @@
                                     {% if n|check:8 == True %}
                                         <li><a href={% url "details" forloop.counter0 8%}>{{ n|index1:8 }}</a></li>
                                     {% endif %}
-                                    {% if n|check:9 == True %}
-                                        <li><a href={% url "details" forloop.counter0 9%}>{{ n|index1:9 }}</a></li>
-                                    {% endif %}
-                                    {% if n|check:10 == True %}
-                                        <li><a href={% url "details" forloop.counter0 10%}>{{ n|index1:10 }}</a></li>
-                                    {% endif %}
+{#                                    {% if n|check:9 == True %}#}
+{#                                        <li><a href={% url "details" forloop.counter0 9%}>{{ n|index1:9 }}</a></li>#}
+{#                                    {% endif %}#}
+{#                                    {% if n|check:10 == True %}#}
+{#                                        <li><a href={% url "details" forloop.counter0 10%}>{{ n|index1:10 }}</a></li>#}
+{#                                    {% endif %}#}
                                 {% endfor %}
                             </ul>
                         </div>
@@ -281,7 +281,7 @@
                 <div class="f-menu">
                     <a href="">About Flash</a>
                     <a href="{% url 'developers' %}">Developers Info</a>
-                    <a href="">Privacy Policy</a>
+{#                    <a href="">Privacy Policy</a>#}
                 </div>
             </div>
         </div>
