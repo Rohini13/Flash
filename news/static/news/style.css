@@ -432,7 +432,7 @@ button.btn:hover {
 
 .brand .b-search #button2:hover {
     color: #42A5FF;
-    background: none;
+    background: #dddddd;
 }
 
 .b-voice button:hover {
@@ -460,6 +460,26 @@ button.btn:hover {
 
 }
 
+#readaloud {
+    margin-top: -5px;
+    margin-left: 550px;
+    border: none;
+    /*background: #4c9a2a;*/
+    background: #00057a;
+    color: #ffffff;
+    padding: 6px;
+    border-radius: 4px 4px 4px 4px;
+}
+
+#stop {
+    margin-top: -5px;
+    margin-left: 20px;
+    border: none;
+    background: #df0000;
+    color: #ffffff;
+    padding: 6px;
+    border-radius: 4px 4px 4px 4px;
+}
 
 /**********************************/
 /*********** Nav Bar CSS **********/

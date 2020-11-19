@@ -118,8 +118,12 @@
                     <h1 class="sidebar sidebar-widget sw-title">
                         <img style="width: 80px; height: 80px" src="{% static article.logo%}"/>
                           A Flash From {{ article.source }}</h1>
-                    <a href="{% url 'readAloud' newsid articleid%}">Read Aloud</a>
-                    <a href="{% url 'stop' %}">Stop</a>
+                            <div>
+                            <a href="{% url 'readAloud' newsid articleid%}" id="readaloud">Read Aloud</a>
+                            <a href="{% url 'stop' %}" id="stop">Stop</a>
+                            </div><br>
+{#                    <a href="{% url 'readAloud' newsid articleid%}">Read Aloud</a>#}
+{#                    <a href="{% url 'stop' %}">Stop</a>#}
 {#                    </marquee>#}
                         <div class="sn-container">
                         <div class="sn-img">
@@ -169,8 +173,7 @@
 
                     <div class="col-lg-4">
                         <div class="sidebar">
-                            <div class="sidebar-widget">
-                            <br><br><br><br>
+                            <div class="sidebar-widget"><br>
                                 <h2 class="sw-title">In This Newspaper</h2>
                                 <div class="news-list">
                                     {% for a in all_articles|get_value:newsid %}
