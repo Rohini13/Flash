@@ -448,3 +448,12 @@ def stop(req):
     if apps.t is not None:
         apps.t.terminate()
     return HttpResponseRedirect(req.META.get('HTTP_REFERER'))
+
+
+def about(req):
+    num = 99999
+    flag = False
+    if req.user.is_authenticated is True:
+        num = req.user.id
+        flag = True
+    return render(req, 'news/about_us.html', {'num': num, 'flag': flag})

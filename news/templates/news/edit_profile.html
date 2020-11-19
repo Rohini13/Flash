@@ -39,7 +39,7 @@
                     <div class="col-md-6">
                         <div class="tb-menu">
                             <a href="{% url 'logout' %}">Logout</a>
-                            <a href="">About</a>
+                            <a href="{% url 'about' %}">About</a>
                             <a href="{% url 'developers' %}">Developers</a>
 {#                            <a href="">Privacy</a>#}
                         </div>
@@ -193,8 +193,8 @@
             <div class="footer-menu">
             <div class="container">
                 <div class="f-menu">
-                    <a href="">About Flash</a>
-                    <a href="">Developers Info</a>
+                    <a href="{% url 'about' %}">About Flash</a>
+                    <a href="{% url 'developers' %}">Developers Info</a>
 {#                    <a href="">Privacy Policy</a>#}
                 </div>
             </div>
