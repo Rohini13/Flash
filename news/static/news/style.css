@@ -5,7 +5,19 @@
     font-size: 18px;
     color: #42A5FF;
 }
-
+.about-us-card{
+    padding: 40px;
+  width: 900px;
+  background-color: #F7F7F7;
+  margin: 0 auto 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+    margin-top: 30px;
+}
+.about-us-text{
+    font-size: 20px;
+}
 .login-top{
      margin-top: 70px;
 }

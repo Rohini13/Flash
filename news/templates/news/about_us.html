@@ -40,7 +40,7 @@
                         <div class="tb-menu">
                             <a href="{% url 'login' %}">Login</a>
                             <a href="{% url 'register' %}">Register</a>
-                            <a href="{">About</a>
+                            <a href="">About</a>
                             <a href="{% url 'developers' %}">Developers</a>
                             <a href="">Privacy</a>
                         </div>
@@ -69,10 +69,10 @@
                             <button><i class="fa fa-search"></i></button>
                         </div>
                          </form>
-                         <div class="col-lg-3 col-md-2">
+                    </div>
+                    <div class="col-lg-3 col-md-2">
                          <a href="{% url 'voice_command1' %}"><button><i class="fa fa-microphone"></i></button></a>
                      </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -103,25 +103,20 @@
             </div>
         </div>
         <br>
-        <!-- Nav Bar End -->
-        <div class="login-top">
-
-
-        <div class="login-card">
-        <form id="msform" action="" method="post">
-            {% csrf_token %}
-          <fieldset>
-            <div class="title-login">Sign In</div>
-            <h3 class="fs-subtitle"></h3>
-            <input type="text" name="username" id="username" class="form-control" placeholder="Username" />
-            <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
-            <input type="submit" name="login" class="submit action-button" value="Log In" />
-          </fieldset>
-        </form>
-        </div>
+         <div class="about-us-card">
+              <div class="title-login">About Us</div>
+             <div class="about-us-text">
+                 Flash aims at giving its users a platform where they can view news of their interest, read and compare articles from various trustworthy sources. This website allows audio interaction which means that users can interact with the application through voice commands. It also has the Read ALoud feature with reads the articles for the users. Flash also believes in protecting its readers from falling prey to fake propaganda and has Fake News Detection for the same.
+                 <br>
+                 This website is for people who are on-the-go in this fast paced world and do not have the time to scan through an entire newspaper to find content that they like. It aims to serve as a more advanced substitute to the morning newspaper.
+                 <br>
+                 <hr>
+                 It is for you, it is for us and it is for anyone who wants a tailor-made news source that fits their interests.
+                <hr>
              </div>
-        </div><br><br><br><br>
+             </div>
 
 
+         </div>
 </body>
 </html>
