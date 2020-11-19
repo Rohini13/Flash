@@ -421,6 +421,13 @@ def voice_command1(req):
         else:
             speak('You would need to login first')
             return redirect('login')
+    elif 'edit profile' in query or 'edit my profile' or 'change profile' in query or 'change my profile' in query:
+        if req.user.is_authenticated:
+            speak('Taking you to the edit profile page')
+            return redirect('edit_profile', req.user.id)
+        else:
+            speak('You would need to login first')
+            return redirect('login')
     else:
         speak('Sorry, I could not understand')
         return HttpResponseRedirect(req.META.get('HTTP_REFERER'))
