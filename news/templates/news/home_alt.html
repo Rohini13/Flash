@@ -67,16 +67,16 @@
                         </div>
                     </div>
                      <div class="col-lg-3 col-md-4">
-                         <form method="post" action="{% url 'detect' %}">
-                             {% csrf_token %}
+
                         <div class="b-search">
+                            <form method="post" action="{% url 'detect' %}">
+                             {% csrf_token %}
                             <input type="text" placeholder="Detect Fake News" name="input_text" id="input_text">
-                            <button><i class="fa fa-search"></i></button>
+                            <button id="button1"><i class="fa fa-search"></i></button>
+                            </form>
+                            <a href="{% url 'voice_command1' %}"><button id="button2"><i class="fa fa-microphone"></i></button></a>
                         </div>
-                        </form>
-                     </div>
-                    <div class="col-lg-3 col-md-2">
-                         <a href="{% url 'voice_command1' %}"><button><i class="fa fa-microphone"></i></button></a>
+
                      </div>
                 </div>
             </div>
@@ -133,7 +133,7 @@
                                     {% if a|check:1 == True %}
                                     <div class="col-md-6">
                                         <div class="tn-img">
-                                            <img style="height: 400px" src={{ a|index:1 }} />
+                                            <img style="height: 400px" src="{{ a|index:1 }}" onerror="this.src='news/images/news18.jpg';" />
                                             <div class="tn-title">
                                                 <a href={% url "details" forloop.counter0 1%}><img style="height: 40px ; width: 40px" src="{% static a|logo:0 %}"/> {{ a|index1:1 }}</a>
                                             </div>

@@ -10,6 +10,7 @@ ht_news_images=[]
 all_data = []
 engine = None
 stopVar = False
+t = None
 
 class NewsConfig(AppConfig):
     name = 'news'

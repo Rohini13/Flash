@@ -400,7 +400,7 @@ button.btn:hover {
 }
 
 .brand .b-search input[type=text] {
-    margin-left: 400px;
+    margin-left: 300px;
     width: 400px;
     height: 50px;
     padding: 0 15px;
@@ -413,19 +413,41 @@ button.btn:hover {
     border-color: #42A5FF;
 }
 
-.brand .b-search button {
+.brand .b-search #button1 {
     position: absolute;
     width: 50px;
     height: 50px;
     top: 0;
-    left: 765px;
+    left: 665px;
     border: none;
     background: none;
     color: #42A5FF;
     border-radius: 4px 4px 4px 4px;
 }
 
-.brand .b-search button:hover {
+.brand .b-search #button1:hover {
+    background: #42A5FF;
+    color: #ffffff;
+}
+.brand .b-search #button2 {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 765px;
+    border: none;
+    background: #42A5FF;
+    color: #ffffff;
+
+    border-radius: 4px 4px 4px 4px;
+}
+
+.brand .b-search #button2:hover {
+    color: #42A5FF;
+    background: #dddddd;
+}
+
+.b-voice button:hover {
     background: #42A5FF;
     color: #ffffff;
 }
@@ -447,8 +469,37 @@ button.btn:hover {
     .brand .b-search {
         margin-bottom: 0;
     }
+
 }
 
+#readaloud {
+    margin-top: -5px;
+    margin-left: 550px;
+    border: none;
+    /*background: #4c9a2a;*/
+    background: #00057a;
+    color: #ffffff;
+    padding: 6px;
+    border-radius: 4px 4px 4px 4px;
+}
+
+#stop {
+    margin-top: -5px;
+    margin-left: 20px;
+    border: none;
+    background: #df0000;
+    color: #ffffff;
+    padding: 6px;
+    border-radius: 4px 4px 4px 4px;
+}
+
+#fakenewsarea {
+    padding: 10px;
+    /*background: rgba(66,155,255,0.05);*/
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    color: #666666;
+}
 
 /**********************************/
 /*********** Nav Bar CSS **********/

@@ -14,6 +14,7 @@ from django.http import HttpResponseRedirect
 import pyttsx3
 import speech_recognition as sr
 import os
+import multiprocessing
 
 path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 
@@ -46,7 +47,7 @@ def takeCommand():
     try:
         print("Recognizing...")
         query = r.recognize_google(audio, language='en-in')
-        print(f"User said: {query}\n")
+        print("User said: ", query, "\n")
 
     except Exception as e:
         print(e)
@@ -425,42 +426,25 @@ def voice_command1(req):
         return HttpResponseRedirect(req.META.get('HTTP_REFERER'))
 
 
+def read(newsid, articleid, all_data):
+    print(all_data)
+    article = all_data[newsid][articleid]
+    engine = pyttsx3.init('sapi5')
+    voices = engine.getProperty('voices')
+    engine.setProperty('voice', voices[1].id)
+    engine.say("Reading the article for you. To make me stop, click on the stop button.")
+    engine.runAndWait()
+    engine.say(article['content'])
+    engine.runAndWait()
+
+
 def readAloud(req, newsid, articleid):
-    article = apps.all_data[newsid][articleid]
-
-    def onWord(name, location, length):
-        print(apps.stopVar)
-        print('word', name, location, length)
-        if apps.stopVar is True:
-            apps.engine.stop()
-
-    apps.engine = pyttsx3.init('sapi5')
-    voices = apps.engine.getProperty('voices')
-    apps.engine.setProperty('voice', voices[1].id)
-    apps.engine.connect('started-word', onWord)
-    apps.stopvar = False
-    apps.engine.say("Reading the article for you. To make me stop, click on the stop button.")
-    apps.engine.runAndWait()
-    apps.engine.say(article['content'])
-    apps.engine.runAndWait()
+    apps.t = multiprocessing.Process(target=read, args=(newsid, articleid, apps.all_data))
+    apps.t.start()
     return HttpResponseRedirect(req.META.get('HTTP_REFERER'))
-    # engine = pyttsx3.init()
-    # end = len(apps.headlines)
-    # start = apps.idx % end
-    # for i in range(start, end):
-    #     if apps.flag:
-    #         apps.idx = i % end
-    #         break
-    #     engine.say(apps.headlines[i])
-    #     engine.runAndWait()
-    # apps.flag = False
-    # return render(req, 'news/home_alt.html',
-    # {'title': "Reading aloud...", 'toi_news': apps.toi_news, 'ht_news': apps.ht_news})
 
 
 def stop(req):
-    print("first")
-    apps.stopvar = True
-    #apps.engine.stop()
-    print("heya")
+    if apps.t is not None:
+        apps.t.terminate()
     return HttpResponseRedirect(req.META.get('HTTP_REFERER'))
